@@ -1,0 +1,8 @@
+{
+    "ht_gesture_effect": [{
+        "name": "ht_gesture_effect_happy",
+        "category": "default",
+        "icon": "ht_gesture_effect_happy_icon.png",
+        "download": 0
+    }]
+}

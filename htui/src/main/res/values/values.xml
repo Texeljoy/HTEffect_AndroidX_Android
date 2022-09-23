@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="light_blue">#FF589DEC</color>
+    <color name="theme_color">#FFFF79B4</color>
+    <color name="ht_selected">#FFFF79B4</color>
+    <color name="ht_selected_filter">#FFFFFF</color>
+    <color name="dark_background">#80000000</color>
+    <color name="light_background">#FFFFFF</color>
+    <color name="dark_black">#FF444444</color>
+
+    <color name="filter_maker">#9AC4A37D</color>
+    <color name="makeup_maker">#99666666</color>
+
+    <color name="gray_line">#FFFFFFFF</color>
+    <color name="light_gray_line">#FFEEEEEE</color>
+    <color name="black_line">#4D000000</color>
+    <color name="bg_filter_item_cover_80">#CCB7AFB2</color>
+</resources>

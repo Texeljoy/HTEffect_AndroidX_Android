@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="68dp"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@null"
+    android:layout_marginStart="4dp"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/htImageIV"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:contentDescription="@null" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/htTextTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textSize="12sp"
+        tools:text="Text"
+        android:lines="1"
+        android:textColor="@color/light_background"
+        android:layout_marginTop="12dp" />
+
+    <View
+        android:id="@+id/point"
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:visibility="invisible"
+        android:backgroundTint="@color/theme_color"
+        android:background="@drawable/bg_circle_round"
+        android:layout_marginTop="6dp" />
+
+</LinearLayout>

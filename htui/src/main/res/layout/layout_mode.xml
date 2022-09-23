@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:background="#80000000"
+    android:paddingStart="30dp"
+    android:paddingEnd="30dp"
+    android:clickable="true"
+    android:paddingTop="68dp"
+    android:orientation="horizontal">
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_beauty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="@string/beauty"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@mipmap/icon_func_beauty" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_arprops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="@string/arprops"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@mipmap/icon_func_arprops" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_makeup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="@string/makeup"
+                android:visibility="gone"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@mipmap/icon_func_makeup" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_gesture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="50dp"
+                android:text="@string/gesture"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@mipmap/icon_func_gesture" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/portrait"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@mipmap/icon_func_portrait" />
+
+        </LinearLayout>
+
+
+
+
+    </HorizontalScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>

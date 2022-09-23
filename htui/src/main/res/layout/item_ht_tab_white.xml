@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:includeFontPadding="false"
+    android:paddingStart="18dp"
+    android:paddingEnd="18dp"
+    android:textColor="@color/color_selector_tab_light"
+    android:textSize="15sp"
+    tools:ignore="RtlSymmetry" />

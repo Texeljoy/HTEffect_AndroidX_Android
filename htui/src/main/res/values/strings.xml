@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 首页 -->
+    <string name="beauty">Beauty</string>
+    <string name="makeup">Makeup</string>
+
+    <string name="gesture">Gesture</string>
+
+    <string name="beauty_skin">Skin</string>
+    <string name="beauty_shape">Reshape</string>
+    <string name="beauty_style">Style</string>
+
+    <string name="reset">Restore</string>
+    <string name="is_reset_to_default">Reset all parameters to default?</string>
+    <string name="confirm">Yes</string>
+    <string name="cancel">No</string>
+
+    <string name="face_beauty">FaceBeauty</string>
+    <string name="whiteness">Whiteness</string>
+    <string name="blurriness">Exfoliating</string>
+    <string name="precise_skin">PreciseSkin</string>
+    <string name="rosiness">Ruddy</string>
+    <string name="clearness">Distinctive</string>
+    <string name="brightness">Brightness</string>
+
+    <string name="face_shape">FaceShape</string>
+    <string name="eye_enlarging">Big eye</string>
+    <string name="cheek_thinning">Thin face</string>
+    <string name="cheek_narrowing">Narrow face</string>
+    <string name="cheek_bone_thinning">Cheekbones</string>
+    <string name="jaw_bone_thinning">Lower jaw</string>
+    <string name="temple_enlarging">Temple</string>
+    <string name="head_lessening">Small head</string>
+    <string name="face_lessening">Small face</string>
+    <string name="chin_trimming">Chin</string>
+    <string name="philtrum_trimming">Shrink in</string>
+    <string name="forehead_trimming">Hairline</string>
+    <string name="eye_sapcing">Eye spacing</string>
+    <string name="eye_corner_trimming">Eye corner</string>
+    <string name="eye_corner_enlarging">Canthus</string>
+    <string name="nose_enlarging">Long nose</string>
+    <string name="nose_thinning">Thin nose</string>
+    <string name="nose_apex_lessening">Nose</string>
+    <string name="nose_root_enlarging">Flocks</string>
+    <string name="mouth_trimming">Mouth</string>
+    <string name="mouth_smiling">Smiling lips</string>
+    <string name="undereye_circles">Black eye</string>
+    <string name="short_face">Short face</string>
+    <string name="nasolabial_fold">Wrinkles</string>
+
+    <string name="filter">Filter</string>
+    <string name="beauty_filter">BeautyFilter</string>
+    <string name="chunzhen">chunzhen</string>
+    <string name="white">white</string>
+    <string name="qingxin">qingxin</string>
+    <string name="romantic">romantic</string>
+    <string name="rixi">rixi</string>
+    <string name="qingliang">qingliang</string>
+    <string name="bailan">bailan</string>
+    <string name="landiao">landiao</string>
+    <string name="chaotuo">chaotuo</string>
+    <string name="fennen">fennen</string>
+    <string name="standard_filter">standard</string>
+    <string name="huaijiu">huanjiu</string>
+    <string name="weimei">weimei</string>
+    <string name="xiangfen">xiangfen</string>
+    <string name="yinghong">yinghong</string>
+    <string name="yuanqi">yuanqi</string>
+    <string name="yunshang">yunshang</string>
+
+    <string name="name_chunzhen" translatable="false">chunzhen</string>
+    <string name="name_white" translatable="false">white</string>
+    <string name="name_qingxin" translatable="false">qingxin</string>
+    <string name="name_romantic" translatable="false">langman</string>
+    <string name="name_rixi" translatable="false">rixi</string>
+    <string name="name_qingliang" translatable="false">qingliang</string>
+    <string name="name_bailan" translatable="false">bailan</string>
+    <string name="name_landiao" translatable="false">landiao</string>
+    <string name="name_chaotuo" translatable="false">chaotuo</string>
+    <string name="name_fennen" translatable="false">fennen</string>
+    <string name="name_standard_filter" translatable="false">biaozhun</string>
+    <string name="name_huaijiu" translatable="false">huaijiu</string>
+    <string name="name_weimei" translatable="false">weimei</string>
+    <string name="name_xiangfen" translatable="false">xiangfen</string>
+    <string name="name_yinghong" translatable="false">yinghong</string>
+    <string name="name_yuanqi" translatable="false">yuanqi</string>
+    <string name="name_yunshang" translatable="false">yunshang</string>
+
+    <string name="arprops">ARProps</string>
+    <string name="sticker">Sticker</string>
+    <string name="face">Face</string>
+    <string name="mask">Mask</string>
+    <string name="gift">Gift</string>
+
+    <string name="watermark">Watermark</string>
+    <string name="portrait">Portrait</string>
+    <string name="portrait_ai">AIProprait</string>
+    <string name="portrait_green">GreenProprait</string>
+
+    <string name="none">NONE</string>
+    <string name="delete">delete</string>
+    <string name="name_none" translatable="false">""</string>
+
+    <string name="blurriness_vague">Hazy</string>
+    <string name="blurriness_precise">Fine</string>
+    <string name="v_face">V face</string>
+    <string name="forehead">Forehead</string>
+    <string name="circle_eye">Round eyes</string>
+
+    <string name="style_jingdian">Style1</string>
+    <string name="style_tianxin">Style10</string>
+    <string name="style_qing_leng">Style9</string>
+    <string name="style_weisuyan">Style8</string>
+    <string name="style_zhigan">Style7</string>
+    <string name="style_chulian">Style6</string>
+    <string name="style_riza">Style5</string>
+    <string name="style_fugu">Style4</string>
+    <string name="style_nvsheng">Style3</string>
+    <string name="style_wanghong">Style2</string>
+
+    <string name="makeup_chayi">CM01</string>
+    <string name="makeup_yuanqi">CM03</string>
+    <string name="makeup_riza">CM02</string>
+    <string name="makeup_haomen">CM04</string>
+    <string name="makeup_weixun">CM05</string>
+    <string name="makeup_xiaohua">CM06</string>
+
+    <string name="filter_ziran1">Natural1</string>
+    <string name="filter_ziran2">Natural2</string>
+    <string name="filter_ziran3">Natural3</string>
+    <string name="filter_ziran4">Natural4</string>
+    <string name="filter_ziran5">Natural5</string>
+    <string name="filter_ziran6">Natural6</string>
+    <string name="filter_zhigan1">Texture1</string>
+    <string name="filter_zhigan2">Texture2</string>
+    <string name="filter_zhigan3">Texture3</string>
+    <string name="filter_zhigan4">Texture4</string>
+    <string name="filter_zhigan5">Texture5</string>
+    <string name="filter_biaozhun">Daily1</string>
+    <string name="filter_shuiguang">Daily2</string>
+    <string name="filter_shuiwu">Daily3</string>
+    <string name="filter_lengdan">Daily4</string>
+    <string name="filter_senxi">Atmosphere4</string>
+    <string name="filter_nuanyang">Atmosphere5</string>
+    <string name="filter_xiari">Atmosphere6</string>
+    <string name="filter_mitaowulong">Sweet1</string>
+    <string name="filter_shaonv">Sweet2</string>
+    <string name="filter_feiying">Sweet4</string>
+    <string name="filter_fanchase">Film1</string>
+    <string name="filter_huiyi">"Film3"</string>
+    <string name="filter_yuanqi">Sweet3</string>
+    <string name="filter_fugu">Film2</string>
+
+    <string name="makeup_none">Original</string>
+    <string name="filter_none">Orignal</string>
+
+
+
+</resources>

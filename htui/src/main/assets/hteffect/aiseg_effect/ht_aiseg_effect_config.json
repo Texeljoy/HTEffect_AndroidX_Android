@@ -1,0 +1,16 @@
+{
+  "ht_aiseg_effect": [
+    {
+      "name": "ht_aiseg_effect_adoreu",
+      "category": "default",
+      "icon": "ht_aiseg_effect_adoreu_icon.png",
+      "download": 0
+    },
+    {
+      "name": "ht_aiseg_effect_star",
+      "category": "default",
+      "icon": "ht_aiseg_effect_star_icon.png",
+      "download": 0
+    }
+  ]
+}

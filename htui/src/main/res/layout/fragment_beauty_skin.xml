@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/container"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/btn_reset"
+        android:layout_width="72dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/iv_reset"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/tv_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:includeFontPadding="false"
+            android:textSize="12sp"
+            android:lines="1"
+            android:text="@string/reset"
+            android:layout_marginTop="12dp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="1dp"
+        android:layout_gravity="center_vertical"
+        android:background="#33FFFFFF"
+        android:layout_marginBottom="15dp"
+        android:layout_height="28dp" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        android:layout_gravity="center_vertical">
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:orientation="horizontal"
+           android:scrollbars="none"
+           android:paddingStart="5dp"
+           android:layout_height="wrap_content">
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_white"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinBlurItem
+               android:id="@+id/btn_blur"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_rosiness"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_clearness"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_brightness"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_undereye_circles"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_nasolabial"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+       </LinearLayout>
+
+    </HorizontalScrollView>
+
+
+
+</LinearLayout>

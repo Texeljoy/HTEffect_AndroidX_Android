@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="63dp"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="10dp">
+
+        <com.texeljoy.ht_effect.view.HtRoundImageView
+            android:id="@+id/thumbIV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:riv_radius="5dp" />
+
+        <ImageView
+            android:id="@+id/coverIV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingStart="13dp"
+            android:paddingEnd="13dp"
+            android:background="@drawable/bg_filter_item_selected"
+            android:src="@drawable/icon_filter_item_selected"
+            android:contentDescription="@null"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textTV"
+        style="@style/MyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+
+
+</LinearLayout>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="255dp"
+    android:orientation="vertical"
+    android:clickable="true">
+
+    <com.shizhefei.view.indicator.ScrollIndicatorView
+        android:id="@+id/indicatorView"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:layout_marginVertical="10dp"/>
+
+    <com.shizhefei.view.viewpager.SViewPager
+        android:id="@+id/ht_pager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

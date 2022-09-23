@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="beauty">美顏</string>
+    <string name="makeup">輕彩妝</string>
+
+    <string name="beauty_skin">美膚</string>
+    <string name="beauty_shape">美型</string>
+    <string name="beauty_style">風格推薦</string>
+
+    <string name="reset">重置</string>
+    <string name="is_reset_to_default">是否將所有參數恢復到預設数值？</string>
+    <string name="confirm">確認</string>
+    <string name="cancel">取消</string>
+
+
+    <string name="face_beauty">美顏</string>
+    <string name="whiteness">美白</string>
+    <string name="blurriness">磨皮</string>
+    <string name="precise_skin">精准美膚</string>
+    <string name="rosiness">紅潤</string>
+    <string name="clearness">鮮明</string>
+    <string name="brightness">亮度</string>
+
+    <string name="face_shape">美型</string>
+    <string name="eye_enlarging">大眼</string>
+    <string name="cheek_thinning">瘦脸</string>
+    <string name="cheek_narrowing">窄脸</string>
+    <string name="cheek_bone_thinning">瘦颧骨</string>
+    <string name="jaw_bone_thinning">瘦下颌骨</string>
+    <string name="temple_enlarging">豐太陽穴</string>
+    <string name="head_lessening">小頭 </string>
+    <string name="face_lessening">小臉</string>
+    <string name="chin_trimming">下巴</string>
+    <string name="philtrum_trimming">縮人中</string>
+    <string name="forehead_trimming">髮際線</string>
+    <string name="eye_sapcing">眼間距</string>
+    <string name="eye_corner_trimming">眼睛角度</string>
+    <string name="eye_corner_enlarging">開眼角</string>
+    <string name="nose_enlarging">長鼻</string>
+    <string name="nose_thinning">瘦鼻</string>
+    <string name="nose_apex_lessening">鼻頭</string>
+    <string name="nose_root_enlarging">山根</string>
+    <string name="mouth_trimming">嘴型</string>
+    <string name="mouth_smiling">微笑嘴唇</string>
+    <string name="undereye_circles">黑眼圈</string>
+    <string name="nasolabial_fold">去法令紋</string>
+    <string name="short_face">短臉</string>
+
+
+    <string name="filter">滤镜</string>
+    <string name="beauty_filter">美颜滤镜</string>
+    <string name="white">美白</string>
+    <string name="romantic">浪漫</string>
+    <string name="qingliang">清凉</string>
+    <string name="landiao">蓝调</string>
+    <string name="fennen">粉嫩</string>
+    <string name="standard_filter">标准</string>
+    <string name="weimei">唯美</string>
+    <string name="xiangfen">香氛</string>
+    <string name="yinghong">樱红</string>
+
+    <string name="yunshang">云裳</string>
+
+
+
+    <string name="none">原圖</string>
+    <string name="delete">删除</string>
+
+    <string name="blurriness_vague">朦朧磨皮</string>
+    <string name="blurriness_precise">精細磨皮</string>
+    <string name="v_face">V 臉</string>
+    <string name="forehead">額頭</string>
+    <string name="circle_eye">圓眼</string>
+
+
+
+    <string name="style_tianxin">甜心</string>
+    <string name="style_qing_leng">清冷</string>
+
+    <string name="style_jingdian">經典</string>
+    <string name="style_weisuyan">偽素顏</string>
+    <string name="style_zhigan">質感</string>
+    <string name="style_chulian">初戀</string>
+    <string name="style_riza">日雜</string>
+    <string name="style_fugu">復古</string>
+    <string name="style_nvsheng">女神</string>
+    <string name="style_wanghong">網紅</string>
+
+
+    <string name="makeup_chayi">茶藝</string>
+    <string name="makeup_haomen">豪門</string>
+    <string name="makeup_weixun">微醺</string>
+    <string name="makeup_xiaohua">校花</string>
+    <string name="filter_ziran1">自然1</string>
+    <string name="filter_ziran2">自然2</string>
+    <string name="filter_ziran3">自然3</string>
+    <string name="filter_ziran4">自然4</string>
+    <string name="filter_ziran5">自然5</string>
+    <string name="filter_ziran6">自然6</string>
+    <string name="filter_zhigan1">質感 1</string>
+    <string name="filter_zhigan2">質感 2</string>
+    <string name="filter_zhigan3">質感 3</string>
+    <string name="filter_zhigan4">質感 4</string>
+    <string name="filter_zhigan5">質感 5</string>
+    <string name="filter_biaozhun">標準</string>
+    <string name="filter_shuiguang">水光</string>
+    <string name="filter_shuiwu">水霧</string>
+    <string name="filter_lengdan">冷淡</string>
+    <string name="filter_senxi">森系</string>
+    <string name="filter_nuanyang">暖陽</string>
+    <string name="filter_xiari">夏日</string>
+    <string name="filter_mitaowulong">蜜桃烏龍</string>
+    <string name="filter_shaonv">緋櫻</string>
+    <string name="filter_feiying">绯樱</string>
+    <string name="filter_fanchase">反差色</string>
+    <string name="filter_huiyi">回憶</string>
+    <string name="filter_yuanqi">元氣</string>
+    <string name="filter_fugu">復古</string>
+    <string name="makeup_riza">日雜</string>
+    <string name="makeup_none">原圖</string>
+    <string name="filter_none">原圖</string>
+    <string name="gesture">Gesture</string>
+    <string name="chunzhen">純真</string>
+    <string name="qingxin">清新</string>
+    <string name="rixi">日系</string>
+    <string name="bailan">白蘭</string>
+    <string name="chaotuo">超脫</string>
+    <string name="huaijiu">懷舊</string>
+    <string name="yuanqi">元氣</string>
+    <string name="arprops">AR道具</string>
+    <string name="sticker">貼紙</string>
+    <string name="face">表情</string>
+    <string name="mask">面具</string>
+    <string name="gift">禮物</string>
+    <string name="watermark">水印</string>
+    <string name="portrait">人像摳圖</string>
+    <string name="portrait_ai">AI摳圖</string>
+    <string name="portrait_green">綠幕摳圖</string>
+    <string name="makeup_yuanqi">元氣</string>
+
+</resources>
+
+

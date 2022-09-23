@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+<!--动画开始前的布局状态-->
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/widget"
+            android:layout_width="74dp" />
+    </ConstraintSet>
+    <!--动画END阶段的布局状态-->
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@id/widget"
+            android:layout_width="233dp" />
+    </ConstraintSet>
+    <!--动画参数-->
+    <Transition
+        app:constraintSetStart="@+id/start"
+        app:duration="550"
+        app:motionInterpolator="easeInOut"
+        app:constraintSetEnd="@id/end" />
+</MotionScene>

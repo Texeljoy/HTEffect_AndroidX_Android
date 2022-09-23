@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="15dp">
+
+    <TextView
+        android:id="@+id/htNumberTV"
+        android:layout_width="55dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="3dp"
+        android:gravity="end"
+        android:visibility="invisible"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:textColor="@android:color/white"
+        android:textSize="12sp" />
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="58dp"
+        android:layout_weight="1">
+
+        <TextView
+            android:id="@+id/htBubbleTV"
+            android:layout_width="34dp"
+            android:layout_height="32dp"
+            android:gravity="center_horizontal|bottom"
+            android:includeFontPadding="false"
+            android:paddingTop="16dp"
+            android:singleLine="true"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:visibility="gone" />
+
+        <SeekBar
+            android:id="@+id/htSeekBar"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="2dp"
+            android:background="@null"
+            android:max="100"
+            android:maxHeight="3dp"
+            android:minHeight="3dp"
+            android:paddingLeft="17dp"
+            android:paddingRight="17dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/bg_ht_seekbar"
+            android:thumb="@drawable/bg_ht_seekbar_thumb" />
+
+        <View
+            android:id="@+id/htProgressV"
+            android:layout_width="0dp"
+            android:layout_height="4dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="16dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="10.25dp"
+            android:background="@drawable/bg_ht_bar_progress" />
+
+        <View
+            android:id="@+id/htMiddleV"
+            android:layout_width="2dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="6dp"
+            android:background="@drawable/bg_middle" />
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/htRenderEnableIV"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="bottom"
+        android:layout_marginEnd="25dp"
+        android:paddingStart="3dp"
+        android:paddingEnd="3dp"
+        android:paddingTop="6dp"
+        android:src="@mipmap/ic_render_white_enable" />
+
+</LinearLayout>
