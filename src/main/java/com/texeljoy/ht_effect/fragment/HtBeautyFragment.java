@@ -2,6 +2,10 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
 
+import android.view.MotionEvent;
+import android.view.View.OnTouchListener;
+import android.widget.Button;
+import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
@@ -40,6 +44,7 @@ public class HtBeautyFragment extends HtBaseFragment {
 
   private SViewPager htPager;
   private FixedIndicatorView topIndicatorView;
+  private Button alternateIndicatorView;
   private IndicatorViewPager indicatorViewPager;
   private IndicatorViewPager.IndicatorFragmentPagerAdapter fragmentPagerAdapter;
   private View container;
@@ -62,6 +67,7 @@ public class HtBeautyFragment extends HtBaseFragment {
 
     htPager = view.findViewById(R.id.ht_pager);
     topIndicatorView = view.findViewById(R.id.top_indicator_view);
+    alternateIndicatorView = view.findViewById(R.id.alternate_indicator_view);
     container = view.findViewById(R.id.container);
     line = view.findViewById(R.id.line);
     bottomLayout = view.findViewById(R.id.rl_bottom);
@@ -86,6 +92,11 @@ public class HtBeautyFragment extends HtBaseFragment {
       @Override public void onClick(View v) {
         RxBus.get().post(HTEventAction.ACTION_CHANGE_PANEL, HTViewState.MODE);
 
+      }
+    });
+    alternateIndicatorView.setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View v) {
+        RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
       }
     });
 
@@ -134,17 +145,16 @@ public class HtBeautyFragment extends HtBaseFragment {
 
       @Override public Fragment getFragmentForPage(int position) {
         Log.e("position:", position + "");
-
-        switch (position) {
-          case 1:
-            return new HtFaceTrimFragment();
-          case 2:
-            return new HtFilterFragment();
-          case 3:
-            return new HtStyleFragment();
-          default:
-            return new HtBeautySkinFragment();
-        }
+          switch (position) {
+            case 1:
+              return new HtFaceTrimFragment();
+            case 2:
+              return new HtFilterFragment();
+            case 3:
+              return new HtStyleFragment();
+            default:
+              return new HtBeautySkinFragment();
+          }
       }
     };
     indicatorViewPager.setAdapter(fragmentPagerAdapter);
@@ -153,11 +163,11 @@ public class HtBeautyFragment extends HtBaseFragment {
     }
     if(HtState.currentStyle != HtStyle.YUAN_TU){
       htPager.setCurrentItem(3,false);
-      topIndicatorView.setItemClickable(false);
-      RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"请先取消“风格推荐”效果");
-    }else{
-      topIndicatorView.setItemClickable(true);
+      alternateIndicatorView.setVisibility(View.VISIBLE);
+      //topIndicatorView.setItemClickable(false);
+
     }
+
     changeTheme("");
   }
   /**
@@ -166,8 +176,13 @@ public class HtBeautyFragment extends HtBaseFragment {
   @Subscribe(thread = EventThread.MAIN_THREAD,
              tags = { @Tag(HTEventAction.ACTION_CHANGE_ENABLE) })
   public void changeIndicatorViewEnable(@Nullable Object o){
-    //topIndicatorView.setEnabled(HtState.currentStyle.equals(HtStyle.YUAN_TU));
-    topIndicatorView.setItemClickable(HtState.currentStyle.equals(HtStyle.YUAN_TU));
+    if(!HtState.currentStyle.equals(HtStyle.YUAN_TU)){
+      //当选中风格推荐效果后，加一层透明遮罩，此时原先的指示器不再能获取焦点，透明遮罩被点击后弹出弹窗
+      alternateIndicatorView.setVisibility(View.VISIBLE);
+    }else{
+      alternateIndicatorView.setVisibility(View.GONE);
+    }
+
   }
   /**
    * 更换主题

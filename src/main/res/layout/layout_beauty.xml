@@ -17,13 +17,29 @@
         android:orientation="vertical"
         android:clickable="true">
 
-        <com.shizhefei.view.indicator.FixedIndicatorView
-            android:id="@+id/top_indicator_view"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="45dp"
-            android:paddingHorizontal="15dp"
-            />
+            android:layout_height="wrap_content">
+
+            <com.shizhefei.view.indicator.FixedIndicatorView
+                android:id="@+id/top_indicator_view"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="45dp"
+                android:paddingHorizontal="15dp"
+                />
+            <Button
+                android:id="@+id/alternate_indicator_view"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:layout_height="45dp"
+                android:paddingHorizontal="15dp"
+                />
+        </RelativeLayout>
+
+
         <View
             android:id="@+id/line"
             android:alpha="0.3"

@@ -55,13 +55,7 @@ public class HtFilterItemViewBinder extends ItemViewBinder<HtFilterConfig.HtFilt
         holder.itemView.isSelected() ? View.VISIBLE : View.GONE
     );
 
-    // if(HtState.currentStyle != HtStyle.YUAN_TU){
-    //   holder.itemView.setEnabled(false);
-    //   RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"请先取消“风格推荐”效果");
-    // }else{
-    //   holder.itemView.setEnabled(true);
-    //   RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
-    // }
+
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         if (holder.itemView.isSelected()) {

@@ -83,7 +83,7 @@
     <string name="delete">删除</string>
 
     <string name="blurriness_vague">朦胧磨皮</string>
-    <string name="blurriness_precise">精准磨皮</string>
+    <string name="blurriness_precise">精细磨皮</string>
     <string name="v_face">V 脸</string>
     <string name="forehead">额头</string>
     <string name="circle_eye">圆眼</string>

@@ -62,10 +62,8 @@ public class HtStyleItemViewBinder
         HTEffect.shareInstance().setStyle(item.getParam(),100);
         if(item == HtStyle.YUAN_TU){
           HtUICacheUtils.initCache(false);
-          RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
           RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");
         }else{
-          RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"请先取消“风格推荐”效果");
           RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");
         }
 

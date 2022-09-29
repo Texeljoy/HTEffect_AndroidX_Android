@@ -35,6 +35,7 @@ import com.texeljoy.ht_effect.fragment.HtThreeDFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
 import com.texeljoy.ht_effect.model.HtState;
+import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.DpUtils;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
@@ -383,7 +384,7 @@ public class HTPanelLayout extends ConstraintLayout
           Log.e("change_Panel:", "Mode_Fragment");
           switchModePanel(new HtModeFragment(),"");
           //shutterIv.setVisibility(View.GONE);
-          RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
+          //RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
         }
         HtState.currentViewState = viewState;
         //setTakePhotoAnim(-200);
@@ -468,14 +469,28 @@ public class HTPanelLayout extends ConstraintLayout
 
   /**
    * 风格推荐被选中后的提示语句
-   * @param hint
+   * @param o
    */
   @Subscribe(thread = EventThread.MAIN_THREAD,
              tags = { @Tag(HTEventAction.ACTION_STYLE_SELECTED) })
-  public void showStyleHint(String hint) {
+  public void showStyleHint(Object o) {
 
-      tiInteractionHint.setVisibility(TextUtils.isEmpty(hint) ? View.GONE : View.VISIBLE);
-      tiInteractionHint.setText(hint);
+      if (showFilterTipTimer != null) {
+        showFilterTipTimer.cancel();
+      }
+      tiInteractionHint.setText(HtState.currentStyle != HtStyle.YUAN_TU ? "请先取消“风格推荐”效果" : "");
+      tiInteractionHint.setVisibility(VISIBLE);
+      showFilterTipTimer = new Timer();
+      showFilterTipTimer.schedule(new TimerTask() {
+        @Override public void run() {
+          tiInteractionHint.post(new Runnable() {
+            @Override public void run() {
+              tiInteractionHint.setVisibility(GONE);
+            }
+          });
+        }
+      }, 800);
+
 
   }
 

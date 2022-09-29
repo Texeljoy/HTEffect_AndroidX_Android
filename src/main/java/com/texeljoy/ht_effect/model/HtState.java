@@ -53,6 +53,7 @@ public class HtState {
     currentSecondViewState = HTViewState.BEAUTY_SKIN;
     currentBeautySkin = HtBeautyKey.NONE;
     currentFaceTrim = HtFaceTrim.EYE_ENLARGING;
+    currentStyle = HtStyle.YUAN_TU;
 
     HtUICacheUtils.beautyFaceTrimPosition(-1);
     HtUICacheUtils.beautySkinPosition(-1);

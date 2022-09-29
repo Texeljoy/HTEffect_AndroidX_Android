@@ -136,13 +136,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
         return;
       } else {
         setVisibility(VISIBLE);
-        // HTEffect.shareInstance().setBeautyEnable(HtState.currentStyle.equals(HtStyle.YUAN_TU));
-        // htSeekBar.setEnabled(HtState.currentStyle.equals(HtStyle.YUAN_TU));
-        // if(HtState.currentStyle != HtStyle.YUAN_TU){
-        //   RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"请先取消“风格推荐”效果");
-        // }else{
-        //   RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
-        // }
+
       }
 
 
@@ -359,7 +353,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
           break;
       }
 
-      //精细磨皮和精准磨皮冲突，二者选其一
+      //精细磨皮和朦胧磨皮冲突，二者选其一
       if (HtState.getCurrentBeautySkin() == HtBeautyKey.precise_blurriness) {
         HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness, 0);
       }
@@ -522,7 +516,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
   @Override public void onStopTrackingTouch(SeekBar seekBar) {
     htBubbleTV.setVisibility(View.GONE);
     RxBus.get().post(HTEventAction.ACTION_SYNC_ITEM_CHANGED, "");
-    RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
+    //RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
   }
 
   /**

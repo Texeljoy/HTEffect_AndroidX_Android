@@ -46,8 +46,8 @@
     <FrameLayout
         android:id="@+id/controller_view"
         android:layout_width="match_parent"
-        android:layout_height="270dp"
-        android:translationY="270dp"
+        android:layout_height="240dp"
+        android:translationY="240dp"
         app:layout_constraintBottom_toBottomOf="parent">
 
         <FrameLayout

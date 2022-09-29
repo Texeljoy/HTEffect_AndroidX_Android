@@ -1,6 +1,7 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
+import android.os.Looper;
 import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,7 +48,9 @@ public class HtWatermarkFragment extends LazyFragment {
                 }
 
                 @Override public void fail(Exception error) {
+                    Looper.prepare();
                     Toast.makeText(getContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+                    Looper.loop();
                 }
             });
         }
