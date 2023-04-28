@@ -1,0 +1,111 @@
+{
+  "ht_hair": [
+    {
+      "title": "原图",
+      "name": "原图",
+      "id": 0,
+      "category": "default",
+      "icon":"icon_ranfa_yuantu",
+      "download":2
+
+    },
+    {
+      "title": "神秘紫",
+      "name": "神秘紫",
+      "id": 1,
+      "category": "default",
+      "icon":"icon_ranfa_shenmizi",
+      "download":2
+    },
+    {
+      "title": "巧克力",
+      "name": "巧克力",
+      "id": 2,
+      "category": "default",
+      "icon":"icon_ranfa_qiaokeli",
+      "download":2
+    },
+    {
+      "title": "青木棕",
+      "name": "青木棕",
+      "id": 3,
+      "category": "default",
+      "icon":"icon_ranfa_qingmuzong",
+      "download":2
+    },
+    {
+      "title": "焦糖棕",
+      "name": "焦糖棕",
+      "id": 4,
+      "category": "default",
+      "icon":"icon_ranfa_jiaotangzong",
+      "download":2
+    },
+    {
+      "title": "落日橘",
+      "name": "落日橘",
+      "id": 5,
+      "category": "default",
+      "icon":"icon_ranfa_luoriju",
+      "download":2
+    },
+    {
+      "title": "复古玫瑰",
+      "name": "复古玫瑰",
+      "id": 6,
+      "category": "default",
+      "icon":"icon_ranfa_fugumeigui",
+      "download":2
+    },
+    {
+      "title": "深玫瑰",
+      "name": "深玫瑰",
+      "id": 7,
+      "category": "default",
+      "icon":"icon_ranfa_shenmeigui",
+      "download":2
+    },
+    {
+      "title": "雾霾香芋",
+      "name": "雾霾香芋",
+      "id": 8,
+      "category": "default",
+      "icon":"icon_ranfa_wumaixiangyu",
+      "download":2
+    },
+    {
+      "title": "孔雀蓝",
+      "name": "孔雀蓝",
+      "id": 9,
+      "category": "default",
+      "icon":"icon_ranfa_kongquelan",
+      "download":2
+    },
+    {
+      "title": "雾霾蓝灰",
+      "name": "雾霾蓝灰",
+      "id": 10,
+      "category": "default",
+      "icon":"icon_ranfa_wumailanhui",
+      "download":2
+    },
+    {
+      "title": "亚麻灰棕",
+      "name": "亚麻灰棕",
+      "id": 11,
+      "category": "default",
+      "icon":"icon_ranfa_yamahuizong",
+      "download":2
+    },
+    {
+      "title": "亚麻浅灰",
+      "name": "亚麻浅灰",
+      "id": 12,
+      "category": "default",
+      "icon":"icon_ranfa_yamaqianhui",
+      "download":2
+    }
+
+  ]
+
+}

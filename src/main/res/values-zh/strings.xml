@@ -5,18 +5,22 @@
     <string name="beauty">美颜</string>
     <string name="makeup">轻彩妆</string>
 
-    <string name="gesture">手势识别</string>
+    <string name="gesture">手势特效</string>
+    <string name="take_photo">拍照</string>
 
-    <string name="beauty_skin">美肤</string>
+    <string name="beauty_skin">美颜</string>
     <string name="beauty_shape">美型</string>
-    <string name="beauty_style">风格推荐</string>
+    <string name="beauty_hair">美发</string>
+    <string name="beauty_style">风格</string>
 
-    <string name="reset">重置</string>
-    <string name="is_reset_to_default">是否将所有参数恢复到默认值？</string>
+    <string name="reset">恢复</string>
+    <string name="is_reset_to_default_all">是否将所有效果恢复到默认？</string>
+    <string name="is_reset_to_default">是否将该模块的所有效果恢复到默认？</string>
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>
 
     <string name="face_beauty">美颜</string>
+    <string name="face_beauty_and_shape">美颜美型</string>
     <string name="whiteness">美白</string>
     <string name="blurriness">磨皮</string>
     <string name="precise_skin">精准美肤</string>
@@ -78,6 +82,28 @@
     <string name="portrait">人像抠图</string>
     <string name="portrait_ai">AI抠图</string>
     <string name="portrait_green">绿幕抠图</string>
+    <string name="portrait_people">人像分割</string>
+
+    <string name="hair_none">原图</string>
+    <string name="hair_shenmizi">神秘紫</string>
+    <string name="hair_qiaokeli">巧克力</string>
+    <string name="hair_qingmuzong">青木棕</string>
+    <string name="hair_jiaotangzong">焦糖棕</string>
+    <string name="hair_fengmichunzong">蜂蜜醇棕</string>
+    <string name="hair_qianjinzong">浅金棕</string>
+    <string name="hair_meiguijin">玫瑰金</string>
+    <string name="hair_yamabaijin">亚麻白金</string>
+    <string name="hair_luoriju">落日橘</string>
+    <string name="hair_yamaqianju">亚麻浅橘</string>
+    <string name="hair_fugumeigui">复古玫瑰</string>
+    <string name="hair_shenmeigui">深玫瑰</string>
+    <string name="hair_yanhuiwuzi">烟灰雾紫</string>
+    <string name="hair_fenmeitianzong">粉玫甜棕</string>
+    <string name="hair_wumaixiangyu">雾霾香芋</string>
+    <string name="hair_kongquelan">孔雀蓝</string>
+    <string name="hair_wumailanhui">雾霾蓝灰</string>
+    <string name="hair_yamahuizong">亚麻灰棕</string>
+    <string name="hair_yamaqianhui">亚麻浅灰</string>
 
     <string name="none">无</string>
     <string name="delete">删除</string>
@@ -110,6 +136,36 @@
     <string name="makeup_riza">日杂</string>
     <string name="makeup_none">原图</string>
 
+    <string name="filter_yueye">月夜</string>
+    <string name="filter_micha">米茶</string>
+    <string name="filter_jingmi">静谧</string>
+    <string name="filter_rouguang">柔光</string>
+    <string name="filter_naixing">奶杏</string>
+    <string name="filter_huanse">幻色</string>
+    <string name="filter_jiuzhao">旧照</string>
+    <string name="filter_mihuan">迷幻</string>
+    <string name="filter_yicai">异彩</string>
+    <string name="filter_chuchun">初春</string>
+    <string name="filter_chulian">初恋</string>
+    <string name="filter_chuxue">初雪</string>
+    <string name="filter_fenci">粉瓷</string>
+    <string name="filter_lengdong">冷冬</string>
+    <string name="filter_mengjing">梦境</string>
+    <string name="filter_qingtou">清透</string>
+    <string name="filter_xinye">新叶</string>
+    <string name="filter_bingcha">冰茶</string>
+    <string name="filter_langman">浪漫</string>
+    <string name="filter_miwu">迷雾</string>
+    <string name="filter_qingmu">青木</string>
+    <string name="filter_qingsha">轻沙</string>
+    <string name="filter_qingxu">情绪</string>
+    <string name="filter_senwu">森雾</string>
+    <string name="filter_shaman">沙漫</string>
+    <string name="filter_wenrou">温柔</string>
+    <string name="filter_miaohui">庙会</string>
+    <string name="filter_qingkong">晴空</string>
+    <string name="filter_shanjian">山间</string>
+    <string name="filter_xiangsong">香松</string>
     <string name="filter_ziran1">自然1</string>
     <string name="filter_ziran2">自然2</string>
     <string name="filter_ziran3">自然3</string>
@@ -136,6 +192,48 @@
     <string name="filter_yuanqi">元气</string>
     <string name="filter_fugu">复古</string>
     <string name="filter_none">原图</string>
+
+    <string name="filter_style">风格滤镜</string>
+
+    <string name="filter_special">特效滤镜</string>
+    <string name="effect_none">原图</string>
+    <string name="effect_lhcq">灵魂出窍</string>
+    <string name="effect_hbdy">黑白电影</string>
+    <string name="effect_mfjm">魔法镜面</string>
+    <string name="effect_xcdd">炫彩抖动</string>
+    <string name="effect_tymx">头晕目眩</string>
+    <string name="effect_dgfp">动感分屏</string>
+    <string name="effect_sfp">四分屏</string>
+    <string name="effect_spjx">四屏镜像</string>
+    <string name="effect_mbl">毛玻璃</string>
+    <string name="effect_bjmh">边界模糊</string>
+    <string name="effect_mhfp">模糊分屏</string>
+    <string name="effect_sjsh">瞬间石化</string>
+    <string name="effect_qcdd">轻彩抖动</string>
+    <string name="effect_nhd">霓虹灯</string>
+    <string name="effect_jgg">九宫格</string>
+    <string name="effect_fgj">反光镜</string>
+    <string name="effect_xnjx">虚拟镜像</string>
+    <string name="effect_hjcy">幻觉残影</string>
+
+    <string name="filter_haha">哈哈镜</string>
+    <string name="haha_et">外星人</string>
+    <string name="haha_big_nose">大鼻子</string>
+    <string name="haha_big_mouth">大嘴巴</string>
+    <string name="haha_fangxinglian">方形脸</string>
+    <string name="haha_big_head">大头</string>
+    <string name="haha_dudu">嘟嘟脸</string>
+    <string name="haha_doudou">豆豆眼</string>
+    <string name="haha_snake">蛇精脸</string>
+
+    <string name="threeD">3D</string>
+    <string name="edit">编辑</string>
+    <string name="background">背景</string>
+
+    <string name="restore">恢复</string>
+    <string name="similarity">相似度</string>
+    <string name="smoothness">平滑度</string>
+    <string name="alpha">透明度</string>
 
 
 

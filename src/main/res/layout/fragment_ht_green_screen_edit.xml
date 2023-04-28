@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.HtGreenScreenEditFragment"
+    android:paddingTop="13dp">
+
+    <LinearLayout
+        android:id="@+id/ll_gs_restore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="16dp">
+        <ImageView
+            android:id="@+id/iv_gs_restore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gs_return"
+            />
+
+        <TextView
+            android:id="@+id/tv_gs_restore"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/restore"
+            android:textSize="12sp"
+            android:textColor="@drawable/color_reset_text_white"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divide"
+        android:layout_width="1dp"
+        android:background="@color/divide_line"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/ll_gs_restore"
+        android:layout_alignTop="@+id/ll_gs_restore"
+        android:layout_alignBottom="@+id/ll_gs_restore"
+        android:layout_marginBottom="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"/>
+
+    <LinearLayout
+        android:id="@+id/ll_gs_similarity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_toRightOf="@id/divide">
+        <ImageView
+            android:id="@+id/iv_gs_similarity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gs_similarity"
+            />
+        <TextView
+            android:id="@+id/tv_gs_similarity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/similarity"
+            android:textSize="12sp"
+            android:textColor="@drawable/color_ht_selector"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/ll_gs_smoothness"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_toRightOf="@id/ll_gs_similarity">
+        <ImageView
+            android:id="@+id/iv_gs_smoothness"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gs_smoothness"
+            />
+        <TextView
+            android:id="@+id/tv_gs_smoothness"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/smoothness"
+            android:textSize="12sp"
+            android:textColor="@drawable/color_ht_selector"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginEnd="20dp"
+        android:layout_toRightOf="@id/ll_gs_smoothness">
+        <ImageView
+            android:id="@+id/iv_gs_alpha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gs_alpha"
+            />
+        <TextView
+            android:id="@+id/tv_gs_alpha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/alpha"
+            android:textSize="12sp"
+            android:textColor="@drawable/color_ht_selector"
+            android:gravity="center"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

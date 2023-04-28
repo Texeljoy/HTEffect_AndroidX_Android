@@ -1,11 +1,10 @@
 package com.texeljoy.ht_effect.adapter;
 
-
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import androidx.recyclerview.widget.RecyclerView;
 import com.texeljoy.ht_effect.R;
 
 /**

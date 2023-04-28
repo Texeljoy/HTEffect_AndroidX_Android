@@ -3,12 +3,12 @@ package com.texeljoy.ht_effect.model;
 public class HtBeautyParam {
     public static final int HTBeautySkinWhitening = 0;
     public static final int HTBeautyBlurrySmoothing = 1;
-    public static final int HTBeautyClearSmoothing = 2;
-    public static final int HTBeautySkinRosiness = 3;
-    public static final int HTBeautyImageSharpness = 4;
-    public static final int HTBeautyImageBrightness = 5;
-    public static final int HTBeautyDarkCircleLessening = 6;
-    public static final int HTBeautyNasolabialLessening = 7;
+    public static final int HTBeautyClearSmoothing = 1;
+    public static final int HTBeautySkinRosiness = 2;
+    public static final int HTBeautyImageSharpness = 3;
+    public static final int HTBeautyImageBrightness = 4;
+    public static final int HTBeautyDarkCircleLessening = 5;
+    public static final int HTBeautyNasolabialLessening = 6;
     public static final int HTReshapeEyeEnlarging = 10;
     public static final int HTReshapeEyeRounding = 11;
     public static final int HTReshapeEyeSpaceTrimming = 12;

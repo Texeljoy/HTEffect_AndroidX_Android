@@ -10,14 +10,15 @@ public class HtSelectedPosition {
     public static int POSITION_ROCK = 0;
     public static int POSITION_DISTORTION = 0;
 
-    public static int POSITION_STICKER = 0;
+    public static int POSITION_STICKER = -1;
     public static int POSITION_INTERACTION = 0;
-    public static int POSITION_MASK = 0;
-    public static int POSITION_GIFT = 0;
-    public static int POSITION_WATERMARK = 0;
-    public static int POSITION_GREEN_SCREEN = 0;
-    public static int POSITION_AISEGMENTATION = 0;
+    public static int POSITION_MASK = -1;
+    public static int POSITION_GIFT = -1;
+    public static int POSITION_WATERMARK = -1;
+    public static int POSITION_GREEN_SCREEN = -1;
+    public static int POSITION_AISEGMENTATION = -1;
     public static int POSITION_GESTURE = 0;
+    public static int POSITION_GREENSCREEN_EDIT = -1;
 
 
     public static int POSITION_BLUSHER = -1;
@@ -30,4 +31,8 @@ public class HtSelectedPosition {
     public static int POSITION_HAIR = 0;
 
     public static int POSITION_GREEN_SCREEN_EDIT = 0;
+    public static int POSITION_GREEN_SCREEN_COLOR = 0;
+    public static int VALUE_SIMILARITY = 50;
+    public static int VALUE_SMOOTHNESS = 0;
+    public static int VALUE_ALPHA = 0;
 }

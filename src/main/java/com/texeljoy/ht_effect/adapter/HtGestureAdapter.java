@@ -1,13 +1,13 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.core.cause.EndCause;
@@ -33,6 +33,7 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
     private final int ITEM_TYPE_TWO = 2;
 
     private int selectedPosition = HtSelectedPosition.POSITION_GESTURE;
+    private int lastPosition;
 
     private List<HtGestureConfig.HtGesture> gestureList;
 
@@ -69,7 +70,7 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull final HtStickerViewHolder holder, int position) {
         final HtGestureConfig.HtGesture htGesture = gestureList.get(holder.getAdapterPosition());
-
+        selectedPosition = HtSelectedPosition.POSITION_GESTURE;
         if (selectedPosition == position) {
             holder.itemView.setSelected(true);
         } else {
@@ -82,6 +83,7 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
         } else {
             Glide.with(holder.itemView.getContext())
                 .load(gestureList.get(position).getIcon())
+                .placeholder(R.drawable.icon_placeholder)
                 .into(holder.thumbIV);
         }
 
@@ -111,6 +113,7 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
 
                 //如果没有下载，则开始下载到本地
                 if (htGesture.isDownload() == HTDownloadState.NOT_DOWNLOAD) {
+                    int currentPosition = holder.getAdapterPosition();
 
                     //如果已经在下载了，则不操作
                     if (downloadingInteractions.containsKey(htGesture.getName())) {
@@ -155,6 +158,11 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                                     htGesture.setDownload(HTDownloadState.COMPLETE_DOWNLOAD);
                                                     htGesture.downloaded();
 
+                                                    HTEffect.shareInstance().setGestureEffect(htGesture.getName());
+                                                    lastPosition = selectedPosition;
+                                                    selectedPosition = currentPosition;
+                                                    HtSelectedPosition.POSITION_GESTURE = selectedPosition;
+
                                                     handler.post(new Runnable() {
                                                         @Override
                                                         public void run() {
@@ -181,6 +189,9 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                             }
                                         });
                                     }
+
+                                    notifyItemChanged(selectedPosition);
+                                    notifyItemChanged(lastPosition);
                                 }
                             });
 
@@ -188,19 +199,28 @@ public class HtGestureAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                     if (holder.getAdapterPosition() == RecyclerView.NO_POSITION) {
                         return;
                     }
+                    if (holder.getAdapterPosition() == selectedPosition){
+                        //如果点击已选中的效果，则取消效果
+                        HTEffect.shareInstance().setGestureEffect("");
+                        HtSelectedPosition.POSITION_GESTURE = 0;
+                        notifyItemChanged(selectedPosition);
+                        // notifyItemChanged(-1);
+                    }else{
+                        //如果已经下载了，则生效
+                        HTEffect.shareInstance().setGestureEffect(htGesture.getName());
 
-                    //如果已经下载了，则生效
-                    HTEffect.shareInstance().setGestureEffect(htGesture.getName());
+
+                        //切换选中背景
+                        int lastPosition = selectedPosition;
+                        selectedPosition = holder.getAdapterPosition();
+                        HtSelectedPosition.POSITION_GESTURE = selectedPosition;
+                        notifyItemChanged(selectedPosition);
+                        notifyItemChanged(lastPosition);
+
+                        // RxBus.get().post(HTEventAction.ACTION_SHOW_GESTURE, gestureList.get(selectedPosition).getHint());
+                    }
 
 
-                    //切换选中背景
-                    int lastPosition = selectedPosition;
-                    selectedPosition = holder.getAdapterPosition();
-                    HtSelectedPosition.POSITION_GESTURE = selectedPosition;
-                    notifyItemChanged(selectedPosition);
-                    notifyItemChanged(lastPosition);
-
-                   // RxBus.get().post(HTEventAction.ACTION_SHOW_GESTURE, gestureList.get(selectedPosition).getHint());
                 }
 
             }

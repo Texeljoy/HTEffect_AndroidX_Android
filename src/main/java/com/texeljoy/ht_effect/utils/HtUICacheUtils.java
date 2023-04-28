@@ -5,8 +5,8 @@ import android.util.Log;
 import com.texeljoy.ht_effect.model.HtBeautyKey;
 import com.texeljoy.ht_effect.model.HtBeautyParam;
 import com.texeljoy.ht_effect.model.HtFaceTrim;
-import com.texeljoy.ht_effect.model.HtFilterEnum;
 import com.texeljoy.ht_effect.model.HtState;
+import com.texeljoy.ht_effect.model.HtStyleFilterEnum;
 import com.texeljoy.ht_effect.model.HtUICacheKey;
 import com.texeljoy.hteffect.HTEffect;
 
@@ -27,20 +27,20 @@ public class HtUICacheUtils {
 
     }
 
-    HtFilterEnum currentFilter = HtFilterEnum.values()[beautyFilterPosition()];
+
+    HtStyleFilterEnum currentFilter = HtStyleFilterEnum.values()[beautyFilterPosition()];
     //设置滤镜
-    HTEffect.shareInstance().setFilter(beautyFilterName(), beautyFilterValue(currentFilter.getKeyName()));
+    // HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), beautyFilterName());
 
     //美肤系
-    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyBlurrySmoothing,beautySkinValue(HtBeautyKey.vague_blurriness));
-    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,beautySkinValue(HtBeautyKey.precise_blurriness));
+    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,beautySkinValue(HtBeautyKey.blurriness));
+    // HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,beautySkinValue(HtBeautyKey.precise_blurriness));
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinRosiness,beautySkinValue(HtBeautyKey.rosiness));
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinWhitening,beautySkinValue(HtBeautyKey.whiteness));
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyImageBrightness,beautySkinValue(HtBeautyKey.brightness) - 50);
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyImageSharpness,beautySkinValue(HtBeautyKey.clearness));
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyDarkCircleLessening,beautySkinValue(HtBeautyKey.undereye_circles));
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyNasolabialLessening,beautySkinValue(HtBeautyKey.nasolabial));
-
     //美型系
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeEyeEnlarging,beautyFaceTrimValue(HtFaceTrim.EYE_ENLARGING));
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeEyeRounding,beautyFaceTrimValue(HtFaceTrim.EYE_ROUNDING));
@@ -64,6 +64,11 @@ public class HtUICacheUtils {
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeNoseRootEnlarging,beautyFaceTrimValue(HtFaceTrim.NOSE_ROOT_ENLARGING));
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeMouthTrimming,beautyFaceTrimValue(HtFaceTrim.MOUTH_TRIMMING) - 50);
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeMouthSmiling,beautyFaceTrimValue(HtFaceTrim.MOUTH_SMILING));
+    // int a = beautySimilarityValue();
+    HTEffect.shareInstance().setGsSegEffectSimilarity(50);
+    HTEffect.shareInstance().setGsSegEffectSmoothness(0);
+    HTEffect.shareInstance().setGsSegEffectTransparency(0);
+
 
   }
 
@@ -96,7 +101,7 @@ public class HtUICacheUtils {
 
   //-------------------------------------------------
 
-  //---------------滤镜----------------------------------
+  //---------------风格滤镜----------------------------------
 
   public static int beautyFilterPosition() {
 
@@ -118,12 +123,127 @@ public class HtUICacheUtils {
     SharedPreferencesUtil.put(HtUICacheKey.FILTER_SELECT_NAME.name(), name);
   }
 
-  public static int beautyFilterValue(String filterName) {
-    return SharedPreferencesUtil.get("filter_" + filterName,100);
+  //-------------------------------------------------
+
+  //--------------特效滤镜----------------------------------
+
+  public static int beautyEffectFilterPosition() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.EFFECT_FILTER_SELECT_POSITION.name(),
+        HtUICacheKey.EFFECT_FILTER_SELECT_POSITION.getDefaultInt());
   }
 
-  public static void beautyFilterValue(String filterName, int value) {
-    SharedPreferencesUtil.put("filter_" + filterName, value);
+  public static void beautyEffectFilterPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.EFFECT_FILTER_SELECT_POSITION.name(), position);
+  }
+
+  public static String beautyEffectFilterName() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.EFFECT_FILTER_SELECT_NAME.name(),
+        HtUICacheKey.EFFECT_FILTER_SELECT_NAME.getDefaultStr());
+  }
+
+  public static void beautyEffectFilterName(String name) {
+    SharedPreferencesUtil.put(HtUICacheKey.EFFECT_FILTER_SELECT_NAME.name(), name);
+  }
+
+  //-------------------------------------------------
+
+  //---------------趣味滤镜----------------------------------
+
+  public static int beautyFunnyFilterPosition() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.FUNNY_FILTER_SELECT_POSITION.name(),
+        HtUICacheKey.FUNNY_FILTER_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyFunnyFilterPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.FUNNY_FILTER_SELECT_POSITION.name(), position);
+  }
+
+  public static String beautyFunnyFilterName() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.FUNNY_FILTER_SELECT_NAME.name(),
+        HtUICacheKey.FUNNY_FILTER_SELECT_NAME.getDefaultStr());
+  }
+
+  public static void beautyFunnyFilterName(String name) {
+    SharedPreferencesUtil.put(HtUICacheKey.FUNNY_FILTER_SELECT_NAME.name(), name);
+  }
+  //-------------------------------------------------
+
+  //---------------美发----------------------------------
+
+  public static int beautyHairPosition() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.HAIR_SELECT_POSITION.name(),
+        HtUICacheKey.HAIR_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyHairPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.HAIR_SELECT_POSITION.name(), position);
+  }
+
+  public static String beautyHairName() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.HAIR_SELECT_NAME.name(),
+        HtUICacheKey.HAIR_SELECT_NAME.getDefaultStr());
+  }
+
+  public static void beautyHairName(String name) {
+    SharedPreferencesUtil.put(HtUICacheKey.HAIR_SELECT_NAME.name(), name);
+  }
+
+  public static int beautyHairValue(String hairName) {
+    return SharedPreferencesUtil.get("hair_" + hairName,100);
+  }
+
+  public static void beautyHairValue(String hairName, int value) {
+    SharedPreferencesUtil.put("hair_" + hairName, value);
+  }
+
+  //-------------------------------------------------
+
+  //---------------相似度----------------------------------
+
+  public static int beautyEditPosition() {
+
+    return SharedPreferencesUtil.get(HtUICacheKey.GREENSCREEN_EDIT_POSITION.name(),
+        HtUICacheKey.GREENSCREEN_EDIT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyEditPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.GREENSCREEN_EDIT_POSITION.name(), position);
+  }
+
+  public static int beautySimilarityValue() {
+    return SharedPreferencesUtil.get("similarity",100);
+  }
+
+  public static void beautySimilarityValue( int value) {
+    SharedPreferencesUtil.put("similarity", value);
+  }
+  //-------------------------------------------------
+
+  //---------------平滑度----------------------------------
+
+  public static int beautySmoothnessValue() {
+    return SharedPreferencesUtil.get("smoothness",100);
+  }
+
+  public static void beautySmoothnessValue( int value) {
+    SharedPreferencesUtil.put("smoothness", value);
+  }
+  //-------------------------------------------------
+
+  //---------------透明度----------------------------------
+
+  public static int beautyAlphaValue() {
+    return SharedPreferencesUtil.get("alpha",100);
+  }
+
+  public static void beautyAlphaValue( int value) {
+    SharedPreferencesUtil.put("alpha", value);
   }
 
   //-------------------------------------------------
@@ -139,6 +259,24 @@ public class HtUICacheUtils {
     SharedPreferencesUtil.put(HtUICacheKey.BEAUTY_STYLE_SELECT_POSITION.name(), position);
   }
 
+  public static int previewInitialWidth() {
+
+    return SharedPreferencesUtil.get("previewInitialWidth",
+        0);
+  }
+
+  public static void previewInitialWidth(int width) {
+    SharedPreferencesUtil.put("previewInitialWidth", width);
+  }
+  public static int previewInitialHeight() {
+
+    return SharedPreferencesUtil.get("previewInitialHeight",
+        0);
+  }
+
+  public static void previewInitialHeight(int height) {
+    SharedPreferencesUtil.put("previewInitialHeight", height);
+  }
 
   //-------------------------------------------------
 
@@ -176,24 +314,26 @@ public class HtUICacheUtils {
 
     switch (key) {
       case whiteness:
-        defaultValue = 30;
+        defaultValue = 50;
         break;
-      case vague_blurriness:
+      // case vague_blurriness:
+      //   defaultValue = 0;
+      //   break;
+      case blurriness:
         defaultValue = 60;
         break;
-      case precise_blurriness:
-        defaultValue = 0;
-        break;
       case rosiness:
-        defaultValue = 20;
+        defaultValue = 10;
         break;
       case clearness:
-        defaultValue = 20;
+        defaultValue = 60;
         break;
       case brightness:
-        defaultValue = 40 + 50;
+        defaultValue = 20 + 50;
         break;
       case undereye_circles:
+        defaultValue = 70;
+        break;
       case nasolabial:
       case NONE:
         break;
@@ -218,24 +358,26 @@ public class HtUICacheUtils {
 
     switch (key) {
       case EYE_ENLARGING:
-        defaultValue = 40;
       case EYE_CORNER_ENLARGING:
       case CHEEK_THINNING:
       case NOSE_APEX_LESSENING:
       case NOSE_ROOT_ENLARGING:
       case MOUTH_SMILING:
       case FACE_LESSENING:
+        break;
       case TEMPLE_ENLARGING:
+        defaultValue = 50;
+        break;
       case CHEEK_BONE_THINNING:
       case CHEEK_NARROWING:
       case JAW_BONE_THINNING:
-      case head_lessening:
+
       case CHEEK_SHORTENING:
         break;
       case EYE_ROUNDING:
         break;
       case CHEEK_V_SHAPING:
-        defaultValue = 50;
+        defaultValue = 60;
         break;
       case CHIN_TRIMMING:
         defaultValue = 50;
@@ -260,6 +402,9 @@ public class HtUICacheUtils {
         break;
       case MOUTH_TRIMMING:
         defaultValue = 50;
+        break;
+      case head_lessening:
+        defaultValue = 0;
         break;
       default:
         throw new IllegalStateException("Unexpected value: " + key);
@@ -290,6 +435,9 @@ public class HtUICacheUtils {
   public static void beautySkinResetEnable(boolean enable) {
     SharedPreferencesUtil.put("skin_enable", enable);
   }
+  public static void greenscreenResetEnable(boolean enable) {
+    SharedPreferencesUtil.put("greenscreen_enable", enable);
+  }
 
   public static boolean beautyFaceTrimResetEnable() {
     return SharedPreferencesUtil.get("face_trim_enable", false);
@@ -297,6 +445,10 @@ public class HtUICacheUtils {
 
   public static boolean beautySkinResetEnable() {
     return SharedPreferencesUtil.get("skin_enable", false);
+  }
+
+  public static boolean greenscreenResetEnable() {
+    return SharedPreferencesUtil.get("greenscreen_enable", false);
   }
 
   //--------------------------------------------------
@@ -323,6 +475,17 @@ public class HtUICacheUtils {
     HtState.setCurrentBeautySkin(HtBeautyKey.NONE);
   }
 
+  public static void resetGreencreenValue(Context context) {
+
+    HtSelectedPosition.VALUE_SIMILARITY = 50;
+    HtSelectedPosition.VALUE_SMOOTHNESS = 0;
+    HtSelectedPosition.VALUE_ALPHA = 0;
+    // beautySimilarityValue(0);
+    // beautySmoothnessValue(0);
+    // beautyAlphaValue(0);
+    initCache(false);
+  }
+
   //----------------------------------------------------------------
 
   //---------------------------------应用风格参数------------------------------
@@ -331,9 +494,9 @@ public class HtUICacheUtils {
     //美白
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinWhitening,HtUICacheUtils.beautySkinValue(HtBeautyKey.whiteness));
     //磨皮
-    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyBlurrySmoothing,HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness));
+    // HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyBlurrySmoothing,HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness));
 
-    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,HtUICacheUtils.beautySkinValue(HtBeautyKey.precise_blurriness));
+    HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,HtUICacheUtils.beautySkinValue(HtBeautyKey.blurriness));
     //红润
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinRosiness,HtUICacheUtils.beautySkinValue(HtBeautyKey.rosiness));
     //清晰

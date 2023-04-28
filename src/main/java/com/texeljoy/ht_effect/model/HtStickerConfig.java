@@ -3,6 +3,7 @@ package com.texeljoy.ht_effect.model;
 import com.google.gson.Gson;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTItemEnum;
 import java.util.List;
 
 /**
@@ -35,6 +36,7 @@ public class HtStickerConfig {
   public static class HtSticker {
 
     public static final HtSticker NO_STICKER = new HtSticker("", "", "", HTDownloadState.COMPLETE_DOWNLOAD);
+    public static final HtSticker NEW_STICKER = new HtSticker("", "", "", HTDownloadState.COMPLETE_DOWNLOAD);
 
     /**
      * name
@@ -73,7 +75,7 @@ public class HtStickerConfig {
 
     public String getUrl() {
 
-      return HTEffect.shareInstance().getStickerUrl() + name + ".zip";
+      return HTEffect.shareInstance().getARItemUrlBy(HTItemEnum.HTItemSticker.getValue()) + name + ".zip";
 
     }
 
@@ -86,7 +88,7 @@ public class HtStickerConfig {
     public void setCategory(String category) { this.category = category;}
 
     public String getIcon() {
-      return HTEffect.shareInstance().getStickerUrl() + icon;
+      return HTEffect.shareInstance().getARItemUrlBy(HTItemEnum.HTItemSticker.getValue()) + icon;
 
 
     }
@@ -103,7 +105,7 @@ public class HtStickerConfig {
      * 下载完成更新缓存数据
      */
     public void downloaded() {
-      HtStickerConfig tiStickerConfig = HtConfigTools.getInstance().getStickerConfig();
+      HtStickerConfig tiStickerConfig = HtConfigTools.getInstance().getStickerList();
 
       for (HtSticker sticker : tiStickerConfig.getStickers()) {
         if (this.name.equals(sticker.name) && sticker.icon.equals(this.icon)) {

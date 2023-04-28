@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginEnd="48dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:background="@drawable/bg_dialog_reset">
+
+        <TextView
+            android:id="@+id/tv_reset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:includeFontPadding="false"
+            android:text="@string/is_reset_to_default_all"
+            android:textColor="@color/dark_black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/btn_confirm"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="23dp"
+            android:background="@drawable/bg_dialog_reset_confirm"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@color/theme_color"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="30dp"
+            android:includeFontPadding="false"
+            android:gravity="center"
+            android:background="@drawable/bg_dialog_reset_cancel"
+            android:text="@string/cancel"
+            android:textColor="@color/dialog_cancel_text"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

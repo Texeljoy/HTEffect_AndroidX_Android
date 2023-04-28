@@ -1,0 +1,250 @@
+{
+    "ht_sticker": [
+        {
+        "name": "ht_sticker_effect_rabbit_bowknot",
+        "category": "default",
+        "icon": "ht_sticker_effect_rabbit_bowknot_icon.png",
+        "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_wing",
+            "category": "default",
+            "icon": "ht_sticker_effect_wing_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_daji",
+            "category": "default",
+            "icon": "ht_sticker_effect_daji_icon.png",
+            "download": 0
+        },
+        {
+        "name": "ht_sticker_effect_tulip",
+        "category": "default",
+        "icon": "ht_sticker_effect_tulip_icon.png",
+        "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_tianshi",
+            "category": "default",
+            "icon": "ht_sticker_effect_tianshi_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_watermelon",
+            "category": "default",
+            "icon": "ht_sticker_effect_watermelon_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_dragonboat",
+            "category": "default",
+            "icon": "ht_sticker_effect_dragonboat_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_butterfly",
+            "category": "default",
+            "icon": "ht_sticker_effect_butterfly_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_whitebear",
+            "category": "default",
+            "icon": "ht_sticker_effect_whitebear_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_marshmallow",
+            "category": "default",
+            "icon": "ht_sticker_effect_marshmallow.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_valentine",
+            "category": "default",
+            "icon": "ht_sticker_effect_valentine_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_rabbit",
+            "category": "default",
+            "icon": "ht_sticker_effect_rabbit_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_aixin",
+            "category": "default",
+            "icon": "ht_sticker_effect_aixin_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_angel",
+            "category": "default",
+            "icon": "ht_sticker_effect_angel_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_bowknot",
+            "category": "default",
+            "icon": "ht_sticker_effect_bowknot_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_cangshu",
+            "category": "default",
+            "icon": "ht_sticker_effect_cangshu_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_cat",
+            "category": "default",
+            "icon": "ht_sticker_effect_cat_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_cat_line",
+            "category": "default",
+            "icon": "ht_sticker_effect_cat_line_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_cat_white",
+            "category": "default",
+            "icon": "ht_sticker_effect_cat_white_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_catclaw",
+            "category": "default",
+            "icon": "ht_sticker_effect_catclaw_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_chaiquan",
+            "category": "default",
+            "icon": "ht_sticker_effect_chaiquan_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_children",
+            "category": "default",
+            "icon": "ht_sticker_effect_children_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_chtristmas",
+            "category": "default",
+            "icon": "ht_sticker_effect_chtristmas_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_fortunecat",
+            "category": "default",
+            "icon": "ht_sticker_effect_fortunecat_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_fox",
+            "category": "default",
+            "icon": "ht_sticker_effect_fox_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_happy",
+            "category": "default",
+            "icon": "ht_sticker_effect_happy_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_leopard",
+            "category": "default",
+            "icon": "ht_sticker_effect_leopard_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_littlerabbit",
+            "category": "default",
+            "icon": "ht_sticker_effect_littlerabbit_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_magazine",
+            "category": "default",
+            "icon": "ht_sticker_effect_magazine_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_mengqiu",
+            "category": "default",
+            "icon": "ht_sticker_effect_mengqiu_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_palide",
+            "category": "default",
+            "icon": "ht_sticker_effect_palide_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_pickme",
+            "category": "default",
+            "icon": "ht_sticker_effect_pickme_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_rabbit_purple",
+            "category": "default",
+            "icon": "ht_sticker_effect_rabbit_purple_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_sheep",
+            "category": "default",
+            "icon": "ht_sticker_effect_sheep_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_smile",
+            "category": "default",
+            "icon": "ht_sticker_effect_smile_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_sparklingcat",
+            "category": "default",
+            "icon": "ht_sticker_effect_sparklingcat_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_star",
+            "category": "default",
+            "icon": "ht_sticker_effect_star_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_strawberry",
+            "category": "default",
+            "icon": "ht_sticker_effect_strawberry_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_teacher",
+            "category": "default",
+            "icon": "ht_sticker_effect_teacher_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_tuboshu",
+            "category": "default",
+            "icon": "ht_sticker_effect_tuboshu_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_sticker_effect_zhaocaimao",
+            "category": "default",
+            "icon": "ht_sticker_effect_zhaocaimao_icon.png",
+            "download": 0
+        }
+    ]
+}

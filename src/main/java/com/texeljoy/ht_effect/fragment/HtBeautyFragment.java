@@ -1,21 +1,17 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
-
-import android.view.MotionEvent;
-import android.view.View.OnTouchListener;
-import android.widget.Button;
-import android.widget.Toast;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RelativeLayout;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.hwangjr.rxbus.RxBus;
@@ -33,6 +29,7 @@ import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
+import com.texeljoy.ht_effect.view.HtBarView;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +49,7 @@ public class HtBeautyFragment extends HtBaseFragment {
   private RelativeLayout bottomLayout;
   private AppCompatImageView returnIv;
   private String which;
+  private HtBarView barView;
 
   private final List<String> htTabs = new ArrayList<>();
   private HTPanelLayout HTPanelLayout;
@@ -70,9 +68,11 @@ public class HtBeautyFragment extends HtBaseFragment {
     alternateIndicatorView = view.findViewById(R.id.alternate_indicator_view);
     container = view.findViewById(R.id.container);
     line = view.findViewById(R.id.line);
+    barView = view.findViewById(R.id.ht_bar);
     bottomLayout = view.findViewById(R.id.rl_bottom);
     returnIv = view.findViewById(R.id.return_iv);
     HTPanelLayout = new HTPanelLayout(getContext());
+
 
     Bundle bundle = this.getArguments();//得到从Activity传来的数据
     if (bundle != null) {
@@ -83,7 +83,7 @@ public class HtBeautyFragment extends HtBaseFragment {
     htTabs.clear();
     htTabs.add(requireContext().getString(R.string.beauty_skin));
     htTabs.add(requireContext().getString(R.string.beauty_shape));
-    htTabs.add(requireContext().getString(R.string.filter));
+    htTabs.add(requireContext().getString(R.string.beauty_hair));
     htTabs.add(requireContext().getString(R.string.beauty_style));
 
     topIndicatorView.setSplitMethod(FixedIndicatorView.SPLITMETHOD_WEIGHT);
@@ -91,6 +91,11 @@ public class HtBeautyFragment extends HtBaseFragment {
     returnIv.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
         RxBus.get().post(HTEventAction.ACTION_CHANGE_PANEL, HTViewState.MODE);
+
+      }
+    });
+    barView.setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View v) {
 
       }
     });
@@ -149,7 +154,7 @@ public class HtBeautyFragment extends HtBaseFragment {
             case 1:
               return new HtFaceTrimFragment();
             case 2:
-              return new HtFilterFragment();
+              return new HtHairFragment();
             case 3:
               return new HtStyleFragment();
             default:
@@ -158,7 +163,7 @@ public class HtBeautyFragment extends HtBaseFragment {
       }
     };
     indicatorViewPager.setAdapter(fragmentPagerAdapter);
-    if("beauty_filter".equals(which)){
+    if("filter".equals(which)){
       htPager.setCurrentItem(2,false);
     }
     if(HtState.currentStyle != HtStyle.YUAN_TU){

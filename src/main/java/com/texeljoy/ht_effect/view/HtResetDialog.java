@@ -3,13 +3,13 @@ package com.texeljoy.ht_effect.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
@@ -80,6 +80,18 @@ public class HtResetDialog extends DialogFragment {
           //通知更新滑动条显示状态
           RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
 
+        }
+
+        if (HtState.currentViewState == HTViewState.PORTRAIT) {
+          //当前是绿幕
+          HtUICacheUtils.resetGreencreenValue(getContext());
+          HtUICacheUtils.greenscreenResetEnable(false);
+
+          //通知刷新列表
+          RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "true");
+
+          //通知更新滑动条显示状态
+          RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
         }
 
         dismiss();

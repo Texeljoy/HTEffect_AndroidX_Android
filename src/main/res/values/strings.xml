@@ -6,17 +6,21 @@
     <string name="makeup">Makeup</string>
 
     <string name="gesture">Gesture</string>
+    <string name="take_photo">TakePhoto</string>
 
     <string name="beauty_skin">Skin</string>
     <string name="beauty_shape">Reshape</string>
+    <string name="beauty_hair">Hair</string>
     <string name="beauty_style">Style</string>
 
     <string name="reset">Restore</string>
-    <string name="is_reset_to_default">Reset all parameters to default?</string>
+    <string name="is_reset_to_default">Reset all parameters in this module to default?</string>
+    <string name="is_reset_to_default_all">Reset all parameters to default？</string>
     <string name="confirm">Yes</string>
     <string name="cancel">No</string>
 
     <string name="face_beauty">FaceBeauty</string>
+    <string name="face_beauty_and_shape">FaceBeauty</string>
     <string name="whiteness">Whiteness</string>
     <string name="blurriness">Exfoliating</string>
     <string name="precise_skin">PreciseSkin</string>
@@ -93,10 +97,32 @@
     <string name="mask">Mask</string>
     <string name="gift">Gift</string>
 
+    <string name="hair_none">NONE</string>
+    <string name="hair_shenmizi">shenmizi</string>
+    <string name="hair_qiaokeli">qiaokeli</string>
+    <string name="hair_qingmuzong">qingmuzong</string>
+    <string name="hair_jiaotangzong">jiaotangzong</string>
+    <string name="hair_fengmichunzong">fengmichunzong</string>
+    <string name="hair_qianjinzong">qianjinzong</string>
+    <string name="hair_meiguijin">meiguijin</string>
+    <string name="hair_yamabaijin">yamabaijin</string>
+    <string name="hair_luoriju">luoriju</string>
+    <string name="hair_yamaqianju">yamaqianju</string>
+    <string name="hair_fugumeigui">fugumeigui</string>
+    <string name="hair_shenmeigui">shenmeigui</string>
+    <string name="hair_yanhuiwuzi">yanhuiwuzi</string>
+    <string name="hair_fenmeitianzong">fenmeitianzong</string>
+    <string name="hair_wumaixiangyu">wumaixiangyu</string>
+    <string name="hair_kongquelan">kongquelan</string>
+    <string name="hair_wumailanhui">wumailanhui</string>
+    <string name="hair_yamahuizong">yamahuizong</string>
+    <string name="hair_yamaqianhui">yamaqianhui</string>
+
     <string name="watermark">Watermark</string>
     <string name="portrait">Portrait</string>
     <string name="portrait_ai">AIProprait</string>
     <string name="portrait_green">GreenProprait</string>
+    <string name="portrait_people">PeopleProprait</string>
 
     <string name="none">NONE</string>
     <string name="delete">delete</string>
@@ -126,6 +152,36 @@
     <string name="makeup_weixun">CM05</string>
     <string name="makeup_xiaohua">CM06</string>
 
+    <string name="filter_yueye">YueYe</string>
+    <string name="filter_micha">MiCha</string>
+    <string name="filter_jingmi">JingMi</string>
+    <string name="filter_rouguang">RouGuang</string>
+    <string name="filter_naixing">NaiXing</string>
+    <string name="filter_huanse">HuanSe</string>
+    <string name="filter_jiuzhao">JiuZhao</string>
+    <string name="filter_mihuan">MiHuan</string>
+    <string name="filter_yicai">YiCai</string>
+    <string name="filter_chuchun">ChuChun</string>
+    <string name="filter_chulian">ChuLian</string>
+    <string name="filter_chuxue">ChuXue</string>
+    <string name="filter_fenci">FenCi</string>
+    <string name="filter_lengdong">LengDong</string>
+    <string name="filter_mengjing">MengJing</string>
+    <string name="filter_qingtou">QingTou</string>
+    <string name="filter_xinye">XinYe</string>
+    <string name="filter_bingcha">BingCha</string>
+    <string name="filter_langman">LangMan</string>
+    <string name="filter_miwu">MiWu</string>
+    <string name="filter_qingmu">QingMu</string>
+    <string name="filter_qingsha">QingSha</string>
+    <string name="filter_qingxu">QingXu</string>
+    <string name="filter_senwu">SenWu</string>
+    <string name="filter_shaman">ShanMan</string>
+    <string name="filter_wenrou">WenRou</string>
+    <string name="filter_miaohui">MiaoHui</string>
+    <string name="filter_qingkong">QingKong</string>
+    <string name="filter_shanjian">ShanJian</string>
+    <string name="filter_xiangsong">XiangSong</string>
     <string name="filter_ziran1">Natural1</string>
     <string name="filter_ziran2">Natural2</string>
     <string name="filter_ziran3">Natural3</string>
@@ -152,9 +208,47 @@
     <string name="filter_yuanqi">Sweet3</string>
     <string name="filter_fugu">Film2</string>
 
+    <string name="filter_style">StyleFilter</string>
+
+    <string name="filter_special">SpecialFilter</string>
+    <string name="effect_none">Original</string>
+
     <string name="makeup_none">Original</string>
     <string name="filter_none">Orignal</string>
+    <string name="effect_lhcq">lhcq</string>
+    <string name="effect_hbdy">hbdy</string>
+    <string name="effect_mfjm">mfjm</string>
+    <string name="effect_xcdd">xcdd</string>
+    <string name="effect_tymx">tymx</string>
+    <string name="effect_dgfp">dgfp</string>
+    <string name="effect_sfp">sfp</string>
+    <string name="effect_spjx">spjx</string>
+    <string name="effect_mbl">mbl</string>
+    <string name="effect_bjmh">bjmh</string>
+    <string name="effect_mhfp">mhfp</string>
+    <string name="effect_sjsh">sjsh</string>
+    <string name="effect_qcdd">qcdd</string>
+    <string name="effect_nhd">nhd</string>
+    <string name="effect_jgg">jgg</string>
+    <string name="effect_fgj">fgj</string>
+    <string name="effect_xnjx">xnjx</string>
+    <string name="effect_hjcy">hjcy</string>
 
-
+    <string name="filter_haha">HahaFilter</string>
+    <string name="haha_et">ET</string>
+    <string name="haha_big_nose">BigNose</string>
+    <string name="haha_big_mouth">BigMouth</string>
+    <string name="haha_fangxinglian">SquareFace</string>
+    <string name="haha_big_head">BigHead</string>
+    <string name="haha_dudu">PearFace</string>
+    <string name="haha_doudou">SmallEye</string>
+    <string name="haha_snake">ThinFace</string>
+    <string name="threeD">threeD</string>
+    <string name="edit">Edit</string>
+    <string name="background">Background</string>
+    <string name="restore">Restore</string>
+    <string name="similarity">Similarity</string>
+    <string name="smoothness">Smoothness</string>
+    <string name="alpha">Alpha</string>
 
 </resources>

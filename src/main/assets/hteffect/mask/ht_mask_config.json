@@ -1,0 +1,22 @@
+{
+    "ht_mask": [
+        {
+            "name": "ht_mask_fox",
+            "category": "default",
+            "icon": "ht_mask_fox_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_mask_pearl",
+            "category": "default",
+            "icon": "ht_mask_pearl_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_mask_no_face_man",
+            "category": "default",
+            "icon": "ht_mask_no_face_man_icon.png",
+            "download": 0
+        }
+    ]
+}

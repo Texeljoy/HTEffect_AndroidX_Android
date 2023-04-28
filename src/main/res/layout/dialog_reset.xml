@@ -15,6 +15,7 @@
         android:background="@drawable/bg_dialog_reset">
 
         <TextView
+            android:id="@+id/tv_reset"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
@@ -30,11 +31,11 @@
             android:layout_marginStart="50dp"
             android:layout_marginEnd="50dp"
             android:layout_marginTop="23dp"
-            android:background="@mipmap/bg_button_confirm"
+            android:background="@drawable/bg_dialog_reset_confirm"
             android:includeFontPadding="false"
             android:gravity="center"
             android:text="@string/confirm"
-            android:textColor="@android:color/white"
+            android:textColor="@color/theme_color"
             android:textSize="16sp" />
 
         <TextView
@@ -47,8 +48,9 @@
             android:layout_marginBottom="30dp"
             android:includeFontPadding="false"
             android:gravity="center"
+            android:background="@drawable/bg_dialog_reset_cancel"
             android:text="@string/cancel"
-            android:textColor="@color/light_blue"
+            android:textColor="@color/dialog_cancel_text"
             android:textSize="16sp" />
 
     </LinearLayout>

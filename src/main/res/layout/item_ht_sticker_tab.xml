@@ -8,6 +8,6 @@
     android:includeFontPadding="false"
     android:paddingStart="18dp"
     android:paddingEnd="18dp"
-    android:textColor="@color/color_selector_sticker"
+    android:textColor="@color/color_selector_sticker_black"
     android:textSize="15sp"
     tools:ignore="RtlSymmetry" />

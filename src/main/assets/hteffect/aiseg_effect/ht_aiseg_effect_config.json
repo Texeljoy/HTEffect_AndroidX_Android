@@ -1,0 +1,59 @@
+{
+    "ht_aiseg_effect":
+    [
+        {
+            "name": "ht_aiseg_effect_adoreme",
+            "category": "default",
+            "icon": "ht_aiseg_effect_adoreme_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_grape",
+            "category": "default",
+            "icon": "ht_aiseg_effect_grape_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_guaishou",
+            "category": "default",
+            "icon": "ht_aiseg_effect_guaishou_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_neon",
+            "category": "default",
+            "icon": "ht_aiseg_effect_neon_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_planet",
+            "category": "default",
+            "icon": "ht_aiseg_effect_planet_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_rabbit",
+            "category": "default",
+            "icon": "ht_aiseg_effect_rabbit_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_smile",
+            "category": "default",
+            "icon": "ht_aiseg_effect_smile_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_snacks",
+            "category": "default",
+            "icon": "ht_aiseg_effect_snacks_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_aiseg_effect_space",
+            "category": "default",
+            "icon": "ht_aiseg_effect_space_icon.png",
+            "download": 0
+        }
+    ]
+}

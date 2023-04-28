@@ -11,7 +11,7 @@ import com.texeljoy.ht_effect.R;
  */
 public enum HtBeauty {
   whiteness(R.string.whiteness, R.drawable.ic_whiteness_black, R.drawable.ic_whiteness_white, HtBeautyKey.whiteness),
-  blurriness(R.string.blurriness, R.drawable.ic_blurriness_black, R.drawable.ic_blurriness_white, HtBeautyKey.vague_blurriness),
+  blurriness(R.string.blurriness, R.drawable.ic_blurriness_black, R.drawable.ic_blurriness_white, HtBeautyKey.blurriness),
   rosiness(R.string.rosiness, R.drawable.ic_rosiness_black, R.drawable.ic_rosiness_white, HtBeautyKey.rosiness),
   clearness(R.string.clearness, R.drawable.ic_clearness_black, R.drawable.ic_clearness_white, HtBeautyKey.clearness),
   brightness(R.string.brightness, R.drawable.ic_brightness_black, R.drawable.ic_brightness_white, HtBeautyKey.brightness),

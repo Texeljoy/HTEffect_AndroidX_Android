@@ -2,31 +2,39 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
 import android.os.Looper;
+import android.view.View;
 import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import com.shizhefei.fragment.LazyFragment;
+import com.hwangjr.rxbus.annotation.Subscribe;
+import com.hwangjr.rxbus.annotation.Tag;
+import com.hwangjr.rxbus.thread.EventThread;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.adapter.HtGestureAdapter;
+import com.texeljoy.ht_effect.base.HtBaseLazyFragment;
+import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtGestureConfig;
 import com.texeljoy.ht_effect.model.HtGestureConfig.HtGesture;
 import com.texeljoy.ht_effect.utils.HtConfigCallBack;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 手势内容
+ * 手势
  */
-public class HtGestureFragment extends LazyFragment {
+public class HtGestureFragment extends HtBaseLazyFragment {
+
 
     private final List<HtGestureConfig.HtGesture> items = new ArrayList<>();
+    HtGestureAdapter htGestureAdapter;
 
-    @Override
-    protected void onCreateViewLazy(Bundle savedInstanceState) {
-        super.onCreateViewLazy(savedInstanceState);
-        setContentView(R.layout.fragment_ht_sticker);
+    @Override protected int getLayoutId() {
+        return R.layout.fragment_ht_sticker;
+    }
 
+    @Override protected void initView(View view, Bundle savedInstanceState) {
         if (getContext() == null) return;
 
         items.clear();
@@ -63,10 +71,19 @@ public class HtGestureFragment extends LazyFragment {
 
     public void initRecyclerView() {
         RecyclerView gestureRV = (RecyclerView) findViewById(R.id.htRecyclerView);
-        HtGestureAdapter htGestureAdapter = new HtGestureAdapter(items);
+        htGestureAdapter = new HtGestureAdapter(items);
         gestureRV.setLayoutManager(new GridLayoutManager(getContext(), 5));
         gestureRV.setAdapter(htGestureAdapter);
         htGestureAdapter.notifyDataSetChanged();
+    }
+
+    @Subscribe(thread = EventThread.MAIN_THREAD,
+               tags = { @Tag(HTEventAction.ACTION_SYNC_GESTURE_ITEM_CHANGED) })
+    public void changedPoint(Object o) {
+        int lastposition = HtSelectedPosition.POSITION_GESTURE;
+        HtSelectedPosition.POSITION_GESTURE = -1;
+        htGestureAdapter.notifyItemChanged(lastposition);
+
     }
 
     @Override

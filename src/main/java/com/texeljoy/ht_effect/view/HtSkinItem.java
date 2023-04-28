@@ -1,15 +1,15 @@
 package com.texeljoy.ht_effect.view;
 
 import android.content.Context;
+import android.util.AttributeSet;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
-import android.util.AttributeSet;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -67,6 +67,8 @@ public class HtSkinItem extends LinearLayout {
 
     //同步滑动条
     RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+
+
 
     setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {

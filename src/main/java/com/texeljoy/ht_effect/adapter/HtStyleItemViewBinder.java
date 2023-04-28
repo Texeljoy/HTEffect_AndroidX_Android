@@ -1,13 +1,13 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
@@ -30,6 +30,7 @@ public class HtStyleItemViewBinder
 
   @SuppressLint("SetTextI18n")
   @Override protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull HtStyle item) {
+
 
     holder.itemView.setSelected(getPosition(holder) ==
         HtUICacheUtils.beautyStylePosition());
@@ -59,7 +60,7 @@ public class HtStyleItemViewBinder
         HtUICacheUtils.beautyStylePosition(getPosition(holder));
         //应用参数
 
-        HTEffect.shareInstance().setStyle(item.getParam(),100);
+        HTEffect.shareInstance().setStyle(item.getParam());
         if(item == HtStyle.YUAN_TU){
           HtUICacheUtils.initCache(false);
           RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");

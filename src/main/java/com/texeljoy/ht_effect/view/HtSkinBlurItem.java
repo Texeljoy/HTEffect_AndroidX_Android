@@ -1,12 +1,12 @@
 package com.texeljoy.ht_effect.view;
 
 import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.constraintlayout.motion.widget.MotionLayout;
-import androidx.core.content.ContextCompat;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.constraint.motion.MotionLayout;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,7 +45,7 @@ public class HtSkinBlurItem extends MotionLayout {
   private AppCompatTextView tvPreciseBlurriness;
   private View pointPreciseBlurriness;
 
-  public static HtBeautyKey blurType = HtBeautyKey.vague_blurriness;
+  public static HtBeautyKey blurType = HtBeautyKey.blurriness;
 
   public HtSkinBlurItem(@NonNull Context context) {
     super(context);
@@ -86,7 +86,7 @@ public class HtSkinBlurItem extends MotionLayout {
 
     btnPreciseBlurriness.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
-        blurType = HtBeautyKey.precise_blurriness;
+        blurType = HtBeautyKey.blurriness;
         if (v.isSelected()) {
           return;
         }
@@ -94,7 +94,7 @@ public class HtSkinBlurItem extends MotionLayout {
 
         btnVagueBlurriness.setSelected(false);
 
-        HtState.setCurrentBeautySkin(HtBeautyKey.precise_blurriness);
+        HtState.setCurrentBeautySkin(HtBeautyKey.blurriness);
 
         RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
 
@@ -103,14 +103,14 @@ public class HtSkinBlurItem extends MotionLayout {
 
     btnVagueBlurriness.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
-        blurType = HtBeautyKey.vague_blurriness;
+        blurType = HtBeautyKey.blurriness;
         if (v.isSelected()) {
           return;
         }
         btnPreciseBlurriness.setSelected(false);
         v.setSelected(true);
 
-        HtState.setCurrentBeautySkin(HtBeautyKey.vague_blurriness);
+        HtState.setCurrentBeautySkin(HtBeautyKey.blurriness);
 
         RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
 
@@ -130,7 +130,7 @@ public class HtSkinBlurItem extends MotionLayout {
    */
   public void update() {
 
-    if (HtState.getCurrentBeautySkin() == HtBeautyKey.precise_blurriness) {
+    if (HtState.getCurrentBeautySkin() == HtBeautyKey.blurriness) {
       btnPreciseBlurriness.setSelected(true);
       btnVagueBlurriness.setSelected(false);
     } else {
@@ -143,8 +143,8 @@ public class HtSkinBlurItem extends MotionLayout {
              tags = { @Tag(HTEventAction.ACTION_SYNC_PROGRESS) })
   public void syncState(Object o) {
 
-    if (HtState.getCurrentBeautySkin() == HtBeautyKey.precise_blurriness ||
-        HtState.getCurrentBeautySkin() == HtBeautyKey.vague_blurriness
+    if (HtState.getCurrentBeautySkin() == HtBeautyKey.blurriness ||
+        HtState.getCurrentBeautySkin() == HtBeautyKey.blurriness
     ) {
       btnBlur.setSelected(true);
       update();
@@ -251,18 +251,18 @@ public class HtSkinBlurItem extends MotionLayout {
   public void changedPoint(Object o) {
 
     pointPreciseBlurriness
-        .setVisibility((HtUICacheUtils.beautySkinValue(HtBeautyKey.precise_blurriness) != 0) ?
+        .setVisibility((HtUICacheUtils.beautySkinValue(HtBeautyKey.blurriness) != 0) ?
                        View.VISIBLE : View.INVISIBLE);
 
-    pointVagueBlurriness
-        .setVisibility((HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness) != 0) ?
-                       View.VISIBLE : View.INVISIBLE);
+    // pointVagueBlurriness
+    //     .setVisibility((HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness) != 0) ?
+    //                    View.VISIBLE : View.INVISIBLE);
 
     point.setVisibility(
-        ((
-            (HtUICacheUtils.beautySkinValue(HtBeautyKey.precise_blurriness) != 0)) ||
-            ((HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness) != 0)
-            )) && (!btnBlur.isSelected())
+        (
+            HtUICacheUtils.beautySkinValue(HtBeautyKey.blurriness) != 0
+            // || ((HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness) != 0)
+            ) && (!btnBlur.isSelected())
 
         ?
         View.VISIBLE : View.INVISIBLE

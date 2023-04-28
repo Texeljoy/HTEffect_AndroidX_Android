@@ -16,6 +16,26 @@ public class HTEventAction {
 
   //更新当前选中的Item的点
   public static final String ACTION_SYNC_ITEM_CHANGED = "ACTION_SYNC_ITEM_CHANGED";
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_STICKER_ITEM_CHANGED = "ACTION_SYNC_STICKER_ITEM_CHANGED";
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_MASK_ITEM_CHANGED = "ACTION_SYNC_MASK_ITEM_CHANGED";
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_GIFT_ITEM_CHANGED = "ACTION_SYNC_GIFT_ITEM_CHANGED";
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_WATERMARK_ITEM_CHANGED = "ACTION_SYNC_WATERMARK_ITEM_CHANGED";
+
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_PORTRAITAI_ITEM_CHANGED = "ACTION_SYNC_PORTRAITAI_ITEM_CHANGED";
+
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_PORTRAITTGS_ITEM_CHANGED = "ACTION_SYNC_PORTRAITTGS_ITEM_CHANGED";
+
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_GESTURE_ITEM_CHANGED = "ACTION_SYNC_GESTURE_ITEM_CHANGED";
+
+  //更新当前选中的Item的点
+  public static final String ACTION_SYNC_FILTER_ITEM_CHANGED = "ACTION_SYNC_FILTER_ITEM_CHANGED";
 
   //更新重置状态
   public static final String ACTION_SYNC_RESET = "ACTION_SYNC_RESET";
@@ -33,6 +53,19 @@ public class HTEventAction {
 
   //更新“美颜”功能中指示器的可选中状态
   public static final String ACTION_CHANGE_ENABLE = "ACTION_CHANGE_ENABLE";
+
+  //显示绿幕背景颜色可选
+  // public static final String ACTION_SHOW_SCREEN_COLOR = "ACTION_SHOW_SCREEN_COLOR";
+
+  //切换编辑选项
+  public static final String ACTION_CHANGE_EDIT_ITEM = "ACTION_CHANGE_EDIT_ITEM";
+
+  //清空位置
+  public static final String ACTION_CLEAN_POSITION = "ACTION_CLEAN_POSITION";
+
+  //添加贴纸的提示框
+  public static final String ACTION_ADD_STICKER_RECT = "ACTION_ADD_STICKER_RECT";
+
 
 
 

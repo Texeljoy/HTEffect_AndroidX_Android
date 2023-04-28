@@ -58,7 +58,7 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content" />
 
-           <com.texeljoy.ht_effect.view.HtSkinBlurItem
+           <com.texeljoy.ht_effect.view.HtSkinItem
                android:id="@+id/btn_blur"
                android:layout_width="wrap_content"
                android:layout_height="wrap_content" />

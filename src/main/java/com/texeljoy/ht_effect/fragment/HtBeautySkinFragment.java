@@ -2,9 +2,9 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.core.content.ContextCompat;
 import android.view.View;
 import android.widget.LinearLayout;
+import androidx.core.content.ContextCompat;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -17,7 +17,6 @@ import com.texeljoy.ht_effect.model.HtBeauty;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.ht_effect.view.HtResetDialog;
-import com.texeljoy.ht_effect.view.HtSkinBlurItem;
 import com.texeljoy.ht_effect.view.HtSkinItem;
 import java.util.ArrayList;
 
@@ -37,7 +36,7 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
   private View line;
 
   private HtSkinItem btnWhite;
-  private HtSkinBlurItem btnBlur;
+  private HtSkinItem btnBlur;
   private HtSkinItem btnRosiness;
   private HtSkinItem btnClearness;
   private HtSkinItem btnBrightness;
@@ -65,7 +64,7 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
     btnWhite = findViewById(R.id.btn_white);
     btnWhite.init(HtBeauty.whiteness);
     btnBlur = findViewById(R.id.btn_blur);
-    btnBlur.init();
+    btnBlur.init(HtBeauty.blurriness);
     btnRosiness = findViewById(R.id.btn_rosiness);
     btnRosiness.init(HtBeauty.rosiness);
     btnClearness = findViewById(R.id.btn_clearness);
@@ -88,12 +87,14 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
     btnReset.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
         resetDialog.show(getChildFragmentManager(), "skin");
+        //RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
       }
     });
 
     changeTheme("");
 
   }
+
 
   @SuppressLint("NotifyDataSetChanged")
   @Override protected void onFragmentStartLazy() {
@@ -125,7 +126,9 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
       }
     }
 
-    btnBlur.update();
+    // btnBlur.update();
+    RxBus.get().post(HTEventAction.ACTION_SYNC_ITEM_CHANGED, "");
+
 
   }
 
@@ -139,7 +142,7 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
   public void changeTheme(Object o) {
     if (HtState.isDark) {
       container.setBackground(ContextCompat.getDrawable(getContext(), R.color.dark_background));
-      line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.gray_line));
+      line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.divide_line));
       ivReset.setImageDrawable(ContextCompat.getDrawable(getContext(), R.drawable.ic_reset_white));
       tvReset.setTextColor(ContextCompat.getColorStateList(getContext(), R.color.color_reset_text_white));
     } else {

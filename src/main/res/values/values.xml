@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="white">#FFFFFF</color>
+    <color name="black">#111111</color>
     <color name="light_blue">#FF589DEC</color>
-    <color name="theme_color">#FFFF79B4</color>
-    <color name="ht_selected">#FFFF79B4</color>
+    <color name="theme_color">#FFAAF200</color>
+    <color name="ht_selected">#FFAAF200</color>
     <color name="ht_selected_filter">#FFFFFF</color>
-    <color name="dark_background">#80000000</color>
+    <color name="dark_background">#B3000000</color>
+    <color name="seekbar_background">#80EEEEEE</color>
     <color name="light_background">#FFFFFF</color>
     <color name="dark_black">#FF444444</color>
 
@@ -13,7 +15,16 @@
     <color name="makeup_maker">#99666666</color>
 
     <color name="gray_line">#FFFFFFFF</color>
+    <color name="horizonal_line">#B3FFFFFF</color>
+
+    <color name="divide_line">#33FFFFFF</color>
     <color name="light_gray_line">#FFEEEEEE</color>
     <color name="black_line">#4D000000</color>
     <color name="bg_filter_item_cover_80">#CCB7AFB2</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="green_greenscreen">#00FF05</color>
+    <color name="blue_greenscreen">#0100FC</color>
+    <color name="white_greenscreen">#FFFFFF</color>
+    <color name="dialog_cancel">#E5E5E5</color>
+    <color name="dialog_cancel_text">#666666</color>
 </resources>

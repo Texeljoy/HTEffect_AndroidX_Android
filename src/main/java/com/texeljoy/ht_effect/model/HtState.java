@@ -1,7 +1,10 @@
 package com.texeljoy.ht_effect.model;
 
 import android.util.Log;
-import com.texeljoy.ht_effect.model.HtFilterConfig.HtFilter;
+import com.texeljoy.ht_effect.model.HtEffectFilterConfig.HtEffectFilter;
+import com.texeljoy.ht_effect.model.HtHaHaFilterConfig.HtHaHaFilter;
+import com.texeljoy.ht_effect.model.HtHairConfig.HtHair;
+import com.texeljoy.ht_effect.model.HtStyleFilterConfig.HtStyleFilter;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 
 /**
@@ -22,7 +25,12 @@ public class HtState {
   public static HtFaceTrim currentFaceTrim = HtFaceTrim.EYE_ENLARGING;
 
   // 当前选中了哪个滤镜
-  public static HtFilter currentFilter = HtFilter.NO_FILTER;
+  public static HtStyleFilter currentStyleFilter = HtStyleFilter.NO_FILTER;
+  public static HtEffectFilter currentEffectFilter = HtEffectFilter.NO_FILTER;
+  public static HtHaHaFilter currentHaHaFilter = HtHaHaFilter.NO_FILTER;
+
+  // 当前选中了哪个美发
+  public static HtHair currentHair = HtHair.NO_HAIR;
 
   // 选中哪个风格
   public static HtStyle currentStyle = HtStyle.YUAN_TU;

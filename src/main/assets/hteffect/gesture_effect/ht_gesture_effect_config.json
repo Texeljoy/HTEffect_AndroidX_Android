@@ -1,0 +1,28 @@
+{
+    "ht_gesture_effect": [
+        {
+            "name": "ht_gesture_effect_bixin",
+            "category": "default",
+            "icon": "ht_gesture_effect_bixin_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_gesture_effect_yinghua",
+            "category": "default",
+            "icon": "ht_gesture_effect_yinghua_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_gesture_effect_snow",
+            "category": "default",
+            "icon": "ht_gesture_effect_snow_icon.png",
+            "download": 0
+        },
+        {
+            "name": "ht_gesture_effect_xingxing",
+            "category": "default",
+            "icon": "ht_gesture_effect_xingxing_icon.png",
+            "download": 0
+        }
+    ]
+}

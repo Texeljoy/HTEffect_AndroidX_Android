@@ -3,9 +3,6 @@ package com.texeljoy.ht_effect.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -25,9 +25,9 @@ import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
 import com.texeljoy.ht_effect.model.HtBeautyKey;
 import com.texeljoy.ht_effect.model.HtBeautyParam;
-import com.texeljoy.ht_effect.model.HtFilterConfig.HtFilter;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.DpUtils;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
 
@@ -144,8 +144,9 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       Log.e("当前模块:", HtState.getCurrentBeautySkin().name());
       Log.e("美颜滑动参数同步:", progress + "");
       switch (HtState.getCurrentBeautySkin()) {
-        case vague_blurriness:
-        case precise_blurriness:
+        // case vague_blurriness:
+        // case precise_blurriness:
+        case blurriness:
         case whiteness:
         case rosiness:
         case clearness:
@@ -218,14 +219,72 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
-    //美颜——滤镜
+    //美颜——美肤——美发
     if (HtState.currentViewState == HTViewState.BEAUTY
-        && HtState.currentSecondViewState == HTViewState.BEAUTY_FILTER) {
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_HAIR) {
 
-      setVisibility(HtState.currentFilter == HtFilter.NO_FILTER ?
-                    View.INVISIBLE : View.VISIBLE);
-      styleNormal(HtUICacheUtils.beautyFilterValue(HtState.currentFilter.getName()));
-      htSeekBar.setProgress(HtUICacheUtils.beautyFilterValue(HtState.currentFilter.getName()));
+      //美型效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyHairPosition() == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      int progress = HtUICacheUtils
+          .beautyHairValue(HtState.currentHair.getName());
+      Log.e("当前模块:", HtState.currentHair.getName());
+      Log.e("美发滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyHairValue(HtState.currentHair.getName()));
+      return;
+    }
+
+    //人像抠图——绿幕抠图——相似度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_SIMILARITY) {
+      setVisibility(VISIBLE);
+
+      int progress = HtSelectedPosition.VALUE_SIMILARITY;
+      Log.e("当前模块:", "相似度");
+      Log.e("相似度滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtSelectedPosition.VALUE_SIMILARITY);
+      return;
+    }
+
+    //人像抠图——绿幕抠图——平滑度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_SMOOTHNESS) {
+      setVisibility(VISIBLE);
+
+      int progress = HtSelectedPosition.VALUE_SMOOTHNESS;
+      Log.e("当前模块:", "平滑度");
+      Log.e("平滑度滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtSelectedPosition.VALUE_SMOOTHNESS);
+      return;
+    }
+
+    //人像抠图——绿幕抠图——透明度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_ALPHA) {
+      setVisibility(VISIBLE);
+
+      int progress = HtSelectedPosition.VALUE_ALPHA;
+      Log.e("当前模块:", "透明度");
+      Log.e("透明度滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtSelectedPosition.VALUE_ALPHA);
+      return;
+    }
+
+    //美颜——滤镜
+    if (HtState.currentViewState == HTViewState.FILTER) {
+
+      setVisibility(INVISIBLE);
+      // styleNormal(HtUICacheUtils.beautyFilterValue(HtState.currentStyleFilter.getName()));
+      // htSeekBar.setProgress(HtUICacheUtils.beautyFilterValue(HtState.currentStyleFilter.getName()));
       return;
     }
 
@@ -256,6 +315,11 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       setVisibility(INVISIBLE);
     }
 
+    //人像抠图——绿幕抠图——背景
+    if (HtState.currentSecondViewState == HTViewState.GREENSCREEN_BACKGROUND) {
+      setVisibility(INVISIBLE);
+    }
+
   }
 
   /**
@@ -273,12 +337,12 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       DrawableCompat.setTint(bgMiddle, ContextCompat.getColor(getContext(),
           R.color.white));
       DrawableCompat.setTint(bgProgress, ContextCompat.getColor(getContext(),
-          R.color.white));
+          R.color.theme_color));
       DrawableCompat.setTint(bgThumb, ContextCompat.getColor(getContext(),
-          R.color.white));
+          R.color.theme_color));
 
       htBubbleTV.setTextColor(ContextCompat.getColor(getContext(),
-          R.color.light_background));
+          R.color.seekbar_background));
 
       htRenderEnableIV.setImageDrawable(ContextCompat.getDrawable(getContext(), R.mipmap.ic_render_white_enable));
     } else {
@@ -286,16 +350,16 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       DrawableCompat.setTint(bgMiddle, ContextCompat.getColor(getContext(),
           R.color.dark_black));
       DrawableCompat.setTint(bgProgress, ContextCompat.getColor(getContext(),
-          R.color.dark_black));
+          R.color.theme_color));
       DrawableCompat.setTint(bgThumb, ContextCompat.getColor(getContext(),
-          R.color.dark_black));
+          R.color.theme_color));
       htBubbleTV.setTextColor(ContextCompat.getColor(getContext(),
-          R.color.dark_black));
+          R.color.seekbar_background));
 
       htRenderEnableIV.setImageDrawable(ContextCompat.getDrawable(getContext(), R.mipmap.ic_render_black_enable));
     }
-    htMiddleV.setBackground(bgMiddle);
     htProgressV.setBackground(bgProgress);
+    htMiddleV.setBackground(bgMiddle);
     htSeekBar.setThumb(bgThumb);
   }
 
@@ -317,11 +381,15 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
 
 
       switch (HtState.getCurrentBeautySkin()) {
-        case vague_blurriness:
-          styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyBlurrySmoothing,progress);
-          break;
-        case precise_blurriness:
+        // case vague_blurriness:
+        //   styleNormal(progress);
+        //   HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyBlurrySmoothing,progress);
+        //   break;
+        // case precise_blurriness:
+        //   styleNormal(progress);
+        //   HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,progress);
+        //   break;
+        case blurriness:
           styleNormal(progress);
           HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,progress);
           break;
@@ -354,12 +422,12 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       }
 
       //精细磨皮和朦胧磨皮冲突，二者选其一
-      if (HtState.getCurrentBeautySkin() == HtBeautyKey.precise_blurriness) {
-        HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness, 0);
-      }
-      if (HtState.getCurrentBeautySkin() == HtBeautyKey.vague_blurriness) {
-        HtUICacheUtils.beautySkinValue(HtBeautyKey.precise_blurriness, 0);
-      }
+      // if (HtState.getCurrentBeautySkin() == HtBeautyKey.precise_blurriness) {
+      //   HtUICacheUtils.beautySkinValue(HtBeautyKey.vague_blurriness, 0);
+      // }
+      // if (HtState.getCurrentBeautySkin() == HtBeautyKey.vague_blurriness) {
+      //   HtUICacheUtils.beautySkinValue(HtBeautyKey.precise_blurriness, 0);
+      // }
 
       Log.e("美颜" + HtState.getCurrentBeautySkin(), progress + "");
       HtUICacheUtils.beautySkinValue(HtState.getCurrentBeautySkin(), progress);
@@ -477,17 +545,81 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
 
       return;
     }
-    //美颜——滤镜
+
+    //美颜——美发
     if (HtState.currentViewState == HTViewState.BEAUTY
-        && HtState.currentSecondViewState == HTViewState.BEAUTY_FILTER) {
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_HAIR) {
 
       styleNormal(progress);
-      Log.e("滤镜" + HtState.currentFilter.getName(), progress + "%");
-      HtUICacheUtils.beautyFilterValue(HtState.currentFilter.getName(), progress);
+      Log.e("美发" + HtState.currentHair.getName(), progress + "%");
+      HtUICacheUtils.beautyHairValue(HtState.currentHair.getName(), progress);
 
-      HTEffect.shareInstance().setFilter(HtState.currentFilter.getName(),progress);
+      HTEffect.shareInstance().setHairStyling( HtState.currentHair.getId(),progress);
       return;
     }
+
+    //人像抠图——绿幕抠图——相似度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_SIMILARITY) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.greenscreenResetEnable()) {
+        HtUICacheUtils.greenscreenResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+      styleNormal(progress);
+      Log.e("绿幕抠图——相似度", progress + "%");
+      HtSelectedPosition.VALUE_SIMILARITY = progress;
+      // HtUICacheUtils.beautySimilarityValue(progress);
+
+      HTEffect.shareInstance().setGsSegEffectSimilarity(progress);
+      return;
+    }
+
+    //人像抠图——绿幕抠图——平滑度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_SMOOTHNESS) {
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.greenscreenResetEnable()) {
+        HtUICacheUtils.greenscreenResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+      styleNormal(progress);
+      Log.e("绿幕抠图——平滑度", progress + "%");
+      // HtUICacheUtils.beautySmoothnessValue(progress);
+      HtSelectedPosition.VALUE_SMOOTHNESS = progress;
+
+      HTEffect.shareInstance().setGsSegEffectSmoothness(progress);
+      return;
+    }
+
+    //人像抠图——绿幕抠图——透明度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_ALPHA) {
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.greenscreenResetEnable()) {
+        HtUICacheUtils.greenscreenResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+      styleNormal(progress);
+      Log.e("绿幕抠图——透明度", progress + "%");
+      // HtUICacheUtils.beautyAlphaValue(progress);
+      HtSelectedPosition.VALUE_ALPHA = progress;
+      HTEffect.shareInstance().setGsSegEffectTransparency(progress);
+      return;
+    }
+
+    //美颜——滤镜
+    // if (HtState.currentViewState == HTViewState.BEAUTY
+    //     && HtState.currentSecondViewState == HTViewState.FILTER) {
+    //
+    //   styleNormal(progress);
+    //   Log.e("滤镜" + HtState.currentStyleFilter.getName(), progress + "%");
+    //   HtUICacheUtils.beautyFilterValue(HtState.currentStyleFilter.getName(), progress);
+    //
+    //   HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), HtState.currentStyleFilter.getName());
+    //   return;
+    // }
 
     //轻彩妆
     // if (HtState.currentViewState == HTViewState.MAKE_UP) {

@@ -1,13 +1,14 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 import com.hwangjr.rxbus.annotation.Subscribe;
@@ -25,9 +26,6 @@ import com.texeljoy.ht_effect.model.HtState;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * 手势框架
- */
 public class HtGestureFrameFragment extends HtBaseFragment {
 
     private SViewPager htPager;
@@ -36,6 +34,8 @@ public class HtGestureFrameFragment extends HtBaseFragment {
     private IndicatorViewPager.IndicatorFragmentPagerAdapter fragmentPagerAdapter;
     private View container;
     private View line;
+    private View divide;
+    private ImageView ivClean;
 
     private final List<String> htTabs = new ArrayList<>();
 
@@ -49,6 +49,11 @@ public class HtGestureFrameFragment extends HtBaseFragment {
         indicatorView = view.findViewById(R.id.indicatorView);
         container = view.findViewById(R.id.container);
         line = view.findViewById(R.id.line);
+        divide = view.findViewById(R.id.divide);
+        ivClean = view.findViewById(R.id.iv_clean);
+
+        ivClean.setVisibility(View.GONE);
+        divide.setVisibility(View.GONE);
 
         //添加标题
         htTabs.clear();
@@ -107,7 +112,7 @@ public class HtGestureFrameFragment extends HtBaseFragment {
         container.setBackground(ContextCompat.getDrawable(getContext(),
             R.color.dark_background));
 
-        line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.gray_line));
+        line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.horizonal_line));
         //changeTheme("");
 
     }

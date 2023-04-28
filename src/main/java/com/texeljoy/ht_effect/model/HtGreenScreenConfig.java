@@ -61,8 +61,7 @@ public class HtGreenScreenConfig {
     public int isDownloaded() { return download;}
 
     public String getUrl() {
-
-       return HTEffect.shareInstance().getGSSegEffectUrl()+ name +  ".png";
+       return HTEffect.shareInstance().getGSSegEffectUrl()+ name +  ".zip";
 
     }
 

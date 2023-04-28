@@ -1,13 +1,13 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.os.Handler;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.core.cause.EndCause;
@@ -19,6 +19,7 @@ import com.texeljoy.ht_effect.model.HtStickerConfig;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.utils.HtUnZip;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTItemEnum;
 import java.io.File;
 import java.util.List;
 import java.util.Map;
@@ -34,6 +35,7 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
     private final int ITEM_TYPE_TWO = 2;
 
     private int selectedPosition = HtSelectedPosition.POSITION_STICKER;
+    private int lastPosition;
 
     private final List<HtStickerConfig.HtSticker> stickerList;
 
@@ -48,22 +50,22 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
 
     @Override
     public int getItemViewType(int position) {
-        if (position == 0) {
-            return ITEM_TYPE_ONE;
-        } else {
+        // if (position == 0 || position == stickerList.size() - 1) {
+        //     return ITEM_TYPE_ONE;
+        // } else {
             return ITEM_TYPE_TWO;
-        }
+        // }
     }
 
     @NonNull
     @Override
     public HtStickerViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view;
-        if (viewType == ITEM_TYPE_ONE) {
-            view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ht_sticker_one, parent, false);
-        } else {
+        // if (viewType == ITEM_TYPE_ONE) {
+        //     view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ht_sticker_one, parent, false);
+        // } else {
             view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_ht_sticker, parent, false);
-        }
+        // }
         return new HtStickerViewHolder(view);
     }
 
@@ -71,7 +73,7 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
     public void onBindViewHolder(@NonNull final HtStickerViewHolder holder, int position) {
 
         final HtStickerConfig.HtSticker htSticker = stickerList.get(holder.getAdapterPosition());
-
+        selectedPosition = HtSelectedPosition.POSITION_STICKER;
         if (selectedPosition == position) {
             holder.itemView.setSelected(true);
         } else {
@@ -84,6 +86,7 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
         } else {
             Glide.with(holder.itemView.getContext())
                 .load(stickerList.get(position).getIcon())
+                .placeholder(R.drawable.icon_placeholder)
                 .into(holder.thumbIV);
         }
 
@@ -113,12 +116,14 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                 //如果没有下载，则开始下载到本地
                 if (htSticker.isDownloaded() == HTDownloadState.NOT_DOWNLOAD) {
 
+                    int currentPosition = holder.getAdapterPosition();
+
                     //如果已经在下载了，则不操作
                     if (downloadingStickers.containsKey(htSticker.getName())) {
                         return;
                     }
 
-                    new DownloadTask.Builder(htSticker.getUrl(), new File(HTEffect.shareInstance().getStickerPath()))
+                    new DownloadTask.Builder(htSticker.getUrl(), new File(HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemSticker.getValue())))
                             .setMinIntervalMillisCallbackProcess(30)
                             .setConnectionCount(1)
                             .build()
@@ -143,7 +148,7 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                             @Override
                                             public void run() {
                                                 File targetDir =
-                                                    new File(HTEffect.shareInstance().getStickerPath());
+                                                    new File(HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemSticker.getValue()));
                                                 File file = task.getFile();
                                                 try {
                                                     //解压到贴纸目录
@@ -155,6 +160,13 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                                     //修改内存与文件
                                                     htSticker.setDownloaded(HTDownloadState.COMPLETE_DOWNLOAD);
                                                     htSticker.downloaded();
+
+                                                    HTEffect.shareInstance().setARItem(HTItemEnum.HTItemSticker.getValue(), htSticker.getName());
+                                                    lastPosition = selectedPosition;
+                                                    selectedPosition = currentPosition;
+                                                    HtSelectedPosition.POSITION_STICKER = selectedPosition;
+
+
 
                                                     handler.post(new Runnable() {
                                                         @Override
@@ -171,6 +183,7 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                             }
                                         }).start();
 
+
                                     } else {
                                         handler.post(new Runnable() {
                                             @Override
@@ -182,6 +195,8 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                                             }
                                         });
                                     }
+                                    notifyItemChanged(selectedPosition);
+                                    notifyItemChanged(lastPosition);
                                 }
                             });
 
@@ -189,17 +204,26 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                     if (holder.getAdapterPosition() == RecyclerView.NO_POSITION) {
                         return;
                     }
+                    if (holder.getAdapterPosition() == selectedPosition){
+                        //如果点击已选中的效果，则取消效果
+                        HTEffect.shareInstance().setARItem(HTItemEnum.HTItemSticker.getValue(), "");
+                        HtSelectedPosition.POSITION_STICKER = -1;
+                        notifyItemChanged(selectedPosition);
+                        // notifyItemChanged(-1);
+                    }else{
+                        //如果已经下载了，则让贴纸生效
+                        HTEffect.shareInstance().setARItem(HTItemEnum.HTItemSticker.getValue(), htSticker.getName());
+
+                        //切换选中背景
+                        int lastPosition = selectedPosition;
+                        selectedPosition = holder.getAdapterPosition();
+                        HtSelectedPosition.POSITION_STICKER = selectedPosition;
+                        notifyItemChanged(selectedPosition);
+                        notifyItemChanged(lastPosition);
+                    }
 
 
-                    //如果已经下载了，则让贴纸生效
-                    HTEffect.shareInstance().setSticker(htSticker.getName());
 
-                    //切换选中背景
-                    int lastPosition = selectedPosition;
-                    selectedPosition = holder.getAdapterPosition();
-                    HtSelectedPosition.POSITION_STICKER = selectedPosition;
-                    notifyItemChanged(selectedPosition);
-                    notifyItemChanged(lastPosition);
                 }
 
             }
