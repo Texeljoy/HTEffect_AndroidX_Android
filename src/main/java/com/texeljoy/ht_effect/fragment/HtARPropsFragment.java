@@ -25,6 +25,7 @@ import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtState;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTItemEnum;
 import java.util.ArrayList;
@@ -90,10 +91,12 @@ public class HtARPropsFragment extends HtBaseFragment {
             }else{
               HTEffect.shareInstance().setARItem(HTItemEnum.HTItemWatermark.getValue(), "");
               RxBus.get().post(HTEventAction.ACTION_SYNC_WATERMARK_ITEM_CHANGED, "");
+              RxBus.get().post(HTEventAction.ACTION_REMOVE_STICKER_RECT,"");
             }
 
           }
         });
+        HtSelectedPosition.POSITION_AR = position;
 
 
       }
@@ -149,6 +152,7 @@ public class HtARPropsFragment extends HtBaseFragment {
 
     line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.horizonal_line));
     divide.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.divide_line));
+    htPager.setCurrentItem(HtSelectedPosition.POSITION_AR,false);
     // changeTheme("");
 
   }

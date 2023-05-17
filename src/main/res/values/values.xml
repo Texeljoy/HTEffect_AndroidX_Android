@@ -12,7 +12,7 @@
     <color name="dark_black">#FF444444</color>
 
     <color name="filter_maker">#9AC4A37D</color>
-    <color name="makeup_maker">#99666666</color>
+    <color name="makeup_maker">#CCB9AEAD</color>
 
     <color name="gray_line">#FFFFFFFF</color>
     <color name="horizonal_line">#B3FFFFFF</color>
@@ -21,6 +21,7 @@
     <color name="light_gray_line">#FFEEEEEE</color>
     <color name="black_line">#4D000000</color>
     <color name="bg_filter_item_cover_80">#CCB7AFB2</color>
+    <color name="bg_sticker_download">#66000000</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="green_greenscreen">#00FF05</color>
     <color name="blue_greenscreen">#0100FC</color>

@@ -135,6 +135,7 @@ public class HtPortraitFragment extends HtBaseFragment {
         }
         //同步滑动条
         RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+        HtSelectedPosition.POSITION_PORTRAIT = position;
 
         // ivClean.setOnClickListener(new OnClickListener() {
         //   @Override public void onClick(View v) {
@@ -221,6 +222,7 @@ public class HtPortraitFragment extends HtBaseFragment {
 
     line.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.horizonal_line));
     divide.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.divide_line));
+    htPager.setCurrentItem(HtSelectedPosition.POSITION_PORTRAIT,false);
     //changeTheme("");
 
   }

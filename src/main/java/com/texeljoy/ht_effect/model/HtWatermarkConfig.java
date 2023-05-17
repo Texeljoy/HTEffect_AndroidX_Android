@@ -94,6 +94,12 @@ public class HtWatermarkConfig {
       HtConfigTools.getInstance().watermarkDownload(new Gson().toJson(watermarkList));
 
     }
+
+    public void delete(int position) {
+      HtWatermarkConfig watermarkList = HtConfigTools.getInstance().getWatermarkList();
+      watermarkList.getWatermarks().remove(position);
+      HtConfigTools.getInstance().watermarkDownload(new Gson().toJson(watermarkList));
+    }
     private boolean isFromDisk = false;
     public boolean isFromDisk() {
       return isFromDisk;
@@ -116,7 +122,6 @@ public class HtWatermarkConfig {
           //目标位置和文件
           File targetFile = new File(HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemWatermark.getValue())+"/watermark_icon", newFileName + suffix);
           File targetDirectory = new File(HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemWatermark.getValue()) + "/"+newFileName + "/"+newFileName + suffix);
-          Log.d("lu123456", "setFromDisk: "+ targetDirectory);
           //文件复制
 
           if (FileUtils.copyFile(sourceFile, targetFile)) {

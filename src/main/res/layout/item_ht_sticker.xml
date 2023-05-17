@@ -11,8 +11,8 @@
 
     <com.texeljoy.ht_effect.view.HtRoundImageView
         android:id="@+id/thumbIV"
-        android:layout_width="47dp"
-        android:layout_height="47dp"
+        android:layout_width="54dp"
+        android:layout_height="54dp"
         android:contentDescription="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -20,6 +20,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:riv_radius="6dp"/>
 
+    <ImageView
+        android:id="@+id/deleteIv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:src="@drawable/icon_watermark_upload_delete"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/loadingBG"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null"
+        android:src="@drawable/bg_sticker_download"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/loadingIV"
         android:layout_width="match_parent"
@@ -32,6 +55,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <ImageView
         android:id="@+id/downloadIV"

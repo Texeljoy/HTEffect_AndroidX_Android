@@ -44,6 +44,7 @@ import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.DpUtils;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.ht_effect.utils.SharedPreferencesUtil;
 import com.texeljoy.ht_effect.view.HtResetAllDialog;
@@ -215,7 +216,10 @@ public class HTPanelLayout extends ConstraintLayout
     //获取屏幕宽高
     dm = getContext().getResources().getDisplayMetrics();
 
+    initWatermark();
+
   }
+
 
   ///版本检测
   private void checkVersion() {
@@ -232,6 +236,8 @@ public class HTPanelLayout extends ConstraintLayout
   @Override
   protected void onDetachedFromWindow() {
     super.onDetachedFromWindow();
+    float[] points = stickerView.getFinalDst();
+    HtSelectedPosition.WATERMARK_POINTS = points;
     RxBus.get().unregister(this);
   }
 
@@ -350,7 +356,6 @@ public class HTPanelLayout extends ConstraintLayout
             v.performClick();
             isWaterMarkFocus = false;
         isWaterMarkFocus = stickerView.getIsFocus();
-        Log.d("lu123456", "onTouch: "+isWaterMarkFocus);
         if(event.getAction() == MotionEvent.ACTION_UP && isWaterMarkFocus == false){
           Log.e("click","--||--");
           backContainer();
@@ -667,6 +672,28 @@ public class HTPanelLayout extends ConstraintLayout
   }
 
 
+  @Subscribe(thread = EventThread.MAIN_THREAD,
+             tags = { @Tag(HTEventAction.ACTION_REMOVE_STICKER_RECT) })
+  public void removeRect(Object o) {
+    stickerView.clearSticker();
+  }
+
+  /**
+   * 初始化水印位置
+   */
+  private void initWatermark() {
+    if(HtSelectedPosition.POSITION_WATERMARK > 0){
+      float[] points = HtSelectedPosition.WATERMARK_POINTS;
+      if(points != null){
+        stickerView.updateSticker(points);
+      }
+      stickerView.addSticker(R.drawable.icon_placeholder);
+    }
+
+  }
+
+
+
 
   /**
    * 设置面板动画
@@ -754,7 +781,6 @@ public class HTPanelLayout extends ConstraintLayout
             // isWaterMarkFocus = stickerView.getIsFocus();
             isWaterMarkFocus = false;
             isWaterMarkFocus = stickerView.getIsFocus();
-            Log.d("lu123456", "onTouch: "+isWaterMarkFocus);
             v.performClick();
             if(event.getAction() == MotionEvent.ACTION_UP && isWaterMarkFocus == false ){
               Log.e("click","--||--");

@@ -27,6 +27,7 @@ import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.view.HtBarView;
 import java.util.ArrayList;
 import java.util.List;
@@ -112,6 +113,7 @@ public class HtFilterFragment extends HtBaseFragment {
     htPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
       @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
+        HtSelectedPosition.POSITION_FILTER = position;
       }
 
       @Override public void onPageSelected(int position) {
@@ -171,7 +173,7 @@ public class HtFilterFragment extends HtBaseFragment {
       //topIndicatorView.setItemClickable(false);
 
     }
-
+    htPager.setCurrentItem(HtSelectedPosition.POSITION_FILTER,false);
     changeTheme("");
   }
   /**

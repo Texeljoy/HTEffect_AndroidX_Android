@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
@@ -91,16 +93,33 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
                 //调起相册
                 openAlbum();
             }
+
+            @Override public void deleteWaterMarkFromDisk(int position) {
+                deleteWatermark(position);
+            }
         });
         htWatermarkRV.setLayoutManager(new GridLayoutManager(getContext(), 5));
         htWatermarkRV.setAdapter(watermarkAdapter);
     }
 
+    /*
+    删除水印
+     */
+    private void deleteWatermark(int position) {
+        items.remove(items.get(position));
+        // HtConfigTools.getInstance().watermarkDownload(new Gson().toJson(items));
+        // watermarkAdapter.selectItem(0);
+        watermarkAdapter.notifyDataSetChanged();
+    }
+
     public interface waterMarkClick {
         //点击从相册中选择背景
         void clickWaterMarkFromDisk();
+        //删除从相册选择的背景
+        void deleteWaterMarkFromDisk(int position);
 
     }
+
 
     /**
      * 打开相册
@@ -134,14 +153,17 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
         Uri uri = data.getData();
         if (uri == null) return;
         String imagePath = getImagePath(uri, null);
-        if (!isPngOrJpg(imagePath)) {
-            Toast.makeText(getContext(), "暂时只兼容png和jpg格式的背景图", Toast.LENGTH_SHORT).show();
+        if (!isPng(imagePath)) {
+            Toast.makeText(getContext(), "暂时只兼容png格式的背景图", Toast.LENGTH_SHORT).show();
             return;
         }
         HtWatermark htWatermark = new HtWatermark("", "", HTDownloadState.COMPLETE_DOWNLOAD,"");
         htWatermark.setFromDisk(true, requireContext(), imagePath);
         items.add(htWatermark);
         watermarkAdapter.selectItem(items.size() - 1);
+        Bitmap bitmap = BitmapFactory.decodeFile(htWatermark.getIcon());
+        RxBus.get().post(HTEventAction.ACTION_REMOVE_STICKER_RECT,"");
+        RxBus.get().post(HTEventAction.ACTION_ADD_STICKER_RECT,bitmap);
         watermarkAdapter.notifyDataSetChanged();
     }
 
@@ -168,13 +190,13 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
      * @param path 路径
      * @return 结果
      */
-    private boolean isPngOrJpg(String path) {
+    private boolean isPng(String path) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(path, options);
         String type = options.outMimeType;
         Log.i("添加的绿幕的背景图格式：", options.outMimeType);
-        return "image/png".equals(type) || "image/jpg".equals(type) || "image/jpeg".equals(type);
+        return "image/png".equals(type);
     }
 
 

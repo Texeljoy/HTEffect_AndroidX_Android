@@ -2,11 +2,10 @@ package com.texeljoy.ht_effect.utils;
 
 public class HtSelectedPosition {
     public static int POSITION_QUICK_BEAUTY = 0;
-    public static int POSITION_BEAUTY = 0;
+
     public static int POSITION_FACE_SHAPE = 0;
     public static int POSITION_FACE_TRIM = 0;
 
-    public static int POSITION_FILTER = 0;
     public static int POSITION_ROCK = 0;
     public static int POSITION_DISTORTION = 0;
 
@@ -35,4 +34,12 @@ public class HtSelectedPosition {
     public static int VALUE_SIMILARITY = 50;
     public static int VALUE_SMOOTHNESS = 0;
     public static int VALUE_ALPHA = 0;
+
+    public static int POSITION_BEAUTY = 0;
+    public static int POSITION_AR = 0;
+    public static int POSITION_PORTRAIT = 0;
+    public static int POSITION_FILTER = 0;
+    public static float[] WATERMARK_POINTS = new float[8];
+
+
 }

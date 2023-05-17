@@ -29,6 +29,7 @@ import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
+import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.view.HtBarView;
 import java.util.ArrayList;
 import java.util.List;
@@ -110,6 +111,7 @@ public class HtBeautyFragment extends HtBaseFragment {
 
     htPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
       @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+        HtSelectedPosition.POSITION_BEAUTY = position;
 
       }
 
@@ -170,8 +172,8 @@ public class HtBeautyFragment extends HtBaseFragment {
       htPager.setCurrentItem(3,false);
       alternateIndicatorView.setVisibility(View.VISIBLE);
       //topIndicatorView.setItemClickable(false);
-
     }
+    htPager.setCurrentItem(HtSelectedPosition.POSITION_BEAUTY,false);
 
     changeTheme("");
   }

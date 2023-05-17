@@ -49,8 +49,8 @@ public class HtHairItemViewBinder extends ItemViewBinder<HtHairConfig.HtHair,
 
     holder.thumbIV.setImageDrawable(HtHairEnum.values()[getPosition(holder)].getIcon(holder.itemView.getContext()));
 
-    holder.maker.setBackgroundColor(ContextCompat.getColor
-        (holder.itemView.getContext(), R.color.filter_maker));
+    // holder.maker.setBackgroundColor(ContextCompat.getColor
+    //     (holder.itemView.getContext(), R.color.filter_maker));
 
     holder.maker.setVisibility(
         holder.itemView.isSelected() ? View.VISIBLE : View.GONE

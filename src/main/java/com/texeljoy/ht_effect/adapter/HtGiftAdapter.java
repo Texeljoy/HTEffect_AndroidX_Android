@@ -94,16 +94,19 @@ public class HtGiftAdapter extends RecyclerView.Adapter<HtStickerViewHolder> {
         if (htGift.isDownloaded() == HTDownloadState.COMPLETE_DOWNLOAD) {
             holder.downloadIV.setVisibility(View.GONE);
             holder.loadingIV.setVisibility(View.GONE);
+            holder.loadingBG.setVisibility(View.GONE);
             holder.stopLoadingAnimation();
         } else {
             //判断是否正在下载，如果正在下载，则显示加载动画
             if (downloadingGifts.containsKey(htGift.getName())) {
                 holder.downloadIV.setVisibility(View.GONE);
                 holder.loadingIV.setVisibility(View.VISIBLE);
+                holder.loadingBG.setVisibility(View.VISIBLE);
                 holder.startLoadingAnimation();
             } else {
                 holder.downloadIV.setVisibility(View.VISIBLE);
                 holder.loadingIV.setVisibility(View.GONE);
+                holder.loadingBG.setVisibility(View.GONE);
                 holder.stopLoadingAnimation();
             }
         }

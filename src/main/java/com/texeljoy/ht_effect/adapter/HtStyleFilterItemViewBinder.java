@@ -61,8 +61,8 @@ public class HtStyleFilterItemViewBinder extends ItemViewBinder<HtStyleFilterCon
         .into(holder.thumbIV);
     // holder.thumbIV.setImageDrawable(HtStyleFilterEnum.values()[getPosition(holder)].getIcon(holder.itemView.getContext()));
 
-    holder.maker.setBackgroundColor(ContextCompat.getColor
-        (holder.itemView.getContext(), R.color.makeup_maker));
+    // holder.maker.setBackgroundColor(ContextCompat.getColor
+    //     (holder.itemView.getContext(), R.color.makeup_maker));
     holder.maker.setVisibility(
         holder.itemView.isSelected() ? View.VISIBLE : View.GONE
     );

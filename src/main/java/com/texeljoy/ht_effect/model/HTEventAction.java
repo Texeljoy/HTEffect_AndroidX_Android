@@ -66,6 +66,9 @@ public class HTEventAction {
   //添加贴纸的提示框
   public static final String ACTION_ADD_STICKER_RECT = "ACTION_ADD_STICKER_RECT";
 
+  //清除贴纸的提示框
+  public static final String ACTION_REMOVE_STICKER_RECT = "ACTION_REMOVE_STICKER_RECT";
+
 
 
 

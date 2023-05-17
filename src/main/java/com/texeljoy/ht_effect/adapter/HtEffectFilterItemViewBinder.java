@@ -50,8 +50,8 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
 
     holder.thumbIV.setImageDrawable(HtEffectFilterEnum.values()[getPosition(holder)].getIcon(holder.itemView.getContext()));
 
-    holder.maker.setBackgroundColor(ContextCompat.getColor
-        (holder.itemView.getContext(), R.color.makeup_maker));
+    // holder.maker.setBackgroundColor(ContextCompat.getColor
+    //     (holder.itemView.getContext(), R.color.makeup_maker));
     holder.maker.setVisibility(
         holder.itemView.isSelected() ? View.VISIBLE : View.GONE
     );
@@ -86,7 +86,7 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
 
 
         RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
-        RxBus.get().post(HTEventAction.ACTION_SHOW_FILTER, "");
+        // RxBus.get().post(HTEventAction.ACTION_SHOW_FILTER, "");
       }
     });
 

@@ -29,7 +29,7 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View;
+import android.view.View.OnLongClickListener;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -42,7 +42,7 @@ import java.util.TimerTask;
  * <p>
  * 拍照/录制视频的按钮。
  */
-public class HtMagicButton extends AppCompatImageView implements Runnable {
+    public class HtMagicButton extends AppCompatImageView implements Runnable {
 
     /**
      * 按钮点击监听。
@@ -280,7 +280,7 @@ public class HtMagicButton extends AppCompatImageView implements Runnable {
     }
 
     @Override
-    public void setOnLongClickListener(@Nullable View.OnLongClickListener l) {
+    public void setOnLongClickListener(@Nullable OnLongClickListener l) {
         throw new RuntimeException("请调用 setOnMagicClickedListener()");
     }
 

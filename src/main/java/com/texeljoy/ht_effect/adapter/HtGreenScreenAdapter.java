@@ -1,6 +1,7 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.os.Handler;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -95,16 +96,19 @@ public class HtGreenScreenAdapter extends RecyclerView.Adapter<HtStickerViewHold
         if (htGreenScreen.isDownloaded() == HTDownloadState.COMPLETE_DOWNLOAD) {
             holder.downloadIV.setVisibility(View.GONE);
             holder.loadingIV.setVisibility(View.GONE);
+            holder.loadingBG.setVisibility(View.GONE);
             holder.stopLoadingAnimation();
         } else {
             //判断是否正在下载，如果正在下载，则显示加载动画
             if (downloadingGreenScreens.containsKey(htGreenScreen.getName())) {
                 holder.downloadIV.setVisibility(View.GONE);
                 holder.loadingIV.setVisibility(View.VISIBLE);
+                holder.loadingBG.setVisibility(View.VISIBLE);
                 holder.startLoadingAnimation();
             } else {
                 holder.downloadIV.setVisibility(View.VISIBLE);
                 holder.loadingIV.setVisibility(View.GONE);
+                holder.loadingBG.setVisibility(View.GONE);
                 holder.stopLoadingAnimation();
             }
         }
@@ -123,10 +127,12 @@ public class HtGreenScreenAdapter extends RecyclerView.Adapter<HtStickerViewHold
                     }
                     new DownloadTask.Builder(htGreenScreen.getUrl(), new File(HTEffect.shareInstance().getGSSegEffectPath()))
                             .setMinIntervalMillisCallbackProcess(30)
+                            .setConnectionCount(1)
                             .build()
                             .enqueue(new DownloadListener2() {
                                 @Override
                                 public void taskStart(@NonNull DownloadTask task) {
+                                    Log.d("lu123456", "taskStart: "+htGreenScreen.getUrl());
                                     downloadingGreenScreens.put(htGreenScreen.getName(), htGreenScreen.getUrl());
                                     handler.post(new Runnable() {
                                         @Override
