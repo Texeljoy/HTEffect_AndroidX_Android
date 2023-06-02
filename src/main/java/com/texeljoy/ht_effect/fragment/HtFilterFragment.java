@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
@@ -48,7 +49,7 @@ public class HtFilterFragment extends HtBaseFragment {
   private View divide;
   private RelativeLayout bottomLayout;
   private AppCompatImageView returnIv;
-  private AppCompatImageView cleanIv;
+  private ImageView cleanIv;
   private String which;
   private HtBarView barView;
 
@@ -167,12 +168,12 @@ public class HtFilterFragment extends HtBaseFragment {
     if("filter".equals(which)){
       htPager.setCurrentItem(0,false);
     }
-    if(HtState.currentStyle != HtStyle.YUAN_TU){
-      htPager.setCurrentItem(3,false);
-      alternateIndicatorView.setVisibility(View.VISIBLE);
-      //topIndicatorView.setItemClickable(false);
-
-    }
+    // if(HtState.currentStyle != HtStyle.YUAN_TU){
+    //   htPager.setCurrentItem(3,false);
+    //   alternateIndicatorView.setVisibility(View.VISIBLE);
+    //   //topIndicatorView.setItemClickable(false);
+    //
+    // }
     htPager.setCurrentItem(HtSelectedPosition.POSITION_FILTER,false);
     changeTheme("");
   }
