@@ -239,13 +239,16 @@ isRenderInit = false;
 ----
 
 ## **示例代码**
-> [Demo下载](https://doc.texeljoy.com/hummanBody/beauty/SDK/sdkDownload.html)
+> [Demo下载](https://doc.texeljoy.com/document/hummanBody/beauty/quickStart/demo.html)
 
 <br/>
 
 ----
 
 ## **最近更新**
+- **2023.06.09:** v2.1.0
+    - 新增16种高级滤镜
+    
 - **2023.06.07:** v2.0.2
     - 修复部分机型闪烁的问题
     - 优化资源内存空间处理
