@@ -42,7 +42,7 @@ import java.util.List;
 public class HtWatermarkFragment extends HtBaseLazyFragment {
     private HtWatermarkAdapter watermarkAdapter;
 
-    private final List<HtWatermarkConfig.HtWatermark> items = new ArrayList<>();
+    private final List<HtWatermark> items = new ArrayList<>();
 
     private static final int IMAGE_REQUEST_CODE = 0;//标题图片的选中返回
 
@@ -63,7 +63,7 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
             initRecyclerView();
         } else {
             HtConfigTools.getInstance().getWatermarksConfig(new HtConfigCallBack<List<HtWatermark>>() {
-                @Override public void success(List<HtWatermarkConfig.HtWatermark> list) {
+                @Override public void success(List<HtWatermark> list) {
                     items.addAll(list);
                     initRecyclerView();
                 }
@@ -134,7 +134,7 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
         }
         //调取系统相册
         Intent intent = new Intent(Intent.ACTION_PICK,
-            android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
         startActivityForResult(intent, IMAGE_REQUEST_CODE);
     }
 

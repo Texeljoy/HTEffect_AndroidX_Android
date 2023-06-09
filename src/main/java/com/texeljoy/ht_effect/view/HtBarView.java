@@ -34,7 +34,7 @@ import com.texeljoy.hteffect.HTEffect;
 /**
  * 复用的Slider
  */
-@SuppressWarnings("unused")
+
 public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeListener {
 
   private TextView htNumberTV;
@@ -126,7 +126,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
     Log.e("面板1", HtState.currentViewState.name());
     Log.e("面板2", HtState.currentSecondViewState.name());
 
-    //美颜——美肤——美肤
+    //美颜——美颜
     if (HtState.currentViewState == HTViewState.BEAUTY
         && HtState.currentSecondViewState == HTViewState.BEAUTY_SKIN){
 
@@ -167,7 +167,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
 
     }
 
-    //美颜——美肤——美型
+    //美颜——美型
     if (HtState.currentViewState == HTViewState.BEAUTY
         && HtState.currentSecondViewState == HTViewState.BEAUTY_FACE_TRIM) {
 
@@ -219,11 +219,11 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
-    //美颜——美肤——美发
+    //美颜——美发
     if (HtState.currentViewState == HTViewState.BEAUTY
         && HtState.currentSecondViewState == HTViewState.BEAUTY_HAIR) {
 
-      //美型效果未选中，隐藏滑动条
+      //美发效果未选中，隐藏滑动条
       if (HtUICacheUtils.beautyHairPosition() == 0) {
         setVisibility(INVISIBLE);
         return;
@@ -237,6 +237,27 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       Log.e("美发滑动参数同步:", progress + "");
       htSeekBar.setProgress(progress);
       styleNormal(HtUICacheUtils.beautyHairValue(HtState.currentHair.getName()));
+      return;
+    }
+
+    //AR道具——水印
+    if (HtState.currentViewState == HTViewState.AR
+        && HtState.currentSecondViewState == HTViewState.AR_WATERMARK) {
+
+      // //水印效果未选中，隐藏滑动条
+      // Log.d("lu123456", "syncProgress: "+HtSelectedPosition.POSITION_WATERMARK);
+      // if (HtSelectedPosition.POSITION_WATERMARK < 1) {
+      //   setVisibility(INVISIBLE);
+      //   return;
+      // } else {
+      //   setVisibility(VISIBLE);
+      // }
+      //
+      // int progress = HtSelectedPosition.VALUE_WATERMARK_ALPHA;
+      // Log.e("当前模块:", "水印");
+      // Log.e("水印滑动参数同步:", progress + "");
+      // htSeekBar.setProgress(progress);
+      // styleNormal(HtSelectedPosition.VALUE_WATERMARK_ALPHA);
       return;
     }
 
@@ -555,6 +576,17 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       HtUICacheUtils.beautyHairValue(HtState.currentHair.getName(), progress);
 
       HTEffect.shareInstance().setHairStyling( HtState.currentHair.getId(),progress);
+      return;
+    }
+
+    //AR抠图——水印
+    if (HtState.currentViewState == HTViewState.AR
+        && HtState.currentSecondViewState == HTViewState.AR_WATERMARK) {
+
+      // styleNormal(progress);
+      // Log.e("水印透明度",  progress + "%");
+      // HtSelectedPosition.VALUE_WATERMARK_ALPHA = progress;
+      //todo 设置水印透明度的接口
       return;
     }
 

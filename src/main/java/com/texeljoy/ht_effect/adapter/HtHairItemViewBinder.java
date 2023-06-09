@@ -30,7 +30,7 @@ public class HtHairItemViewBinder extends ItemViewBinder<HtHairConfig.HtHair,
 
   @NonNull @Override protected HtHairItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
-    return new HtHairItemViewBinder.ViewHolder(root);
+    return new ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

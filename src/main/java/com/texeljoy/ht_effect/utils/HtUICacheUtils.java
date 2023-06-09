@@ -9,6 +9,7 @@ import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyleFilterEnum;
 import com.texeljoy.ht_effect.model.HtUICacheKey;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTFilterEnum;
 
 /**
  * ui缓存工具类
@@ -28,9 +29,9 @@ public class HtUICacheUtils {
     }
 
 
-    HtStyleFilterEnum currentFilter = HtStyleFilterEnum.values()[beautyFilterPosition()];
+    // HtStyleFilterEnum currentFilter = HtStyleFilterEnum.values()[beautyFilterPosition()];
     //设置滤镜
-    // HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), beautyFilterName());
+    HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), beautyFilterName());
 
     //美肤系
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,beautySkinValue(HtBeautyKey.blurriness));
@@ -329,7 +330,7 @@ public class HtUICacheUtils {
         defaultValue = 60;
         break;
       case brightness:
-        defaultValue = 20 + 50;
+        defaultValue = 50;
         break;
       case undereye_circles:
         defaultValue = 70;
@@ -358,8 +359,13 @@ public class HtUICacheUtils {
 
     switch (key) {
       case EYE_ENLARGING:
+        defaultValue = 60;
+        break;
       case EYE_CORNER_ENLARGING:
+        break;
       case CHEEK_THINNING:
+        defaultValue = 30;
+        break;
       case NOSE_APEX_LESSENING:
       case NOSE_ROOT_ENLARGING:
       case MOUTH_SMILING:
@@ -398,7 +404,7 @@ public class HtUICacheUtils {
         defaultValue = 50;
         break;
       case NOSE_THINNING:
-        defaultValue = 50;
+        defaultValue = 40;
         break;
       case MOUTH_TRIMMING:
         defaultValue = 50;

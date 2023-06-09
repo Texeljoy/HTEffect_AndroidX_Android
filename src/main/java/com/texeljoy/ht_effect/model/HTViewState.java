@@ -28,6 +28,9 @@ public enum HTViewState {
   GREENSCREEN_BACKGROUND,//背景
 
   AR_PROP,//道具
+  AR_STICKER,//贴纸
+  AR_MASK,//面具
+  AR_GIFT,//礼物
   AR_WATERMARK,//水印
 
 

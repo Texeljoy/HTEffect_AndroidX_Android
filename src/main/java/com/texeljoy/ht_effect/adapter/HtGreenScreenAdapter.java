@@ -37,14 +37,14 @@ public class HtGreenScreenAdapter extends RecyclerView.Adapter<HtStickerViewHold
     private int selectedPosition = HtSelectedPosition.POSITION_GREEN_SCREEN;
     private int lastPosition;
 
-    private final List<HtGreenScreenConfig.HtGreenScreen> greenScreenList;
+    private final List<HtGreenScreen> greenScreenList;
 
 
     private final Handler handler = new Handler();
 
     private final Map<String, String> downloadingGreenScreens = new ConcurrentHashMap<>();
 
-    public HtGreenScreenAdapter(List<HtGreenScreenConfig.HtGreenScreen> greenScreenList) {
+    public HtGreenScreenAdapter(List<HtGreenScreen> greenScreenList) {
         this.greenScreenList = greenScreenList;
         DownloadDispatcher.setMaxParallelRunningCount(5);
     }
@@ -74,7 +74,7 @@ public class HtGreenScreenAdapter extends RecyclerView.Adapter<HtStickerViewHold
     @Override
     public void onBindViewHolder(@NonNull final HtStickerViewHolder holder, int position) {
 
-        final HtGreenScreenConfig.HtGreenScreen htGreenScreen = greenScreenList.get(holder.getAdapterPosition());
+        final HtGreenScreen htGreenScreen = greenScreenList.get(holder.getAdapterPosition());
         selectedPosition = HtSelectedPosition.POSITION_GREEN_SCREEN;
         if (selectedPosition == position) {
             holder.itemView.setSelected(true);
@@ -83,7 +83,7 @@ public class HtGreenScreenAdapter extends RecyclerView.Adapter<HtStickerViewHold
         }
 
         //显示封面
-        if (htGreenScreen == HtGreenScreenConfig.HtGreenScreen.NO_GreenScreen) {
+        if (htGreenScreen == HtGreenScreen.NO_GreenScreen) {
             holder.thumbIV.setImageResource(R.mipmap.icon_ht_none_sticker);
         } else {
             Glide.with(holder.itemView.getContext())

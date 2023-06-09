@@ -24,6 +24,7 @@ import com.shizhefei.view.viewpager.SViewPager;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
+import com.texeljoy.ht_effect.model.HTViewState;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.hteffect.HTEffect;
@@ -92,10 +93,27 @@ public class HtARPropsFragment extends HtBaseFragment {
               HTEffect.shareInstance().setARItem(HTItemEnum.HTItemWatermark.getValue(), "");
               RxBus.get().post(HTEventAction.ACTION_SYNC_WATERMARK_ITEM_CHANGED, "");
               RxBus.get().post(HTEventAction.ACTION_REMOVE_STICKER_RECT,"");
+
             }
 
           }
         });
+        switch (position){
+          case 0:
+            HtState.currentSecondViewState = HTViewState.AR_STICKER;
+            break;
+          case 1:
+            HtState.currentSecondViewState = HTViewState.AR_MASK;
+            break;
+          case 2:
+            HtState.currentSecondViewState = HTViewState.AR_GIFT;
+            break;
+          case 3:
+            HtState.currentSecondViewState = HTViewState.AR_WATERMARK;
+            break;
+        }
+        //同步滑动条
+        RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
         HtSelectedPosition.POSITION_AR = position;
 
 

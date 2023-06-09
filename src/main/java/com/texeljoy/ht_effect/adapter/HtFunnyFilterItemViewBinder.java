@@ -26,7 +26,7 @@ public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConf
 
   @NonNull @Override protected HtFunnyFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_drawable_top_button, parent, false);
-    return new HtFunnyFilterItemViewBinder.ViewHolder(root);
+    return new ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

@@ -33,7 +33,7 @@ public class HtStyleFilterItemViewBinder extends ItemViewBinder<HtStyleFilterCon
 
   @NonNull @Override protected HtStyleFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
-    return new HtStyleFilterItemViewBinder.ViewHolder(root);
+    return new ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

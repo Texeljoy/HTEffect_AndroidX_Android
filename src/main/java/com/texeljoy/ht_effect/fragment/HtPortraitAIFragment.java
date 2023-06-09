@@ -26,7 +26,7 @@ import java.util.List;
  */
 public class HtPortraitAIFragment extends HtBaseLazyFragment {
 
-    private final List<HtAISegmentationConfig.HtAISegmentation> items = new ArrayList<>();
+    private final List<HtAISegmentation> items = new ArrayList<>();
     HtAISegmentationAdapter adapter;
 
     @Override protected int getLayoutId() {
@@ -37,7 +37,7 @@ public class HtPortraitAIFragment extends HtBaseLazyFragment {
         if (getContext() == null) return;
 
         items.clear();
-        items.add(HtAISegmentationConfig.HtAISegmentation.NO_Portrait);
+        items.add(HtAISegmentation.NO_Portrait);
 
 
         HtAISegmentationConfig portraitConfig = HtConfigTools.getInstance().getAISegmentationList();
@@ -46,7 +46,7 @@ public class HtPortraitAIFragment extends HtBaseLazyFragment {
             initRecyclerView();
         } else {
             HtConfigTools.getInstance().getAISegmentationConfig(new HtConfigCallBack<List<HtAISegmentation>>() {
-                @Override public void success(List<HtAISegmentationConfig.HtAISegmentation> list) {
+                @Override public void success(List<HtAISegmentation> list) {
                     items.addAll(list);
                     initRecyclerView();
                 }

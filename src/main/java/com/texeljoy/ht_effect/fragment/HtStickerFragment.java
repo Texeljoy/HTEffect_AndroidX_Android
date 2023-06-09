@@ -25,7 +25,7 @@ import java.util.List;
  */
 public class HtStickerFragment extends HtBaseLazyFragment {
 
-  private final List<HtStickerConfig.HtSticker> items = new ArrayList<>();
+  private final List<HtSticker> items = new ArrayList<>();
   HtStickerAdapter stickerkAdapter;
 
   @Override protected int getLayoutId() {
@@ -46,7 +46,7 @@ public class HtStickerFragment extends HtBaseLazyFragment {
       initRecyclerView();
     } else {
       HtConfigTools.getInstance().getStickersConfig(new HtConfigCallBack<List<HtSticker>>() {
-        @Override public void success(List<HtStickerConfig.HtSticker> list) {
+        @Override public void success(List<HtSticker> list) {
           items.addAll(list);
           // items.add(HtSticker.NEW_STICKER);
           initRecyclerView();

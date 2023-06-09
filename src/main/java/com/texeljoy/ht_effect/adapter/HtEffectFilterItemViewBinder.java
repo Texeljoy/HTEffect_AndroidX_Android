@@ -31,7 +31,7 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
 
   @NonNull @Override protected HtEffectFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
-    return new HtEffectFilterItemViewBinder.ViewHolder(root);
+    return new ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

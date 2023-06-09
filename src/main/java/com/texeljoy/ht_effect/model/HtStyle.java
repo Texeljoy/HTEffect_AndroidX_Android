@@ -13,7 +13,7 @@ import com.texeljoy.ht_effect.R;
  */
 public enum HtStyle {
   //原图
-  YUAN_TU(R.string.none,R.drawable.ic_style_none,1,"#666666"),
+  YUAN_TU(R.string.none,R.drawable.ic_style_none,0,"#666666"),
   //经典
   JING_DIAN(R.string.style_jingdian, R.drawable.ic_style_jingdian, 1, "#B77F52"),
   //网红

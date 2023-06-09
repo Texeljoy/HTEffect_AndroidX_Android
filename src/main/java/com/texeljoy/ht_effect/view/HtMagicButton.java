@@ -29,6 +29,7 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;
@@ -42,7 +43,7 @@ import java.util.TimerTask;
  * <p>
  * 拍照/录制视频的按钮。
  */
-    public class HtMagicButton extends AppCompatImageView implements Runnable {
+public class HtMagicButton extends AppCompatImageView implements Runnable {
 
     /**
      * 按钮点击监听。

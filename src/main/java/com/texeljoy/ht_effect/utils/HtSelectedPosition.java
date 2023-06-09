@@ -32,8 +32,9 @@ public class HtSelectedPosition {
     public static int POSITION_GREEN_SCREEN_EDIT = 0;
     public static int POSITION_GREEN_SCREEN_COLOR = 0;
     public static int VALUE_SIMILARITY = 50;
-    public static int VALUE_SMOOTHNESS = 0;
-    public static int VALUE_ALPHA = 0;
+    public static int VALUE_SMOOTHNESS = 50;
+    public static int VALUE_ALPHA = 50;
+    public static int VALUE_WATERMARK_ALPHA = 0;
 
     public static int POSITION_BEAUTY = 0;
     public static int POSITION_AR = 0;

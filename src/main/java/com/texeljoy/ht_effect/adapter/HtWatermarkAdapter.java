@@ -156,7 +156,7 @@ public class HtWatermarkAdapter extends RecyclerView.Adapter<HtStickerViewHolder
                 }
             });
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
+            holder.itemView.setOnClickListener(new OnClickListener() {
                 @Override
                 public void onClick(View view) {
 
@@ -289,6 +289,7 @@ public class HtWatermarkAdapter extends RecyclerView.Adapter<HtStickerViewHolder
                         notifyItemChanged(deletePosition);
                         deletePosition = -1;
                     }
+                    RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
 
                 }
             });
