@@ -27,7 +27,7 @@ import java.util.List;
 public class HtGestureFragment extends HtBaseLazyFragment {
 
 
-    private final List<HtGesture> items = new ArrayList<>();
+    private final List<HtGestureConfig.HtGesture> items = new ArrayList<>();
     HtGestureAdapter htGestureAdapter;
 
     @Override protected int getLayoutId() {
@@ -38,7 +38,7 @@ public class HtGestureFragment extends HtBaseLazyFragment {
         if (getContext() == null) return;
 
         items.clear();
-        items.add(HtGesture.NO_Gesture);
+        items.add(HtGestureConfig.HtGesture.NO_Gesture);
 
         HtGestureConfig gestureList = HtConfigTools.getInstance().getGestureList();
 
@@ -47,7 +47,7 @@ public class HtGestureFragment extends HtBaseLazyFragment {
             initRecyclerView();
         } else {
             HtConfigTools.getInstance().getGestureConfig(new HtConfigCallBack<List<HtGesture>>() {
-                @Override public void success(List<HtGesture> list) {
+                @Override public void success(List<HtGestureConfig.HtGesture> list) {
                     items.addAll(list);
                     initRecyclerView();
                 }

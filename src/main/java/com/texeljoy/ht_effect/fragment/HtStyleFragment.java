@@ -2,10 +2,10 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;

@@ -2,15 +2,15 @@ package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
@@ -30,7 +30,7 @@ public class HtHairItemViewBinder extends ItemViewBinder<HtHairConfig.HtHair,
 
   @NonNull @Override protected HtHairItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
-    return new ViewHolder(root);
+    return new HtHairItemViewBinder.ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

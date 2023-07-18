@@ -71,7 +71,7 @@ public class HtGreenScreenEditFragment extends HtBaseLazyFragment {
             }
         });
 
-        ivRestore.setOnClickListener(new OnClickListener() {
+        ivRestore.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
                 resetDialog.show(getChildFragmentManager(), "greenscreen");
                 //RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");

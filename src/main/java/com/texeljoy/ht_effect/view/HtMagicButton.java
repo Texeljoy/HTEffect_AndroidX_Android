@@ -29,7 +29,6 @@ import android.graphics.RectF;
 import android.os.Handler;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
-import android.view.View.OnClickListener;
 import android.view.View.OnLongClickListener;
 import android.view.animation.LinearInterpolator;
 import androidx.annotation.Nullable;

@@ -38,13 +38,13 @@ public class HtMaskAdapter extends RecyclerView.Adapter<HtStickerViewHolder> {
     private int selectedPosition = HtSelectedPosition.POSITION_MASK;
     private int lastPosition;
 
-    private final List<HtMask> maskList;
+    private final List<HtMaskConfig.HtMask> maskList;
 
     private Handler handler = new Handler();
 
     private Map<String, String> downloadingMasks = new ConcurrentHashMap<>();
 
-    public HtMaskAdapter(List<HtMask> maskList) {
+    public HtMaskAdapter(List<HtMaskConfig.HtMask> maskList) {
         this.maskList = maskList;
         DownloadDispatcher.setMaxParallelRunningCount(5);
     }
@@ -73,7 +73,7 @@ public class HtMaskAdapter extends RecyclerView.Adapter<HtStickerViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull final HtStickerViewHolder holder, int position) {
 
-        final HtMask htMask = maskList.get(holder.getAdapterPosition());
+        final HtMaskConfig.HtMask htMask = maskList.get(holder.getAdapterPosition());
 
         selectedPosition = HtSelectedPosition.POSITION_MASK;
         if (selectedPosition == position) {

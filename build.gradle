@@ -31,8 +31,8 @@ android {
 }
 
 dependencies {
-  api fileTree(dir: 'libs', include: ['*.aar'])
-  implementation 'androidx.appcompat:appcompat:1.0.0'
+  api fileTree(dir: 'libs', include: ["*.jar",'*.aar'])
+  api 'androidx.appcompat:appcompat:1.0.0'
   implementation 'com.google.android.material:material:1.0.0'
   implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   //  implementation 'com.tencent:mmkv-static:1.2.10'
@@ -45,8 +45,5 @@ dependencies {
   implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
   implementation 'androidx.legacy:legacy-support-v4:1.0.0'
   implementation 'com.alibaba.android.mnnkit:facedetection:0.0.4'
-//  implementation project(':stickerview')
-//  implementation 'com.github.c786909486:PhotoButton2:v1.1'
-//  implementation 'com.lcw.library:StickeView:1.0.1'
 
 }

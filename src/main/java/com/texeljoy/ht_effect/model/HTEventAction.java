@@ -34,6 +34,8 @@ public class HTEventAction {
   //更新当前选中的Item的点
   public static final String ACTION_SYNC_GESTURE_ITEM_CHANGED = "ACTION_SYNC_GESTURE_ITEM_CHANGED";
 
+  public static final String ACTION_SYNC_THREED_ITEM_CHANGED = "ACTION_SYNC_THREED_ITEM_CHANGED";
+
   //更新当前选中的Item的点
   public static final String ACTION_SYNC_FILTER_ITEM_CHANGED = "ACTION_SYNC_FILTER_ITEM_CHANGED";
 

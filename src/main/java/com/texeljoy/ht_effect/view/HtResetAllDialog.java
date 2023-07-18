@@ -19,6 +19,7 @@ import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTFilterEnum;
 import com.texeljoy.hteffect.model.HTItemEnum;
+// import com.texeljoy.hteffectar.HTEffectAR;
 import java.lang.ref.WeakReference;
 
 /**
@@ -105,6 +106,10 @@ public class HtResetAllDialog extends DialogFragment {
           HtUICacheUtils.beautyEffectFilterPosition(0);
           HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterFunny.getValue(), "0");
           HtUICacheUtils.beautyFunnyFilterPosition(0);
+
+          // HTEffectAR.shareInstance().setModelName("empty");
+          HtSelectedPosition.POSITION_THREED = -1;
+          RxBus.get().post(HTEventAction.ACTION_SYNC_THREED_ITEM_CHANGED, "");
 
 
 

@@ -21,10 +21,12 @@ import com.texeljoy.ht_effect.model.HtMakeupConfig;
 import com.texeljoy.ht_effect.model.HtMaskConfig;
 import com.texeljoy.ht_effect.model.HtStickerConfig;
 import com.texeljoy.ht_effect.model.HtStyleFilterConfig;
+import com.texeljoy.ht_effect.model.HtThreedConfig;
 import com.texeljoy.ht_effect.model.HtWatermarkConfig;
 import com.texeljoy.ht_effect.model.HtWatermarkConfig.HtWatermark;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTItemEnum;
+// import com.texeljoy.hteffectar.HTEffectAR;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -56,6 +58,8 @@ public class HtConfigTools {
   private String PATH_GIFT;
   //AI抠图配置文件
   private String PATH_AISEGMENTATION;
+  //3d配置文件
+  private String PATH_THREED;
   //绿幕配置文件
   private String PATH_GREEN_SCREEN;
   //水印配置文件
@@ -78,6 +82,7 @@ public class HtConfigTools {
   private HtMaskConfig maskList;
   private HtGiftConfig giftList;
   private HtAISegmentationConfig segmentationList;
+  private HtThreedConfig threedList;
   private HtGreenScreenConfig greenScreenList;
   private HtWatermarkConfig watermarkList;
   private HtGestureConfig gestureList;
@@ -106,6 +111,10 @@ public class HtConfigTools {
     PATH_GIFT = HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemGift.getValue()) + File.separator + "ht_gift_config.json";
     //AI抠图配置文件
     PATH_AISEGMENTATION = HTEffect.shareInstance().getAISegEffectPath() + File.separator + "ht_aiseg_effect_config.json";
+    //3D配置文件
+    //todo 等待接口
+    // PATH_THREED =  HTEffectAR.shareInstance().getResourcePath() + File.separator + "hteffect/3d_effect/ht_3d_config.json";
+    PATH_THREED =  "";
     //绿幕配置文件
     PATH_GREEN_SCREEN = HTEffect.shareInstance().getGSSegEffectPath() + File.separator + "ht_gsseg_effect_config.json";
     //水印配置文件
@@ -135,6 +144,10 @@ public class HtConfigTools {
   public HtAISegmentationConfig getAISegmentationList() {
     if (segmentationList == null) return null;
     return segmentationList;
+  }
+  public HtThreedConfig getThreedList() {
+    if (threedList == null) return null;
+    return threedList;
   }
 
   public HtGreenScreenConfig getGreenScreenList() {
@@ -601,6 +614,51 @@ public class HtConfigTools {
   }
 
   /**
+   * 更新3d缓存文件
+   */
+  public void threedDownload(String content) {
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        modifyFile(content, PATH_THREED);
+      }
+    });
+  }
+
+  /**
+   * 从缓存文件中获取3d配置文件
+   */
+  public void getThreedsConfig(HtConfigCallBack<List<HtThreedConfig.HtThreed>> callBack) {
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        try {
+          String result = getFileString(PATH_THREED);
+
+          if (TextUtils.isEmpty(result)) {
+            Log.i("读取3d配置文件：", "内容为空");
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+
+          } else {
+            threedList = new Gson().fromJson(result, new TypeToken<HtThreedConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(threedList.getThreeds());
+              }
+            });
+          }
+
+        } catch (IOException e) {
+          e.printStackTrace();
+          callBack.fail(e);
+        }
+      }
+    });
+  }
+
+  /**
    * 从缓存文件中获取水印配置文件
    */
   public void getWatermarksConfig(HtConfigCallBack<List<HtWatermark>> callBack) {
@@ -844,6 +902,15 @@ public class HtConfigTools {
         try {
           newAISegmentation = getJsonString(context, "aisegmentation/aisegmentations.json");
           modifyFile(newAISegmentation, PATH_AISEGMENTATION);
+        } catch (IOException e) {
+          e.printStackTrace();
+        }
+
+        String newThreed;
+        try {
+          //todo 等待
+          newThreed = getJsonString(context, "aisegmentation/aisegmentations.json");
+          modifyFile(newThreed, PATH_THREED);
         } catch (IOException e) {
           e.printStackTrace();
         }

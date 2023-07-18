@@ -29,7 +29,7 @@ import java.util.List;
  */
 public class HtPorpraitGreenScreenFragment extends HtBaseLazyFragment {
 
-    private final List<HtGreenScreen> items = new ArrayList<>();
+    private final List<HtGreenScreenConfig.HtGreenScreen> items = new ArrayList<>();
     HtGreenScreenAdapter greenScreenAdapter;
 
     @Override protected int getLayoutId() {
@@ -40,7 +40,7 @@ public class HtPorpraitGreenScreenFragment extends HtBaseLazyFragment {
         if (getContext() == null) return;
 
         items.clear();
-        items.add(HtGreenScreen.NO_GreenScreen);
+        items.add(HtGreenScreenConfig.HtGreenScreen.NO_GreenScreen);
         //items.add(new HtGreenScreenConfig.HtGreenScreen(HtGreenScreenAdapter.EDIT_GREEN_SCREEN, "", HTDownloadState.COMPLETE_DOWNLOAD));
 
         HtGreenScreenConfig greenScreenList = HtConfigTools.getInstance().getGreenScreenList();
@@ -50,7 +50,7 @@ public class HtPorpraitGreenScreenFragment extends HtBaseLazyFragment {
             initRecyclerView();
         } else {
             HtConfigTools.getInstance().getGreenScreenConfig(new HtConfigCallBack<List<HtGreenScreen>>() {
-                @Override public void success(List<HtGreenScreen> list) {
+                @Override public void success(List<HtGreenScreenConfig.HtGreenScreen> list) {
                     items.addAll(list);
                     initRecyclerView();
                 }

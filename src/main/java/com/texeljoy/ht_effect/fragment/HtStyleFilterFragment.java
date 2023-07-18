@@ -59,7 +59,7 @@ public class HtStyleFilterFragment extends HtBaseLazyFragment {
 
     if (filterList == null) {
       HtConfigTools.getInstance().getStyleFiltersConfig(new HtConfigCallBack<List<HtStyleFilter>>() {
-        @Override public void success(List<HtStyleFilter> list) {
+        @Override public void success(List<HtStyleFilterConfig.HtStyleFilter> list) {
           items.addAll(list);
           initRecyclerView();
         }

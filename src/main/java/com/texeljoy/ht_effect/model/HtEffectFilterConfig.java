@@ -1,7 +1,6 @@
 package com.texeljoy.ht_effect.model;
 
 import com.texeljoy.hteffect.HTEffect;
-import java.io.File;
 import java.util.List;
 
 /**
@@ -87,7 +86,7 @@ public class HtEffectFilterConfig {
     public void setCategory(String category) { this.category = category;}
 
     public String getIcon() {
-      return HTEffect.shareInstance().getFilterPath() + File.separator + this.name + ".png";
+      return this.icon;
     }
 
     public void setThumb(String icon) { this.icon = icon;}

@@ -6,7 +6,6 @@ import com.texeljoy.ht_effect.model.HtBeautyKey;
 import com.texeljoy.ht_effect.model.HtBeautyParam;
 import com.texeljoy.ht_effect.model.HtFaceTrim;
 import com.texeljoy.ht_effect.model.HtState;
-import com.texeljoy.ht_effect.model.HtStyleFilterEnum;
 import com.texeljoy.ht_effect.model.HtUICacheKey;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTFilterEnum;
@@ -28,8 +27,6 @@ public class HtUICacheUtils {
 
     }
 
-
-    // HtStyleFilterEnum currentFilter = HtStyleFilterEnum.values()[beautyFilterPosition()];
     //设置滤镜
     HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), beautyFilterName());
 

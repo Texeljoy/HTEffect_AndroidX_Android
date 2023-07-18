@@ -1,13 +1,13 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HtHaHaFilterConfig;
@@ -26,7 +26,7 @@ public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConf
 
   @NonNull @Override protected HtFunnyFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_drawable_top_button, parent, false);
-    return new ViewHolder(root);
+    return new HtFunnyFilterItemViewBinder.ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void

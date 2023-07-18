@@ -156,7 +156,7 @@ public class HtWatermarkAdapter extends RecyclerView.Adapter<HtStickerViewHolder
                 }
             });
 
-            holder.itemView.setOnClickListener(new OnClickListener() {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
 

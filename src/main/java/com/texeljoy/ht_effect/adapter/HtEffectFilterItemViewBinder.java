@@ -2,21 +2,21 @@ package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.core.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtEffectFilterConfig;
-import com.texeljoy.ht_effect.model.HtEffectFilterEnum;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
@@ -31,7 +31,7 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
 
   @NonNull @Override protected HtEffectFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
-    return new ViewHolder(root);
+    return new HtEffectFilterItemViewBinder.ViewHolder(root);
   }
 
   @SuppressLint("SetTextI18n") @Override protected void
@@ -48,7 +48,13 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
     holder.name.setTextColor(HtState.isDark ? Color.WHITE : ContextCompat
         .getColor(holder.itemView.getContext(),R.color.dark_black));
 
-    holder.thumbIV.setImageDrawable(HtEffectFilterEnum.values()[getPosition(holder)].getIcon(holder.itemView.getContext()));
+    String resName = item.getIcon().substring(0, item.getIcon().indexOf("."));
+    int resID = holder.itemView.getResources().getIdentifier(resName, "drawable",
+        holder.itemView.getContext().getPackageName());
+    Glide.with(holder.itemView.getContext())
+        .load(resID)
+        // .placeholder(R.drawable.icon_placeholder)
+        .into(holder.thumbIV);
 
     // holder.maker.setBackgroundColor(ContextCompat.getColor
     //     (holder.itemView.getContext(), R.color.makeup_maker));

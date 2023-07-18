@@ -1,4 +1,5 @@
-English | [简体中文](README.md)
+[简体中文](README.md) | English | [日本語](README_JP.md)
+
 
 # **HTEffect SDK**
 
@@ -29,12 +30,7 @@ English | [简体中文](README.md)
 
 - By utilizing AR effects such as facial beauty, stickers, props, gesture effects, and portrait background segmentation, we provide users with rich and diverse AI+AR technologies that revolve around the human body
 
-<center>
-	<img src="./documents/imgs/sticker.png" width="20%" />
-    <img src="./documents/imgs/matting.png" width="20%" />
-    <img src="./documents/imgs/filter.png" width="20%" />
-    <img src="./documents/imgs/beauty.png" width="20%" />
-</center>
+![](https://hteffect-resource.oss-cn-shanghai.aliyuncs.com/gitee_resource/hteffect_en.png)
 <br/>
 <br/>
 
@@ -56,7 +52,7 @@ You can use CocoaPods to automatically load, or download the SDK and then import
 
 **CocoaPods**
 
-- Open **Podfile**, and add the **HTEffect** pod.
+- Open **Podfile**, and add the **HTEffect** pod
 
 ```shell
 pod 'HTEffect'
@@ -187,7 +183,7 @@ include(":htui")
 - In the dependencies section of the build.gradle file in the app module, add the following code
 
 ```shell
-implementation project(':tiui')
+implementation project(':htui')
 ```
 
 #### **3. Integration**
@@ -288,29 +284,37 @@ isRenderInit = false;
 ---
 
 ## **Recent updates**
-- **2023.06.09:** New 2.1.0 version
+- **2023.07.18:** v2.2.0
+    - Add 4 new mask materials
+    - Solved some known issues
+
+- **2023.06.09:** v2.1.0
     - Add 16 senior filters
     
-- **2023.06.07:** 2.0.2 version
+- **2023.06.07:** v2.0.2
     - Fix the issue
     - Optimize resource memory space processing
 
-- **2023.06.01:** 2.0.1 version
+- **2023.06.01:** v2.0.1
     - Fix the issue with default values for green screens
 
-- **2023.05.17:** 2.0 version
-
+- **2023.05.17:** new v2.0
   - More than 30 new styles of filters, special effect filters, and distorting mirror
   - Add hairdressing, masks, gifts, and custom drag and drop watermarks
   - Green screen cutout adds blue and white screen colors and parameter adjustments
   - Optimized gesture effects and portrait segmentation effects
-- [More](https://doc.texeljoy.com/hummanBody/beauty/API/api.html)
+- [More](https://doc.texeljoy.com/document/hummanBody/beauty/Introduce/function.html)
 
 <br/>
 
 ---
 
 ## **Communication & Feedback**
+
+HONGTU AI Open Platform is an AI technology open platform,which is designed to build application scenarios around audio and video,providing visual AI technologies such as portrait human body special effects, human behavior analysis,content auditing, face real-name authentication, image special effects, etc.,to accelerate AI's business empowerment for small and medium-sized enterprises.From its establishment to the end of 2022, HONGTU has provided products and services to 10+ industries, including live broadcasting, social networking, education, game competition, IoT, XR and meta-universe, with nearly 1500 service platforms and more than 120 million terminals.
+
+HONGTU explores the method of AI combining scenario and ecology, centers on the scheme mode of "AI product + scenario + ecological cooperation", takes audio and video application as the entry scenario, creates AI product matrix serving the whole life cycle of audio and video application, combines eco -partner products, realizes the "open" significance of the platform, and provides users with business needs. Achieve value symbiosis with users.
+
 
 ### 1. Official website: [www.texeljoy.com](https://www.texeljoy.com)
 
@@ -321,5 +325,5 @@ isRenderInit = false;
 ### 4. Official account:
 
 <div align="left">
-<img src="./documents/imgs/public.png"  width = "200" height = "200" />
+<img src="https://hteffect-resource.oss-cn-shanghai.aliyuncs.com/gitee_resource/public.png"  width = "200" height = "200" />
 </div>
