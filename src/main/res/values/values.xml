@@ -2,7 +2,9 @@
 <resources>
     <color name="white">#FFFFFF</color>
     <color name="black">#111111</color>
+
     <color name="light_blue">#FF589DEC</color>
+    <color name="privacy_color">#38A8FF</color>
     <color name="theme_color">#FFAAF200</color>
     <color name="ht_selected">#FFAAF200</color>
     <color name="ht_selected_filter">#FFFFFF</color>
@@ -25,7 +27,7 @@
     <color name="transparent">#00FFFFFF</color>
     <color name="green_greenscreen">#00FF05</color>
     <color name="blue_greenscreen">#0100FC</color>
-    <color name="white_greenscreen">#FFFFFF</color>
+    <color name="red_greenscreen">#FF0000</color>
     <color name="dialog_cancel">#E5E5E5</color>
     <color name="dialog_cancel_text">#666666</color>
 </resources>

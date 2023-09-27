@@ -94,6 +94,16 @@
             android:layout_marginTop="110dp"
             android:layout_gravity="center"
             />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/return_iv"
+            android:layout_width="17dp"
+            android:layout_height="15dp"
+            android:src="@drawable/icon_makeup_back"
+            android:layout_gravity="center"
+            android:layout_marginRight="130dp"
+            android:layout_marginTop="110dp"
+            android:visibility="gone"/>
+
 
     </FrameLayout>
 

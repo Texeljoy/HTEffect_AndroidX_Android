@@ -94,6 +94,36 @@ public class HtResetDialog extends DialogFragment {
           RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
         }
 
+        if (HtState.currentSecondViewState == HTViewState.BEAUTY_BODY) {
+          //当前是美体
+          HtUICacheUtils.resetBodyValue(getContext());
+
+          HtUICacheUtils.beautyBodyResetEnable(false);
+
+          //通知刷新列表
+          RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "true");
+
+          //通知更新滑动条显示状态
+          RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+
+        }
+
+        if (HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP) {
+          //当前是美体
+          for(int i = 0; i < 7; i++){
+            HtUICacheUtils.resetMakeUpValue(getContext(),i);
+          }
+
+          HtUICacheUtils.beautyMakeUpResetEnable(false);
+
+          //通知刷新列表
+          RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "true");
+
+          //通知更新滑动条显示状态
+          RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+
+        }
+
         dismiss();
       }
     });

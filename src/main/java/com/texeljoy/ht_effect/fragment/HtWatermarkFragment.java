@@ -3,18 +3,12 @@ package com.texeljoy.ht_effect.fragment;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Looper;
-import android.provider.MediaStore;
-import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
@@ -33,6 +27,7 @@ import com.texeljoy.ht_effect.model.HtWatermarkConfig.HtWatermark;
 import com.texeljoy.ht_effect.utils.HtConfigCallBack;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
+import com.texeljoy.ht_effect.utils.HtUploadBitmapUtils;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -143,61 +138,28 @@ public class HtWatermarkFragment extends HtBaseLazyFragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (data == null || data.getData() == null) return;
         if (requestCode == IMAGE_REQUEST_CODE) {
-            handleImageBeforeKitKat(data);
-        }
+            String imagePath = HtUploadBitmapUtils.handleImageBeforeKitKat(data, getActivity());
 
-    }
-
-    //对于获取用户图片选中的后处理
-    private void handleImageBeforeKitKat(Intent data) {
-        Uri uri = data.getData();
-        if (uri == null) return;
-        String imagePath = getImagePath(uri, null);
-        if (!isPng(imagePath)) {
-            Toast.makeText(getContext(), "暂时只兼容png格式的背景图", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        HtWatermark htWatermark = new HtWatermark("", "", HTDownloadState.COMPLETE_DOWNLOAD,"");
-        htWatermark.setFromDisk(true, requireContext(), imagePath);
-        items.add(htWatermark);
-        watermarkAdapter.selectItem(items.size() - 1);
-        Bitmap bitmap = BitmapFactory.decodeFile(htWatermark.getIcon());
-        RxBus.get().post(HTEventAction.ACTION_REMOVE_STICKER_RECT,"");
-        RxBus.get().post(HTEventAction.ACTION_ADD_STICKER_RECT,bitmap);
-        watermarkAdapter.notifyDataSetChanged();
-    }
-
-    /**
-     * @param uri 传过来的uri
-     * @param selection 规则
-     * @return 路径
-     */
-    private String getImagePath(@NonNull Uri uri, @Nullable String selection) {
-        String path = null;
-        Cursor cursor = requireActivity().getContentResolver().query(uri, null, selection, null, null);
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+            if(imagePath != null){
+                HtWatermark htWatermark = new HtWatermark("", "", HTDownloadState.COMPLETE_DOWNLOAD,"");
+                htWatermark.setFromDisk(true, requireContext(), imagePath);
+                items.add(htWatermark);
+                watermarkAdapter.selectItem(items.size() - 1);
+                Bitmap bitmap = BitmapFactory.decodeFile(htWatermark.getIcon());
+                RxBus.get().post(HTEventAction.ACTION_REMOVE_STICKER_RECT,"");
+                RxBus.get().post(HTEventAction.ACTION_ADD_STICKER_RECT,bitmap);
+                watermarkAdapter.notifyDataSetChanged();
             }
-            cursor.close();
+
         }
-        return path;
+
     }
 
-    /**
-     * 用于判断格式是否正确
-     *
-     * @param path 路径
-     * @return 结果
-     */
-    private boolean isPng(String path) {
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        BitmapFactory.decodeFile(path, options);
-        String type = options.outMimeType;
-        Log.i("添加的绿幕的背景图格式：", options.outMimeType);
-        return "image/png".equals(type);
-    }
+
+
+
+
+
 
 
 

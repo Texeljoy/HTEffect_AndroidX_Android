@@ -1,13 +1,13 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HtHaHaFilterConfig;

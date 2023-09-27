@@ -35,11 +35,13 @@ import com.texeljoy.ht_effect.fragment.HtARPropsFragment;
 import com.texeljoy.ht_effect.fragment.HtBeautyFragment;
 import com.texeljoy.ht_effect.fragment.HtFilterFragment;
 import com.texeljoy.ht_effect.fragment.HtGestureFrameFragment;
+import com.texeljoy.ht_effect.fragment.HtLipstickFragment;
 import com.texeljoy.ht_effect.fragment.HtModeFragment;
 import com.texeljoy.ht_effect.fragment.HtPortraitFragment;
 import com.texeljoy.ht_effect.fragment.HtThreedFrameFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
+import com.texeljoy.ht_effect.model.HtMakeupStyle;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.DpUtils;
@@ -95,6 +97,7 @@ public class HTPanelLayout extends ConstraintLayout
 
   private View controllerView;
   private AppCompatImageView btnShutter;
+  private AppCompatImageView ivReturn;
   private HtTakephotoButton btnShutter1;
   private AppCompatImageView shutterIv;
   private AppCompatTextView tvFilterType;
@@ -209,6 +212,7 @@ public class HTPanelLayout extends ConstraintLayout
     btnShutter = findViewById(R.id.btn_shutter);
     btnShutter1 = findViewById(R.id.btn_shutter1);
     shutterIv = findViewById(R.id.shutter_iv);
+    ivReturn = findViewById(R.id.return_iv);
     tvFilterType = findViewById(R.id.tv_filter_tip);
     tiInteractionHint = findViewById(R.id.interaction_hint);
     stickerView = findViewById(R.id.sl_sticker_layout);
@@ -217,7 +221,6 @@ public class HTPanelLayout extends ConstraintLayout
     HtUICacheUtils.initCache(true);
     //获取屏幕宽高
     dm = getContext().getResources().getDisplayMetrics();
-
 
     initWatermark();
 
@@ -342,6 +345,13 @@ public class HTPanelLayout extends ConstraintLayout
         if (btnShutterClick != null) {
           btnShutterClick.clickShutter();
         }
+      }
+    });
+
+    ivReturn.setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View v) {
+        //返回上一级
+        showPanel(HTViewState.BEAUTY_MAKE_UP);
       }
     });
 
@@ -543,6 +553,7 @@ public class HTPanelLayout extends ConstraintLayout
         ivHtRestore.setVisibility(View.GONE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(View.GONE);
         if (HtState.currentViewState == HTViewState.HIDE) {
           showModePanel();
         } else {
@@ -557,7 +568,7 @@ public class HTPanelLayout extends ConstraintLayout
       case BEAUTY:
         ivHtTrigger.setVisibility(View.GONE);
         ivHtRestore.setVisibility(View.GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.VISIBLE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtBeautyFragment(),"beauty");
@@ -570,7 +581,7 @@ public class HTPanelLayout extends ConstraintLayout
       case AR:
         ivHtTrigger.setVisibility(GONE);
         ivHtRestore.setVisibility(GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.VISIBLE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtARPropsFragment(),"ar");
@@ -583,7 +594,7 @@ public class HTPanelLayout extends ConstraintLayout
       case ThreeD:
         ivHtTrigger.setVisibility(View.GONE);
         ivHtRestore.setVisibility(View.GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.GONE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtThreedFrameFragment(),"threed");
@@ -595,7 +606,7 @@ public class HTPanelLayout extends ConstraintLayout
       case GESTURE:
         ivHtTrigger.setVisibility(View.GONE);
         ivHtRestore.setVisibility(View.GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.VISIBLE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtGestureFrameFragment(),"gesture");
@@ -607,7 +618,7 @@ public class HTPanelLayout extends ConstraintLayout
       case PORTRAIT:
         ivHtTrigger.setVisibility(View.GONE);
         ivHtRestore.setVisibility(View.GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.VISIBLE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtPortraitFragment(),"portrait");
@@ -619,13 +630,104 @@ public class HTPanelLayout extends ConstraintLayout
       case FILTER:
         ivHtTrigger.setVisibility(View.GONE);
         ivHtRestore.setVisibility(View.GONE);
-        // shutterIv.setVisibility(View.VISIBLE);
+        shutterIv.setVisibility(View.VISIBLE);
         btnShutter.setVisibility(View.GONE);
         stickerView.setVisibility(VISIBLE);
         switchModePanel(new HtFilterFragment(),"filter");
         HtState.currentViewState = HTViewState.FILTER;
         Log.e("--Filter--",viewState.name());
         // setTakePhotoAnim(-200);
+        break;
+
+      case BEAUTY_MAKE_UP:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(GONE);
+        switchModePanel(new HtBeautyFragment(),"makeup");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_OUT;
+        // setTakePhotoAnim(-200);
+        break;
+
+
+
+      case MAKEUP_LIPSTICK:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"lipstick");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_LIPSTICK;
+        break;
+
+      case MAKEUP_EYEBROW:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"eyebrow");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_EYEBROW;
+        break;
+
+      case MAKEUP_BLUSH:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"blush");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_BLUSH;
+        break;
+
+      case MAKEUP_EYESHADOW:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"eyeshadow");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_EYESHADOW;
+        break;
+
+      case MAKEUP_EYELINE:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"eyeline");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_EYELINE;
+        break;
+
+      case MAKEUP_EYELASH:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"eyelash");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_EYELASH;
+        break;
+
+      case MAKEUP_BEAUTYPUPILS:
+        ivHtTrigger.setVisibility(View.GONE);
+        ivHtRestore.setVisibility(View.GONE);
+        shutterIv.setVisibility(View.VISIBLE);
+        btnShutter.setVisibility(View.GONE);
+        stickerView.setVisibility(VISIBLE);
+        ivReturn.setVisibility(VISIBLE);
+        replaceView(new HtLipstickFragment(),"pupils");
+        HtState.currentThirdViewState = HTViewState.MAKEUP_BEAUTYPUPILS;
         break;
     }
 
@@ -654,6 +756,60 @@ public class HTPanelLayout extends ConstraintLayout
       showFilterTipTimer.cancel();
     }
     tiInteractionHint.setText(HtState.currentStyle != HtStyle.YUAN_TU ? "请先取消“风格推荐”效果" : "");
+    tiInteractionHint.setVisibility(VISIBLE);
+    showFilterTipTimer = new Timer();
+    showFilterTipTimer.schedule(new TimerTask() {
+      @Override public void run() {
+        tiInteractionHint.post(new Runnable() {
+          @Override public void run() {
+            tiInteractionHint.setVisibility(GONE);
+          }
+        });
+      }
+    }, 1500);
+
+
+  }
+
+  /**
+   * 风格推荐被选中后的提示语句
+   * @param o
+   */
+  @Subscribe(thread = EventThread.MAIN_THREAD,
+             tags = { @Tag(HTEventAction.ACTION_MAKEUP_STYLE_SELECTED) })
+  public void showMakeupStyleHint(Object o) {
+
+    if (showFilterTipTimer != null) {
+      showFilterTipTimer.cancel();
+    }
+    tiInteractionHint.setText(HtState.currentMakeUpStyle != HtMakeupStyle.NONE ? "请先取消“妆容推荐”效果" : "");
+    tiInteractionHint.setVisibility(VISIBLE);
+    showFilterTipTimer = new Timer();
+    showFilterTipTimer.schedule(new TimerTask() {
+      @Override public void run() {
+        tiInteractionHint.post(new Runnable() {
+          @Override public void run() {
+            tiInteractionHint.setVisibility(GONE);
+          }
+        });
+      }
+    }, 1500);
+
+
+  }
+
+  /**
+   * 未识别到人体的提示语句
+   * @param o
+   */
+  @Subscribe(thread = EventThread.MAIN_THREAD,
+             tags = { @Tag(HTEventAction.ACTION_NO_BODY) })
+  public void showBodyHint(Object o) {
+
+    if (showFilterTipTimer != null) {
+      showFilterTipTimer.cancel();
+    }
+    tiInteractionHint.setText("检测不到完整人体，效果不生效");
     tiInteractionHint.setVisibility(VISIBLE);
     showFilterTipTimer = new Timer();
     showFilterTipTimer.schedule(new TimerTask() {

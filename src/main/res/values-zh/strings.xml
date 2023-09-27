@@ -11,6 +11,9 @@
     <string name="beauty_skin">美颜</string>
     <string name="beauty_shape">美型</string>
     <string name="beauty_hair">美发</string>
+    <string name="beauty_makeup">美妆</string>
+    <string name="beauty_makeup_style">妆容推荐</string>
+    <string name="beauty_body">美体</string>
     <string name="beauty_style">风格</string>
 
     <string name="reset">恢复</string>
@@ -52,6 +55,17 @@
     <string name="undereye_circles">去黑眼圈</string>
     <string name="nasolabial_fold">去法令纹</string>
     <string name="short_face">短脸</string>
+
+    <string name="lipstick">口红</string>
+    <string name="eyebrow">眉毛</string>
+    <string name="blush">腮红</string>
+    <string name="eyeshadow">眼影</string>
+    <string name="eyeline">眼线</string>
+    <string name="eyelash">睫毛</string>
+    <string name="beautypupils">美瞳</string>
+
+    <string name="longleg">长腿</string>
+    <string name="thin">瘦身</string>
 
     <string name="filter">滤镜</string>
     <string name="beauty_filter">美颜滤镜</string>
@@ -127,14 +141,15 @@
     <string name="style_nvsheng">女神</string>
     <string name="style_wanghong">网红</string>
 
-
-    <string name="makeup_chayi">茶艺</string>
-    <string name="makeup_haomen">豪门</string>
-    <string name="makeup_yuanqi">元气</string>
-    <string name="makeup_weixun">微醺</string>
-    <string name="makeup_xiaohua">校花</string>
-    <string name="makeup_riza">日杂</string>
     <string name="makeup_none">原图</string>
+    <string name="makeup_qcbh">清纯白花</string>
+    <string name="makeup_hxmr">狐系美人</string>
+    <string name="makeup_qtz">清甜妆</string>
+    <string name="makeup_bl">白露</string>
+    <string name="makeup_ld">冷调</string>
+    <string name="makeup_yqsn">元气少女</string>
+    <string name="makeup_nt">女团</string>
+    <string name="makeup_cyz">纯欲妆</string>
 
     <string name="beauty_filter_ziran1">自然1</string>
     <string name="beauty_filter_ziran2">自然2</string>
@@ -256,7 +271,7 @@
     <string name="similarity">相似度</string>
     <string name="smoothness">平滑度</string>
     <string name="alpha">透明度</string>
-
+    <string name="decolor">祛色度</string>
 
 
 

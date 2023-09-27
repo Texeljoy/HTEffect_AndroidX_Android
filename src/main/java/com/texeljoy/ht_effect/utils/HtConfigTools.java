@@ -10,15 +10,24 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.texeljoy.ht_effect.model.HtAISegmentationConfig;
+import com.texeljoy.ht_effect.model.HtBlushConfig;
 import com.texeljoy.ht_effect.model.HtEffectFilterConfig;
+import com.texeljoy.ht_effect.model.HtEyebrowConfig;
+import com.texeljoy.ht_effect.model.HtEyelashConfig;
+import com.texeljoy.ht_effect.model.HtEyelineConfig;
+import com.texeljoy.ht_effect.model.HtEyeshadowConfig;
 import com.texeljoy.ht_effect.model.HtGestureConfig;
 import com.texeljoy.ht_effect.model.HtGiftConfig;
 import com.texeljoy.ht_effect.model.HtGreenScreenConfig;
 import com.texeljoy.ht_effect.model.HtGreenScreenConfig.HtGreenScreen;
 import com.texeljoy.ht_effect.model.HtHaHaFilterConfig;
 import com.texeljoy.ht_effect.model.HtHairConfig;
+import com.texeljoy.ht_effect.model.HtLipstickConfig;
+import com.texeljoy.ht_effect.model.HtMakeup;
 import com.texeljoy.ht_effect.model.HtMakeupConfig;
+import com.texeljoy.ht_effect.model.HtMakeupStyleConfig;
 import com.texeljoy.ht_effect.model.HtMaskConfig;
+import com.texeljoy.ht_effect.model.HtPupilsConfig;
 import com.texeljoy.ht_effect.model.HtStickerConfig;
 import com.texeljoy.ht_effect.model.HtStyleFilterConfig;
 import com.texeljoy.ht_effect.model.HtThreedConfig;
@@ -26,7 +35,7 @@ import com.texeljoy.ht_effect.model.HtWatermarkConfig;
 import com.texeljoy.ht_effect.model.HtWatermarkConfig.HtWatermark;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTItemEnum;
-// import com.texeljoy.hteffectar.HTEffectAR;
+import com.texeljoy.hteffect.model.HTMakeupEnum;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -50,6 +59,8 @@ public class HtConfigTools {
 
   private Context context;
 
+  private int makeupType;
+
   //贴纸配置的文件路径
   private String PATH_STICKER;
   //面具配置的文件路径
@@ -66,8 +77,8 @@ public class HtConfigTools {
   private String PATH_WATER_MARK;
   //手势配置文件
   private String PATH_GESTURE;
-  //美妆配置文件
-  private String PATH_MAKEUP;
+  //妆容推荐配置文件
+  private String PATH_MAKEUPSTYLE;
   //风格滤镜配置文件
   private String PATH_STYLE_FILTER;
   //特效滤镜配置文件
@@ -76,6 +87,22 @@ public class HtConfigTools {
   private String PATH_HAHA_FILTER;
   //美发配置文件
   private String PATH_HAIR;
+  //美妆配置文件
+  private String PATH_MAKEUP;
+  //口红配置文件
+  private String PATH_LIPSTICK;
+  //眉毛配置文件
+  private String PATH_EYEBROW;
+  //腮红配置文件
+  private String PATH_BLUSH;
+  //眼影配置文件
+  private String PATH_EYESHADOW;
+  //眼线配置文件
+  private String PATH_EYELINE;
+  //睫毛配置文件
+  private String PATH_EYELASH;
+  //美瞳配置文件
+  private String PATH_PUPILS;
 
 
   private HtStickerConfig stickerList;
@@ -86,11 +113,20 @@ public class HtConfigTools {
   private HtGreenScreenConfig greenScreenList;
   private HtWatermarkConfig watermarkList;
   private HtGestureConfig gestureList;
-  private HtMakeupConfig makeupList;
+  private HtMakeupStyleConfig makeupStyleList;
   private HtStyleFilterConfig styleFilterList;
   private HtEffectFilterConfig effectFilterList;
   private HtHaHaFilterConfig hahaFilterList;
+  private HtMakeupConfig makeupList;
+  private HtLipstickConfig lipstickList;
+  private HtEyebrowConfig eyebrowList;
+  private HtBlushConfig blushList;
+  private HtEyeshadowConfig eyeshadowList;
+  private HtEyelineConfig eyelineList;
+  private HtEyelashConfig eyelashList;
+  private HtPupilsConfig pupilsList;
   private HtHairConfig hairList;
+
 
   private final ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 
@@ -114,9 +150,8 @@ public class HtConfigTools {
     //3D配置文件
     //todo 等待接口
     // PATH_THREED =  HTEffectAR.shareInstance().getResourcePath() + File.separator + "hteffect/3d_effect/ht_3d_config.json";
-    PATH_THREED =  "";
     //绿幕配置文件
-    PATH_GREEN_SCREEN = HTEffect.shareInstance().getGSSegEffectPath() + File.separator + "ht_gsseg_effect_config.json";
+    PATH_GREEN_SCREEN = HTEffect.shareInstance().getChromaKeyingPath() + File.separator + "ht_gsseg_effect_config.json";
     //水印配置文件
     PATH_WATER_MARK = HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemWatermark.getValue()) + File.separator + "ht_watermark_config.json";
     //手势配置文件
@@ -130,6 +165,17 @@ public class HtConfigTools {
     //美发配置文件
     PATH_HAIR = context.getFilesDir().getAbsolutePath()+"/hteffect/hair/ht_hair_config.json";
 
+    //美妆配置文件
+    // PATH_LIPSTICK = context.getFilesDir().getAbsolutePath()+"/hteffect/makeup/lipstick/ht_makeup_lipstick_config.json";
+    PATH_LIPSTICK = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupLipstick.getValue()) + File.separator + "ht_makeup_lipstick_config.json";
+    PATH_EYEBROW = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupEyebrow.getValue()) + File.separator + "ht_makeup_eyebrow_config.json";
+    PATH_BLUSH = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupBlush.getValue()) + File.separator + "ht_makeup_blush_config.json";
+    PATH_EYESHADOW = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupEyeshadow.getValue()) + File.separator + "ht_makeup_eyeshadow_config.json";
+    PATH_EYELINE = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupEyeline.getValue()) + File.separator + "ht_makeup_eyeline_config.json";
+    PATH_EYELASH = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupEyelash.getValue()) + File.separator + "ht_makeup_eyelash_config.json";
+    PATH_PUPILS = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupPupils.getValue()) + File.separator + "ht_makeup_pupils_config.json";
+
+
   }
 
   public static HtConfigTools getInstance() {
@@ -137,8 +183,8 @@ public class HtConfigTools {
     return instance;
   }
 
-  public HtMakeupConfig getMakeupList() {
-    return makeupList;
+  public HtMakeupStyleConfig getMakeupStyleList() {
+    return makeupStyleList;
   }
 
   public HtAISegmentationConfig getAISegmentationList() {
@@ -198,6 +244,46 @@ public class HtConfigTools {
   public HtHairConfig getHairConfig() {
     if (hairList == null) return null;
     return hairList;
+  }
+
+  public HtMakeupConfig getMakeupList() {
+    if (makeupList == null) return null;
+    return makeupList;
+  }
+
+  public HtLipstickConfig getLipstickList() {
+    if (lipstickList == null) return null;
+    return lipstickList;
+  }
+
+  public HtEyebrowConfig getEyebrowList() {
+    if (eyebrowList == null) return null;
+    return eyebrowList;
+  }
+
+  public HtBlushConfig getBlushList() {
+    if (blushList == null) return null;
+    return blushList;
+  }
+
+    public HtEyeshadowConfig getEyeshadowList() {
+    if (eyeshadowList == null) return null;
+    return eyeshadowList;
+  }
+
+  public HtEyelineConfig getEyelineList() {
+    if (eyelineList == null) return null;
+    return eyelineList;
+  }
+
+  public HtEyelashConfig getEyelashList() {
+    if (eyelashList == null) return null;
+    return eyelashList;
+  }
+
+  public HtPupilsConfig getPupilsList() {
+    if (pupilsList == null) return null;
+    return pupilsList;
   }
 
   /**
@@ -747,21 +833,302 @@ public class HtConfigTools {
     });
   }
 
+  //todo
+
+  /**
+   * 更新美妆文件
+   */
+  public void makeupDownload(int type, String content) {
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res = "";
+        switch (type){
+          case 0:
+            res = PATH_LIPSTICK;
+            break;
+          case 1:
+            res = PATH_EYEBROW;
+            break;
+          case 2:
+            res = PATH_BLUSH;
+            break;
+        }
+        modifyFile(content, res);
+      }
+    });
+  }
+
+
+  /**
+   * 获取缓存文件中口红配置
+   */
+  public void getLipsticksConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+              res = getFileString(PATH_LIPSTICK);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            lipstickList = new Gson().fromJson(res, new TypeToken<HtLipstickConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(lipstickList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+
+  /**
+   * 获取缓存文件中眉毛配置
+   */
+  public void getEyebrowsConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_EYEBROW);
+
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            eyebrowList = new Gson().fromJson(res, new TypeToken<HtEyebrowConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(eyebrowList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取缓存文件中腮红配置
+   */
+  public void getBlushsConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_BLUSH);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            blushList = new Gson().fromJson(res, new TypeToken<HtBlushConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(blushList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取缓存文件中眼影配置
+   */
+  public void getEyeshadowsConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_EYESHADOW);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            eyeshadowList = new Gson().fromJson(res, new TypeToken<HtEyeshadowConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(eyeshadowList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取缓存文件中眼线配置
+   */
+  public void getEyelinesConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_EYELINE);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            eyelineList = new Gson().fromJson(res, new TypeToken<HtEyelineConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(eyelineList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取缓存文件中睫毛配置
+   */
+  public void getEyelashsConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_EYELASH);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            eyelashList = new Gson().fromJson(res, new TypeToken<HtEyelashConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(eyelashList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+  /**
+   * 获取缓存文件中美瞳配置
+   */
+  public void getPupilsConfig(HtConfigCallBack<List<HtMakeup>> callBack) {
+
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        String res;
+        try {
+          res = getFileString(PATH_PUPILS);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            pupilsList = new Gson().fromJson(res, new TypeToken<HtPupilsConfig>() {}.getType());
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(pupilsList.getMakeups());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
+      }
+    });
+  }
+
+
+
   /**
    * 获取特定的Type的美妆配置文件
    */
-  public List<HtMakeupConfig.HtMakeup> getMakeupsWithType(String type) {
-    ArrayList<HtMakeupConfig.HtMakeup> items = new ArrayList<>();
-    if (makeupList == null) {
+  public List<HtMakeupStyleConfig.HtMakeupStyle> getMakeupsWithType(String type) {
+    ArrayList<HtMakeupStyleConfig.HtMakeupStyle> items = new ArrayList<>();
+    if (makeupStyleList == null) {
       try {
         String res = getJsonString(context, "makeup/makeups.json");
-        makeupList = new Gson().fromJson(res, new TypeToken<HtMakeupConfig>() {}.getType());
+        makeupStyleList = new Gson().fromJson(res, new TypeToken<HtMakeupStyleConfig>() {}.getType());
       } catch (IOException e) {
         e.printStackTrace();
         return null;
       }
     }
-    for (HtMakeupConfig.HtMakeup makeup : makeupList.getMakeups()) {
+    for (HtMakeupStyleConfig.HtMakeupStyle makeup : makeupStyleList.getMakeups()) {
       if (makeup.getType().equals(type)) {
         items.add(makeup);
       }
@@ -772,10 +1139,10 @@ public class HtConfigTools {
   /**
    * 美妆的配置文件改写
    */
-  public void makeupDownLoad(String content) {
+  public void makeupStyleDownLoad(String content) {
     cachedThreadPool.execute(new Runnable() {
       @Override public void run() {
-        modifyFile(content, PATH_MAKEUP);
+        modifyFile(content, PATH_MAKEUPSTYLE);
       }
     });
   }
@@ -933,7 +1300,7 @@ public class HtConfigTools {
         try {
           String newMakeups = getJsonString(context, "makeup/makeups.json");
           modifyFile(newMakeups, PATH_MAKEUP);
-          makeupList = new Gson().fromJson(newMakeups, new TypeToken<HtMakeupConfig>() {}.getType());
+          makeupList = new Gson().fromJson(newMakeups, new TypeToken<HtMakeupStyleConfig>() {}.getType());
         } catch (IOException e) {
           e.printStackTrace();
         }

@@ -13,16 +13,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
-import com.texeljoy.ht_effect.model.HtMakeup;
+import com.texeljoy.ht_effect.model.HtMakeupStyle;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
+import com.texeljoy.hteffect.HTEffect;
 import me.drakeet.multitype.ItemViewBinder;
 
 /**
- * 轻彩妆Item的适配器
+ * 妆容推荐Item的适配器
  */
-public class HtThreeDItemViewBinder extends ItemViewBinder<HtMakeup,
-    HtThreeDItemViewBinder.ViewHolder> {
+public class HtMakeupStyleItemViewBinder extends ItemViewBinder<HtMakeupStyle,
+    HtMakeupStyleItemViewBinder.ViewHolder> {
 
   @NonNull @Override protected ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
     View root = inflater.inflate(R.layout.item_filter, parent, false);
@@ -31,21 +32,22 @@ public class HtThreeDItemViewBinder extends ItemViewBinder<HtMakeup,
 
   @SuppressLint("SetTextI18n")
   @Override
-  protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull HtMakeup item) {
+  protected void onBindViewHolder(@NonNull ViewHolder holder, @NonNull HtMakeupStyle item) {
     holder.downloadIV.setVisibility(View.GONE);
 
     holder.itemView.setSelected(getPosition(holder) ==
-        HtUICacheUtils.beautyMakeupPosition());
+        HtUICacheUtils.beautyMakeUpStylePosition());
 
-    //holder.name.setText(item.getName(holder.itemView.getContext()));
+    holder.name.setText(item.getName(holder.itemView.getContext()));
 
     holder.name.setTextColor(HtState.isDark ? Color.WHITE : ContextCompat
         .getColor(holder.itemView.getContext(),R.color.dark_black));
 
-    //holder.icon
-    //    .setImageDrawable(item.getIcon(holder.itemView.getContext()));
+    holder.icon
+       .setImageDrawable(item.getIcon(holder.itemView.getContext()));
 
     holder.name.setBackgroundColor(Color.TRANSPARENT);
+
 
     holder.maker.setVisibility(
         holder.itemView.isSelected() ? View.VISIBLE : View.GONE
@@ -56,22 +58,37 @@ public class HtThreeDItemViewBinder extends ItemViewBinder<HtMakeup,
 
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        if (view.isSelected()) {
+        if (holder.itemView.isSelected()) {
           return;
         }
+        HtState.currentMakeUpStyle = item;
 
         //应用效果
         //HTEffect.shareInstance().setMakeup(item.getLightMakeup(),100);
-        HtUICacheUtils.beautyMakeupValue(item.name(), 100);
+        // HtUICacheUtils.beautyMakeupStyleValue(item.name(), 100);
 
         //HtState.currentMakeup = item;
 
         holder.itemView.setSelected(true);
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyMakeupPosition());
-        HtUICacheUtils.beautyMakeupPosition(getPosition(holder));
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyMakeupPosition());
+        getAdapter().notifyItemChanged(HtUICacheUtils.beautyMakeUpStylePosition());
+        HtUICacheUtils.beautyMakeUpStylePosition(getPosition(holder));
 
-        RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+
+        HTEffect.shareInstance().setStyle(getPosition(holder));
+
+        if(item == HtMakeupStyle.NONE){
+          HtUICacheUtils.initCache(false);
+        }
+        RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");
+        // if(item == HtMakeupStyle.NONE){
+        //   HtUICacheUtils.initCache(false);
+        //   RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");
+        // }else{
+        //   RxBus.get().post(HTEventAction.ACTION_CHANGE_ENABLE,"");
+        // }
+        getAdapter().notifyItemChanged(HtUICacheUtils.beautyMakeUpStylePosition());
+
+        // RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
       }
     });
 

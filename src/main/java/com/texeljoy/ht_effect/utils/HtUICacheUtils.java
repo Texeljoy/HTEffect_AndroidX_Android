@@ -4,11 +4,24 @@ import android.content.Context;
 import android.util.Log;
 import com.texeljoy.ht_effect.model.HtBeautyKey;
 import com.texeljoy.ht_effect.model.HtBeautyParam;
+import com.texeljoy.ht_effect.model.HtBlushConfig;
+import com.texeljoy.ht_effect.model.HtBody;
+import com.texeljoy.ht_effect.model.HtEyebrowConfig;
+import com.texeljoy.ht_effect.model.HtEyelashConfig;
+import com.texeljoy.ht_effect.model.HtEyelineConfig;
+import com.texeljoy.ht_effect.model.HtEyeshadowConfig;
 import com.texeljoy.ht_effect.model.HtFaceTrim;
+import com.texeljoy.ht_effect.model.HtLipstickConfig;
+import com.texeljoy.ht_effect.model.HtMakeUpEnum;
+import com.texeljoy.ht_effect.model.HtMakeup;
+import com.texeljoy.ht_effect.model.HtPupilsConfig;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtUICacheKey;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTBodyBeautyEnum;
 import com.texeljoy.hteffect.model.HTFilterEnum;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ui缓存工具类
@@ -63,12 +76,20 @@ public class HtUICacheUtils {
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeMouthTrimming,beautyFaceTrimValue(HtFaceTrim.MOUTH_TRIMMING) - 50);
     HTEffect.shareInstance().setReshape(HtBeautyParam.HTReshapeMouthSmiling,beautyFaceTrimValue(HtFaceTrim.MOUTH_SMILING));
     // int a = beautySimilarityValue();
-    HTEffect.shareInstance().setGsSegEffectSimilarity(50);
-    HTEffect.shareInstance().setGsSegEffectSmoothness(0);
-    HTEffect.shareInstance().setGsSegEffectTransparency(0);
+    for(int i = 0; i < 7 ; i++){
+      HTEffect.shareInstance().setMakeup(i, beautyLipstickName(i), beautyLipstickValue(i,beautyLipstickName(i)));
+    }
 
+    HTEffect.shareInstance().setChromaKeyingParams(0, 0);
+    HTEffect.shareInstance().setChromaKeyingParams(1, 0);
+    HTEffect.shareInstance().setChromaKeyingParams(2, 0);
+    HTEffect.shareInstance().setChromaKeyingParams(3, 0);
 
+    HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyLegSlimming.getValue(), beautyBodyValue(HtBody.LONG_LEG));
+    HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyBodyThinning.getValue(), beautyBodyValue(HtBody.THIN));
   }
+
+
 
   //---------美肤选中了哪个-------------------
   public static int beautySkinPosition() {
@@ -94,6 +115,48 @@ public class HtUICacheUtils {
 
   public static void beautyFaceTrimPosition(int position) {
     SharedPreferencesUtil.put(HtUICacheKey.BEAUTY_FACE_TRIM_SELECT_POSITION.name(),
+        position);
+  }
+
+  //-------------------------------------------------
+
+  //---------------美妆----------------------------------
+  public static int beautyMakeUpPosition() {
+    return SharedPreferencesUtil
+        .get(HtUICacheKey.BEAUTY_MAKE_UP_SELECT_POSITION.name(),
+            HtUICacheKey.BEAUTY_MAKE_UP_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyMakeUpPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.BEAUTY_MAKE_UP_SELECT_POSITION.name(),
+        position);
+  }
+
+  //-------------------------------------------------
+
+  //---------------妆容推荐----------------------------------
+  public static int beautyMakeUpStylePosition() {
+    return SharedPreferencesUtil
+        .get(HtUICacheKey.BEAUTY_MAKE_UP_STYLE_SELECT_POSITION.name(),
+            HtUICacheKey.BEAUTY_MAKE_UP_STYLE_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyMakeUpStylePosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.BEAUTY_MAKE_UP_STYLE_SELECT_POSITION.name(),
+        position);
+  }
+
+  //-------------------------------------------------
+
+  //---------------美体----------------------------------
+  public static int beautyBodyPosition() {
+    return SharedPreferencesUtil
+        .get(HtUICacheKey.BEAUTY_BODY_SELECT_POSITION.name(),
+            HtUICacheKey.BEAUTY_BODY_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyBodyPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.BEAUTY_BODY_SELECT_POSITION.name(),
         position);
   }
 
@@ -278,27 +341,207 @@ public class HtUICacheUtils {
 
   //-------------------------------------------------
 
-  //---------------轻彩妆----------------------------------
+  //---------------妆容推荐----------------------------------
 
   /**
-   * 当前选中的轻彩妆的位置
+   * 当前选中的口红的位置
    * @return
    */
-  public static int beautyMakeupPosition() {
-    return SharedPreferencesUtil.get(HtUICacheKey.MAKEUP_SELECT_POSITION.name(),
-        HtUICacheKey.BEAUTY_STYLE_SELECT_POSITION.getDefaultInt());
+  public static int beautyLipstickPosition(int type) {
+    switch (type){
+      case 0:
+        return SharedPreferencesUtil.get(HtUICacheKey.LIPSTICK_SELECT_POSITION.name(),
+            HtUICacheKey.LIPSTICK_SELECT_POSITION.getDefaultInt());
+      case 1:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYEBROW_SELECT_POSITION.name(),
+            HtUICacheKey.EYEBROW_SELECT_POSITION.getDefaultInt());
+      case 2:
+        return SharedPreferencesUtil.get(HtUICacheKey.BLUSH_SELECT_POSITION.name(),
+            HtUICacheKey.BLUSH_SELECT_POSITION.getDefaultInt());
+      case 3:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYESHADOW_SELECT_POSITION.name(),
+            HtUICacheKey.EYESHADOW_SELECT_POSITION.getDefaultInt());
+      case 4:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYELINE_SELECT_POSITION.name(),
+            HtUICacheKey.EYELINE_SELECT_POSITION.getDefaultInt());
+      case 5:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYELASH_SELECT_POSITION.name(),
+            HtUICacheKey.EYELASH_SELECT_POSITION.getDefaultInt());
+      case 6:
+        return SharedPreferencesUtil.get(HtUICacheKey.PUPILS_SELECT_POSITION.name(),
+            HtUICacheKey.PUPILS_SELECT_POSITION.getDefaultInt());
+      default:
+        return 0;
+    }
+
   }
 
-  public static void beautyMakeupPosition(int position) {
-    SharedPreferencesUtil.put(HtUICacheKey.MAKEUP_SELECT_POSITION.name(), position);
+  public static void beautyLipstickPosition(int type, int position) {
+    switch (type){
+      case 0:
+        SharedPreferencesUtil.put(HtUICacheKey.LIPSTICK_SELECT_POSITION.name(), position);
+        break;
+      case 1:
+        SharedPreferencesUtil.put(HtUICacheKey.EYEBROW_SELECT_POSITION.name(), position);
+        break;
+      case 2:
+        SharedPreferencesUtil.put(HtUICacheKey.BLUSH_SELECT_POSITION.name(), position);
+        break;
+      case 3:
+        SharedPreferencesUtil.put(HtUICacheKey.EYESHADOW_SELECT_POSITION.name(), position);
+        break;
+      case 4:
+        SharedPreferencesUtil.put(HtUICacheKey.EYELINE_SELECT_POSITION.name(), position);
+        break;
+      case 5:
+        SharedPreferencesUtil.put(HtUICacheKey.EYELASH_SELECT_POSITION.name(), position);
+        break;
+      case 6:
+        SharedPreferencesUtil.put(HtUICacheKey.PUPILS_SELECT_POSITION.name(), position);
+        break;
+    }
+
   }
 
-  public static int beautyMakeupValue(String key) {
-    return SharedPreferencesUtil.get("make_up_" + key, 0);
+  /**
+   * 当前选中的口红的名称
+   * @return
+   */
+  public static String beautyLipstickName(int type) {
+    switch (type){
+      case 0:
+        return SharedPreferencesUtil.get(HtUICacheKey.LIPSTICK_SELECT_NAME.name(),
+            HtUICacheKey.LIPSTICK_SELECT_NAME.getDefaultStr());
+      case 1:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYEBROW_SELECT_NAME.name(),
+            HtUICacheKey.EYEBROW_SELECT_NAME.getDefaultStr());
+      case 2:
+        return SharedPreferencesUtil.get(HtUICacheKey.BLUSH_SELECT_NAME.name(),
+            HtUICacheKey.BLUSH_SELECT_NAME.getDefaultStr());
+      case 3:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYESHADOW_SELECT_NAME.name(),
+            HtUICacheKey.EYESHADOW_SELECT_NAME.getDefaultStr());
+      case 4:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYELINE_SELECT_NAME.name(),
+            HtUICacheKey.EYELINE_SELECT_NAME.getDefaultStr());
+      case 5:
+        return SharedPreferencesUtil.get(HtUICacheKey.EYELASH_SELECT_NAME.name(),
+            HtUICacheKey.EYELASH_SELECT_NAME.getDefaultStr());
+      case 6:
+        return SharedPreferencesUtil.get(HtUICacheKey.PUPILS_SELECT_NAME.name(),
+            HtUICacheKey.PUPILS_SELECT_NAME.getDefaultStr());
+      default:
+        return "";
+    }
+
   }
 
-  public static void beautyMakeupValue(String key, int value) {
-    SharedPreferencesUtil.put("make_up_" + key, value);
+  public static void beautyLipstickName(int type, String name) {
+    switch (type){
+      case 0:
+        SharedPreferencesUtil.put(HtUICacheKey.LIPSTICK_SELECT_NAME.name(), name);
+        break;
+      case 1:
+        SharedPreferencesUtil.put(HtUICacheKey.EYEBROW_SELECT_NAME.name(), name);
+        break;
+      case 2:
+        SharedPreferencesUtil.put(HtUICacheKey.BLUSH_SELECT_NAME.name(), name);
+        break;
+      case 3:
+        SharedPreferencesUtil.put(HtUICacheKey.EYESHADOW_SELECT_NAME.name(), name);
+        break;
+      case 4:
+        SharedPreferencesUtil.put(HtUICacheKey.EYELINE_SELECT_NAME.name(), name);
+        break;
+      case 5:
+        SharedPreferencesUtil.put(HtUICacheKey.EYELASH_SELECT_NAME.name(), name);
+        break;
+      case 6:
+        SharedPreferencesUtil.put(HtUICacheKey.PUPILS_SELECT_NAME.name(), name);
+        break;
+    }
+
+  }
+
+  public static int beautyLipstickValue(int type, String key) {
+    switch (type){
+      case 0:
+        return SharedPreferencesUtil.get("makeup_lipstick_" + key, 0);
+      case 1:
+        return SharedPreferencesUtil.get("makeup_eyebrow_" + key, 0);
+      case 2:
+        return SharedPreferencesUtil.get("makeup_blush_" + key, 0);
+      case 3:
+        return SharedPreferencesUtil.get("makeup_eyeshadow_" + key, 0);
+      case 4:
+        return SharedPreferencesUtil.get("makeup_eyeline_" + key, 0);
+      case 5:
+        return SharedPreferencesUtil.get("makeup_eyelash_" + key, 0);
+      case 6:
+        return SharedPreferencesUtil.get("makeup_pupils_" + key, 0);
+      default:
+        return 0;
+    }
+
+  }
+
+  public static void beautyLipstickValue(int type, String key, int value) {
+    switch (type){
+      case 0:
+        SharedPreferencesUtil.put("makeup_lipstick_" + key, value);
+        break;
+      case 1:
+        SharedPreferencesUtil.put("makeup_eyebrow_" + key, value);
+        break;
+      case 2:
+        SharedPreferencesUtil.put("makeup_blush_" + key, value);
+        break;
+      case 3:
+        SharedPreferencesUtil.put("makeup_eyeshadow_" + key, value);
+        break;
+      case 4:
+        SharedPreferencesUtil.put("makeup_eyeline_" + key, value);
+        break;
+      case 5:
+        SharedPreferencesUtil.put("makeup_eyelash_" + key, value);
+        break;
+      case 6:
+        SharedPreferencesUtil.put("makeup_pupils_" + key, value);
+        break;
+    }
+
+  }
+
+  //-------------------------------------------------
+
+  //---------------眉毛----------------------------------
+
+  public static int beautyEyebrowPosition() {
+    return SharedPreferencesUtil.get(HtUICacheKey.EYEBROW_SELECT_POSITION.name(),
+        HtUICacheKey.EYEBROW_SELECT_POSITION.getDefaultInt());
+  }
+
+  public static void beautyEyebrowPosition(int position) {
+    SharedPreferencesUtil.put(HtUICacheKey.EYEBROW_SELECT_POSITION.name(), position);
+  }
+
+  public static int beautyEyebrowValue(String key) {
+    return SharedPreferencesUtil.get("makeup_eyebrow_" + key, 0);
+  }
+
+  public static void beautyEyebrowValue(String key, int value) {
+    SharedPreferencesUtil.put("makeup_eyebrow_" + key, value);
+  }
+
+
+
+  public static int beautyBodyValue(HtBody key) {
+    // int defaultValue = 0;
+    return SharedPreferencesUtil.get("beauty_body_" + key.name(), 0);
+  }
+
+  public static void beautyBodyValue(HtBody key, int value) {
+    SharedPreferencesUtil.put("beauty_body_" + key.name(), value);
   }
 
   /**
@@ -423,6 +666,40 @@ public class HtUICacheUtils {
         .put("beauty_face_trim_" + key.name(),
             progress);
   }
+
+
+
+  //-------------------------------------------------
+
+  //---------------美妆子功能参数----------------------------------
+  public static int beautyMakeUpValue(HtMakeUpEnum key) {
+
+    int defaultValue = 0;
+
+    switch (key) {
+      case LIPSTICK:
+      case EYEBROW:
+      case BLUSH:
+      case EYESHADOW:
+      case EYELINE:
+      case EYELASH:
+      case BEAUTYPUPILS:
+        defaultValue = 0;
+        break;
+      default:
+        throw new IllegalStateException("Unexpected value: " + key);
+    }
+
+    return SharedPreferencesUtil.get("beauty_make_up_" + key.name(),
+        defaultValue);
+
+  }
+
+  public static void beautyMakeUpValue(HtMakeUpEnum key, int progress) {
+    SharedPreferencesUtil
+        .put("beauty_make_up_" + key.name(),
+            progress);
+  }
   //-------------------------------------------------
 
   //----------
@@ -431,23 +708,42 @@ public class HtUICacheUtils {
 
   //----------------------是否可用重置---------------------------
 
-  public static void beautyFaceTrimResetEnable(boolean enable) {
-    SharedPreferencesUtil.put("face_trim_enable", enable);
-  }
-
   public static void beautySkinResetEnable(boolean enable) {
     SharedPreferencesUtil.put("skin_enable", enable);
   }
-  public static void greenscreenResetEnable(boolean enable) {
-    SharedPreferencesUtil.put("greenscreen_enable", enable);
+
+  public static boolean beautySkinResetEnable() {
+    return SharedPreferencesUtil.get("skin_enable", false);
+  }
+
+
+  public static void beautyFaceTrimResetEnable(boolean enable) {
+    SharedPreferencesUtil.put("face_trim_enable", enable);
   }
 
   public static boolean beautyFaceTrimResetEnable() {
     return SharedPreferencesUtil.get("face_trim_enable", false);
   }
 
-  public static boolean beautySkinResetEnable() {
-    return SharedPreferencesUtil.get("skin_enable", false);
+  public static void beautyBodyResetEnable(boolean enable) {
+    SharedPreferencesUtil.put("body_enable", enable);
+  }
+
+    public static boolean beautyBodyResetEnable() {
+    return SharedPreferencesUtil.get("body_enable", false);
+  }
+
+  public static void beautyMakeUpResetEnable(boolean enable) {
+    SharedPreferencesUtil.put("make_up_enable", enable);
+  }
+
+  public static boolean beautyMakeUpResetEnable() {
+    return SharedPreferencesUtil.get("make_up_enable", false);
+  }
+
+
+  public static void greenscreenResetEnable(boolean enable) {
+    SharedPreferencesUtil.put("greenscreen_enable", enable);
   }
 
   public static boolean greenscreenResetEnable() {
@@ -476,6 +772,186 @@ public class HtUICacheUtils {
     beautySkinPosition(-1);
     initCache(false);
     HtState.setCurrentBeautySkin(HtBeautyKey.NONE);
+  }
+
+  public static void resetBodyValue(Context context) {
+    HtBody[] items = HtBody.values();
+    for (HtBody item : items) {
+      SharedPreferencesUtil.remove(context, "beauty_body_" + item.name());
+    }
+    beautyBodyPosition(-1);
+    initCache(false);
+    HtState.currentBody = HtBody.LONG_LEG;
+  }
+
+  public static void resetMakeUpValue(Context context, int type) {
+    final List<HtMakeup> items = new ArrayList<>();
+    items.clear();
+    switch (type){
+      case 0:
+        HtLipstickConfig lipstickList = HtConfigTools.getInstance().getLipstickList();
+        if (lipstickList == null) {
+          HtConfigTools.getInstance().getLipsticksConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(lipstickList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_lipstick_" + item.getName());
+        }
+
+        break;
+      case 1:
+
+        HtEyebrowConfig eyebrowList = HtConfigTools.getInstance().getEyebrowList();
+        if (eyebrowList == null) {
+          HtConfigTools.getInstance().getEyebrowsConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(eyebrowList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_eyebrow_" + item.getName());
+        }
+        break;
+      case 2:
+        HtBlushConfig blushList = HtConfigTools.getInstance().getBlushList();
+        if (blushList == null) {
+          HtConfigTools.getInstance().getBlushsConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(blushList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_blush_" + item.getName());
+        }
+        break;
+      case 3:
+        HtEyeshadowConfig shadowList = HtConfigTools.getInstance().getEyeshadowList();
+        if (shadowList == null) {
+          HtConfigTools.getInstance().getEyeshadowsConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(shadowList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_eyeshadow_" + item.getName());
+        }
+        break;
+      case 4:
+        HtEyelineConfig eyelineList = HtConfigTools.getInstance().getEyelineList();
+        if (eyelineList == null) {
+          HtConfigTools.getInstance().getEyelinesConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(eyelineList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_eyeline_" + item.getName());
+        }
+        break;
+      case 5:
+        HtEyelashConfig eyelashList = HtConfigTools.getInstance().getEyelashList();
+        if (eyelashList == null) {
+          HtConfigTools.getInstance().getEyelashsConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(eyelashList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_eyelash_" + item.getName());
+        }
+        break;
+      case 6:
+        HtPupilsConfig pupilsList = HtConfigTools.getInstance().getPupilsList();
+        if (pupilsList == null) {
+          HtConfigTools.getInstance().getPupilsConfig(new HtConfigCallBack<List<HtMakeup>>() {
+            @Override public void success(List<HtMakeup> list) {
+              items.addAll(list);
+
+            }
+
+            @Override public void fail(Exception error) {
+              error.printStackTrace();
+
+            }
+          });
+        } else {
+          items.addAll(pupilsList.getMakeups());
+
+        }
+        for (HtMakeup item : items) {
+          SharedPreferencesUtil.remove(context, "makeup_pupils_" + item.getName());
+        }
+        break;
+
+
+    }
+    beautyLipstickPosition(type,-1);
+
+    beautyMakeUpPosition(-1);
+
+    initCache(false);
+    HtState.currentMakeUp = HtMakeUpEnum.LIPSTICK;
   }
 
   public static void resetGreencreenValue(Context context) {

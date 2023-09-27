@@ -90,11 +90,11 @@ public class HtWatermarkAdapter extends RecyclerView.Adapter<HtStickerViewHolder
 
         //显示封面
         if (htWatermark == HtWatermarkConfig.HtWatermark.NO_WATERMARK) {
-            holder.thumbIV.setImageResource(R.drawable.shuiyin_shangchuan);
+            holder.thumbIV.setImageResource(R.drawable.resource_shangchuan);
         } else {
             if(position == 0){
                 Glide.with(holder.itemView.getContext())
-                    .load(R.drawable.shuiyin_shangchuan)
+                    .load(R.drawable.resource_shangchuan)
                     .into(holder.thumbIV);
             } else if (htWatermark.isFromDisk()) {
                 //来自硬盘的直接加载本体图片

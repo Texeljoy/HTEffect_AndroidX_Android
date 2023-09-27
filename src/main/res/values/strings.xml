@@ -11,6 +11,9 @@
     <string name="beauty_skin">Skin</string>
     <string name="beauty_shape">Reshape</string>
     <string name="beauty_hair">Hair</string>
+    <string name="beauty_makeup">Makeup</string>
+    <string name="beauty_makeup_style">MakeupStyle</string>
+    <string name="beauty_body">Body</string>
     <string name="beauty_style">Style</string>
 
     <string name="reset">Restore</string>
@@ -52,6 +55,17 @@
     <string name="undereye_circles">Black eye</string>
     <string name="short_face">Short face</string>
     <string name="nasolabial_fold">Wrinkles</string>
+
+    <string name="lipstick">Lipstick</string>
+    <string name="eyebrow">Eye Brow</string>
+    <string name="blush">Blush</string>
+    <string name="eyeshadow">Eye Shadow</string>
+    <string name="eyeline">Eye Line</string>
+    <string name="eyelash">Eye Lash</string>
+    <string name="beautypupils">Beauty Pupils</string>
+
+    <string name="longleg">Long Leg</string>
+    <string name="thin">Thin</string>
 
     <string name="filter">Filter</string>
     <string name="beauty_filter">BeautyFilter</string>
@@ -128,12 +142,14 @@
     <string name="style_nvsheng">Style3</string>
     <string name="style_wanghong">Style2</string>
 
-    <string name="makeup_chayi">CM01</string>
-    <string name="makeup_yuanqi">CM03</string>
-    <string name="makeup_riza">CM02</string>
-    <string name="makeup_haomen">CM04</string>
-    <string name="makeup_weixun">CM05</string>
-    <string name="makeup_xiaohua">CM06</string>
+    <string name="makeup_qcbh">CM01</string>
+    <string name="makeup_hxmr">CM02</string>
+    <string name="makeup_qtz">CM03</string>
+    <string name="makeup_bl">CM04</string>
+    <string name="makeup_ld">CM05</string>
+    <string name="makeup_yqsn">CM06</string>
+    <string name="makeup_nt">CM07</string>
+    <string name="makeup_cyz">CM08</string>
 
     <string name="beauty_filter_ziran1">ziran1</string>
     <string name="beauty_filter_ziran2">ziran2</string>
@@ -255,5 +271,8 @@
     <string name="similarity">Similarity</string>
     <string name="smoothness">Smoothness</string>
     <string name="alpha">Alpha</string>
+    <string name="decolor">Decolor</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

@@ -88,10 +88,14 @@
     <string name="style_wanghong">網紅</string>
 
 
-    <string name="makeup_chayi">茶藝</string>
-    <string name="makeup_haomen">豪門</string>
-    <string name="makeup_weixun">微醺</string>
-    <string name="makeup_xiaohua">校花</string>
+    <string name="makeup_qcbh">清純白花</string>
+    <string name="makeup_hxmr">狐系美人</string>
+    <string name="makeup_qtz">清甜妝</string>
+    <string name="makeup_bl">白露</string>
+    <string name="makeup_ld">冷調</string>
+    <string name="makeup_yqsn">元氣少女</string>
+    <string name="makeup_nt">女團</string>
+    <string name="makeup_cyz">純欲妝</string>
 
     <string name="filter_ziran1">自然1</string>
     <string name="filter_ziran2">自然2</string>

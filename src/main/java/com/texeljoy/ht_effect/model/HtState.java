@@ -18,11 +18,33 @@ public class HtState {
   //二级面板是哪个
   public static HTViewState currentSecondViewState = HTViewState.BEAUTY_SKIN;
 
+  //是否处于第三面板
+  public static HTViewState currentThirdViewState = HTViewState.MAKEUP_OUT;
+
   // 当前选中了哪个美颜参数
   private static HtBeautyKey currentBeautySkin = HtBeautyKey.NONE;
 
   // 当前选中了哪个美型参数
   public static HtFaceTrim currentFaceTrim = HtFaceTrim.EYE_ENLARGING;
+
+  // 当前选中了哪个美妆参数
+  public static HtMakeUpEnum currentMakeUp = HtMakeUpEnum.LIPSTICK;
+
+  public static HtMakeup currentLipstick = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentEyebrow = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentBlush = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentEyeshadow = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentEyeline = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentEyelash = HtMakeup.NO_MAKEUP;
+  public static HtMakeup currentPupils = HtMakeup.NO_MAKEUP;
+
+
+
+  // 当前选中了哪个妆容推荐参数
+  public static HtMakeupStyle currentMakeUpStyle = HtMakeupStyle.NONE;
+
+  // 当前选中了哪个美体参数
+  public static HtBody currentBody = HtBody.LONG_LEG;
 
   // 当前选中了哪个滤镜
   public static HtStyleFilter currentStyleFilter = HtStyleFilter.NO_FILTER;
@@ -38,7 +60,7 @@ public class HtState {
   // 当前选中哪个AR道具
   public static HTViewState currentAR = HTViewState.AR_PROP;
 
-  // 当前选中哪个轻彩妆
+  // 当前选中哪个妆容推荐
   //public static HtMakeup currentMakeup = HtMakeup.NONE;
 
 
@@ -66,5 +88,7 @@ public class HtState {
     HtUICacheUtils.beautyFaceTrimPosition(-1);
     HtUICacheUtils.beautySkinPosition(-1);
     HtUICacheUtils.beautyStylePosition(0);
+    HtUICacheUtils.beautyMakeUpStylePosition(0);
+    HtUICacheUtils.beautyBodyPosition(0);
   }
 }

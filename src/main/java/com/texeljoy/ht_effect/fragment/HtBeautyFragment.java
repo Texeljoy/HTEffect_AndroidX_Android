@@ -18,15 +18,16 @@ import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
-import com.shizhefei.view.indicator.FixedIndicatorView;
 import com.shizhefei.view.indicator.FragmentListPageAdapter;
 import com.shizhefei.view.indicator.IndicatorViewPager;
+import com.shizhefei.view.indicator.ScrollIndicatorView;
 import com.shizhefei.view.viewpager.SViewPager;
 import com.texeljoy.ht_effect.HTPanelLayout;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
+import com.texeljoy.ht_effect.model.HtMakeupStyle;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
@@ -41,7 +42,7 @@ public class HtBeautyFragment extends HtBaseFragment {
 
 
   private SViewPager htPager;
-  private FixedIndicatorView topIndicatorView;
+  private ScrollIndicatorView topIndicatorView;
   private Button alternateIndicatorView;
   private IndicatorViewPager indicatorViewPager;
   private IndicatorViewPager.IndicatorFragmentPagerAdapter fragmentPagerAdapter;
@@ -74,6 +75,8 @@ public class HtBeautyFragment extends HtBaseFragment {
     returnIv = view.findViewById(R.id.return_iv);
     HTPanelLayout = new HTPanelLayout(getContext());
 
+    RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+
 
     Bundle bundle = this.getArguments();//得到从Activity传来的数据
     if (bundle != null) {
@@ -85,9 +88,16 @@ public class HtBeautyFragment extends HtBaseFragment {
     htTabs.add(requireContext().getString(R.string.beauty_skin));
     htTabs.add(requireContext().getString(R.string.beauty_shape));
     htTabs.add(requireContext().getString(R.string.beauty_hair));
-    htTabs.add(requireContext().getString(R.string.beauty_style));
+    htTabs.add(requireContext().getString(R.string.beauty_makeup));
+    htTabs.add(requireContext().getString(R.string.beauty_makeup_style));
+    htTabs.add(requireContext().getString(R.string.beauty_body));
+    // htTabs.add(requireContext().getString(R.string.beauty_style));
+    // htTabs.add("口红");
 
-    topIndicatorView.setSplitMethod(FixedIndicatorView.SPLITMETHOD_WEIGHT);
+    // topIndicatorView.setSplitMethod(FixedIndicatorView.SPLITMETHOD_WEIGHT);
+    // topIndicatorView.setSplitMethod(FixedIndicatorView.SPLITMETHOD_WRAP);
+    topIndicatorView.setHorizontalScrollBarEnabled(true);
+    // topIndicatorView.set
     indicatorViewPager = new IndicatorViewPager(topIndicatorView, htPager);
     returnIv.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
@@ -112,10 +122,14 @@ public class HtBeautyFragment extends HtBaseFragment {
     htPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
       @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
         HtSelectedPosition.POSITION_BEAUTY = position;
+        if((HtState.currentMakeUpStyle != HtMakeupStyle.NONE) && position == 3){
+          RxBus.get().post(HTEventAction.ACTION_MAKEUP_STYLE_SELECTED,"");
+        }
 
       }
 
       @Override public void onPageSelected(int position) {
+
 
 
       }
@@ -158,23 +172,32 @@ public class HtBeautyFragment extends HtBaseFragment {
             case 2:
               return new HtHairFragment();
             case 3:
-              return new HtStyleFragment();
+              return new HtMakeUpFragment();
+            case 4:
+              return new HtMakeUpStyleFragment();
+            case 5:
+              return new HtBodyFragment();
             default:
               return new HtBeautySkinFragment();
           }
       }
     };
     indicatorViewPager.setAdapter(fragmentPagerAdapter);
-    if("filter".equals(which)){
-      htPager.setCurrentItem(2,false);
+    // if("filter".equals(which)){
+    //   htPager.setCurrentItem(2,false);
+    // }
+    if ("makeup".equals(which)) {
+      htPager.setCurrentItem(3,false);
+
     }
     if(HtState.currentStyle != HtStyle.YUAN_TU){
       htPager.setCurrentItem(3,false);
       alternateIndicatorView.setVisibility(View.VISIBLE);
       //topIndicatorView.setItemClickable(false);
     }
-    htPager.setCurrentItem(HtSelectedPosition.POSITION_BEAUTY,false);
 
+
+    htPager.setCurrentItem(HtSelectedPosition.POSITION_BEAUTY,false);
     changeTheme("");
   }
   /**

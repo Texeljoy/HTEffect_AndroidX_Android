@@ -3,9 +3,6 @@ package com.texeljoy.ht_effect.view;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
-import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -30,6 +30,8 @@ import com.texeljoy.ht_effect.utils.DpUtils;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTBodyBeautyEnum;
+import com.texeljoy.hteffect.model.HTMakeupEnum;
 
 /**
  * 复用的Slider
@@ -125,6 +127,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
 
     Log.e("面板1", HtState.currentViewState.name());
     Log.e("面板2", HtState.currentSecondViewState.name());
+    Log.e("面板3", HtState.currentThirdViewState.name());
 
     //美颜——美颜
     if (HtState.currentViewState == HTViewState.BEAUTY
@@ -219,6 +222,8 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
+
+
     //美颜——美发
     if (HtState.currentViewState == HTViewState.BEAUTY
         && HtState.currentSecondViewState == HTViewState.BEAUTY_HAIR) {
@@ -239,6 +244,208 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       styleNormal(HtUICacheUtils.beautyHairValue(HtState.currentHair.getName()));
       return;
     }
+
+    //美颜——美妆
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_OUT) {
+        setVisibility(INVISIBLE);
+        return;
+    }
+
+    //妆容推荐
+    // if (HtState.currentViewState == HTViewState.BEAUTY
+    //     && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP_STYLE) {
+    //   setVisibility(HtState.currentMakeUpStyle == HtMakeupStyle.NONE ?
+    //                 View.INVISIBLE : View.VISIBLE);
+    //   styleNormal(HtUICacheUtils.beautyMakeupStyleValue(HtState.currentMakeUpStyle.getName(getContext())));
+    //   htSeekBar.setProgress(HtUICacheUtils.beautyMakeupStyleValue(HtState.currentMakeUpStyle.getName(getContext())));
+    // }
+
+    //美颜——美妆——口红
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_LIPSTICK) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupLipstick.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupLipstick.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupLipstick.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("口红滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupLipstick.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——眉毛
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYEBROW) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupEyebrow.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyebrow.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupEyebrow.getValue(),currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("眉毛滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyebrow.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——腮红
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_BLUSH) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupBlush.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupBlush.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupBlush.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("腮红滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupBlush.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——眼影
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYESHADOW) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupEyeshadow.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyebrow.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupEyeshadow.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("眼影滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyeshadow.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——眼线
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYELINE) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupEyeline.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyeline.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupEyeline.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("眼线滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyeline.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——睫毛
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYELASH) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupEyelash.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyelash.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupEyelash.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("睫毛滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyelash.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美妆——美瞳
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_BEAUTYPUPILS) {
+
+      //美妆效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyLipstickPosition(HTMakeupEnum.HTMakeupPupils.getValue()) == 0) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      String currentName = HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupPupils.getValue());
+      int progress = HtUICacheUtils
+          .beautyLipstickValue(HTMakeupEnum.HTMakeupPupils.getValue(), currentName);
+      Log.e("当前模块:", currentName);
+      Log.e("美瞳滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupPupils.getValue(), currentName));
+      return;
+    }
+
+    //美颜——美体
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_BODY) {
+
+      //美型效果未选中，隐藏滑动条
+      if (HtUICacheUtils.beautyBodyPosition() == -1) {
+        setVisibility(INVISIBLE);
+        return;
+      } else {
+        setVisibility(VISIBLE);
+      }
+
+      int progress = HtUICacheUtils
+          .beautyBodyValue(HtState.currentBody);
+      Log.e("当前模块:", HtState.currentBody.name());
+      Log.e("美体滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(progress);
+
+      return;
+    }
+
+
 
     //AR道具——水印
     if (HtState.currentViewState == HTViewState.AR
@@ -300,6 +507,19 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
+    //人像抠图——绿幕抠图——祛色度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+            && HtState.currentSecondViewState == HTViewState.GREENSCREEN_DECOLOR) {
+      setVisibility(VISIBLE);
+
+      int progress = HtSelectedPosition.VALUE_DECOLOR;
+      Log.e("当前模块:", "祛色度");
+      Log.e("祛色度滑动参数同步:", progress + "");
+      htSeekBar.setProgress(progress);
+      styleNormal(HtSelectedPosition.VALUE_DECOLOR);
+      return;
+    }
+
     //美颜——滤镜
     if (HtState.currentViewState == HTViewState.FILTER) {
 
@@ -316,20 +536,20 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
+    //美颜——妆容推荐
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP_STYLE) {
+      setVisibility(INVISIBLE);
+      return;
+    }
+
 
     //AR道具
     if (HtState.currentViewState == HTViewState.AR) {
       setVisibility(INVISIBLE);
     }
 
-    //轻彩妆
-    // if (HtState.currentViewState == HTViewState.MAKE_UP) {
-    //   setVisibility(HtState.currentMakeup == HtMakeup.NONE ?
-    //                 View.INVISIBLE : View.VISIBLE);
-    //   setVisibility(INVISIBLE);
-    //   styleNormal(HtUICacheUtils.beautyMakeupValue(HtState.currentMakeup.getName(getContext())));
-    //   htSeekBar.setProgress(HtUICacheUtils.beautyMakeupValue(HtState.currentMakeup.getName(getContext())));
-    // }
+
 
     //人像抠图
     if (HtState.currentViewState == HTViewState.PORTRAIT) {
@@ -342,6 +562,8 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
     }
 
   }
+
+
 
   /**
    * 根据系统主题切换面板
@@ -579,6 +801,168 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
+    //美颜——美妆——口红
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_LIPSTICK) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆——口红" + HtState.currentLipstick.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupLipstick.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupLipstick.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupLipstick.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupLipstick.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——眉毛
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYEBROW) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentEyebrow.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyebrow.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyebrow.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupEyebrow.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyebrow.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——腮红
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_BLUSH) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentBlush.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupBlush.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupBlush.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupBlush.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupBlush.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——眼影
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYESHADOW) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentEyeshadow.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyeshadow.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyeshadow.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupEyeshadow.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyeshadow.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——眼线
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYELINE) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentEyeline.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyeline.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyeline.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupEyeline.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyeline.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——睫毛
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_EYELASH) {
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentEyelash.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupEyelash.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyelash.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupEyelash.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupEyelash.getValue()), progress);
+
+      return;
+    }
+
+    //美颜——美妆——美瞳
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP
+        && HtState.currentThirdViewState == HTViewState.MAKEUP_BEAUTYPUPILS) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyMakeUpResetEnable()) {
+        HtUICacheUtils.beautyMakeUpResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      styleNormal(progress);
+      Log.e("美妆" + HtState.currentPupils.getName(), progress + "%");
+      HtUICacheUtils.beautyLipstickValue(HTMakeupEnum.HTMakeupPupils.getValue(),HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupPupils.getValue()), progress);
+      HTEffect.shareInstance().setMakeup(HTMakeupEnum.HTMakeupPupils.getValue(), HtUICacheUtils.beautyLipstickName(HTMakeupEnum.HTMakeupPupils.getValue()), progress);
+
+      return;
+    }
+
+
+
+
+    //美颜——美体
+    if (HtState.currentViewState == HTViewState.BEAUTY
+        && HtState.currentSecondViewState == HTViewState.BEAUTY_BODY) {
+
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.beautyBodyResetEnable()) {
+        HtUICacheUtils.beautyBodyResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+
+      switch (HtState.currentBody) {
+        case LONG_LEG: //长腿
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyLegSlimming.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case THIN:  //瘦身
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyBodyThinning.getValue(),progress);
+          styleNormal(progress);
+          break;
+      }
+
+      Log.e("美体" + HtState.currentBody, progress + "");
+      HtUICacheUtils.beautyBodyValue(HtState.currentBody, progress);
+
+      return;
+    }
+
     //AR抠图——水印
     if (HtState.currentViewState == HTViewState.AR
         && HtState.currentSecondViewState == HTViewState.AR_WATERMARK) {
@@ -604,7 +988,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       HtSelectedPosition.VALUE_SIMILARITY = progress;
       // HtUICacheUtils.beautySimilarityValue(progress);
 
-      HTEffect.shareInstance().setGsSegEffectSimilarity(progress);
+      HTEffect.shareInstance().setChromaKeyingParams(0, progress);
       return;
     }
 
@@ -621,13 +1005,29 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       // HtUICacheUtils.beautySmoothnessValue(progress);
       HtSelectedPosition.VALUE_SMOOTHNESS = progress;
 
-      HTEffect.shareInstance().setGsSegEffectSmoothness(progress);
+      HTEffect.shareInstance().setChromaKeyingParams(1, progress);
+      return;
+    }
+
+    //人像抠图——绿幕抠图——祛色度
+    if (HtState.currentViewState == HTViewState.PORTRAIT
+        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_DECOLOR) {
+      //滑动条变化时，将重置按钮设为可选
+      if (!HtUICacheUtils.greenscreenResetEnable()) {
+        HtUICacheUtils.greenscreenResetEnable(true);
+        RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
+      }
+      styleNormal(progress);
+      Log.e("绿幕抠图——祛色度", progress + "%");
+      // HtUICacheUtils.beautyAlphaValue(progress);
+      HtSelectedPosition.VALUE_DECOLOR = progress;
+      HTEffect.shareInstance().setChromaKeyingParams(2, progress);
       return;
     }
 
     //人像抠图——绿幕抠图——透明度
     if (HtState.currentViewState == HTViewState.PORTRAIT
-        && HtState.currentSecondViewState == HTViewState.GREENSCREEN_ALPHA) {
+            && HtState.currentSecondViewState == HTViewState.GREENSCREEN_ALPHA) {
       //滑动条变化时，将重置按钮设为可选
       if (!HtUICacheUtils.greenscreenResetEnable()) {
         HtUICacheUtils.greenscreenResetEnable(true);
@@ -637,7 +1037,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       Log.e("绿幕抠图——透明度", progress + "%");
       // HtUICacheUtils.beautyAlphaValue(progress);
       HtSelectedPosition.VALUE_ALPHA = progress;
-      HTEffect.shareInstance().setGsSegEffectTransparency(progress);
+      HTEffect.shareInstance().setChromaKeyingParams(3, progress);
       return;
     }
 
@@ -653,10 +1053,10 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
     //   return;
     // }
 
-    //轻彩妆
+    //妆容推荐
     // if (HtState.currentViewState == HTViewState.MAKE_UP) {
     //   styleNormal(progress);
-    //   Log.e("轻彩妆" + HtState.currentMakeup.name(), progress + "%");
+    //   Log.e("妆容推荐" + HtState.currentMakeup.name(), progress + "%");
     //   HtUICacheUtils.beautyMakeupValue(HtState.currentMakeup.getName(getContext()), progress);
     //   HTEffect.shareInstance().setMakeup(HtState.currentMakeup.getLightMakeup(),progress);
     //   return;

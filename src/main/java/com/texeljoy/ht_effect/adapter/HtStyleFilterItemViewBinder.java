@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
+import com.texeljoy.ht_effect.model.HtMakeupStyle;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.model.HtStyleFilterConfig;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
@@ -79,28 +80,34 @@ public class HtStyleFilterItemViewBinder extends ItemViewBinder<HtStyleFilterCon
     // }
     holder.itemView.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {
-        if (holder.itemView.isSelected()) {
-          return;
+
+        if(HtState.currentMakeUpStyle == HtMakeupStyle.NONE){
+          if (holder.itemView.isSelected()) {
+            return;
+          }
+
+
+          //应用效果
+
+
+          HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), item.getName());
+          //HtUICacheUtils.beautyFilterValue(item, 100);
+
+          HtState.currentStyleFilter = item;
+
+          holder.itemView.setSelected(true);
+          getAdapter().notifyItemChanged(HtUICacheUtils.beautyFilterPosition());
+          HtUICacheUtils.beautyFilterPosition(getPosition(holder));
+          HtUICacheUtils.beautyFilterName(item.getName());
+          getAdapter().notifyItemChanged(HtUICacheUtils.beautyFilterPosition());
+
+
+          RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
+          RxBus.get().post(HTEventAction.ACTION_SHOW_FILTER, "");
+        }else{
+          RxBus.get().post(HTEventAction.ACTION_MAKEUP_STYLE_SELECTED, "");
         }
 
-
-        //应用效果
-
-
-        HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), item.getName());
-        //HtUICacheUtils.beautyFilterValue(item, 100);
-
-        HtState.currentStyleFilter = item;
-
-        holder.itemView.setSelected(true);
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyFilterPosition());
-        HtUICacheUtils.beautyFilterPosition(getPosition(holder));
-        HtUICacheUtils.beautyFilterName(item.getName());
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyFilterPosition());
-
-
-        RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
-        RxBus.get().post(HTEventAction.ACTION_SHOW_FILTER, "");
       }
     });
 

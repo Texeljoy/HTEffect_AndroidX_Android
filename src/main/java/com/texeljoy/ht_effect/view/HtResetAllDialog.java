@@ -19,7 +19,6 @@ import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTFilterEnum;
 import com.texeljoy.hteffect.model.HTItemEnum;
-// import com.texeljoy.hteffectar.HTEffectAR;
 import java.lang.ref.WeakReference;
 
 /**
@@ -66,11 +65,22 @@ public class HtResetAllDialog extends DialogFragment {
           HtUICacheUtils.resetFaceTrimValue(getContext());
           HtUICacheUtils.beautyFaceTrimResetEnable(false);
 
+          HtUICacheUtils.resetBodyValue(getContext());
+          HtUICacheUtils.beautyBodyResetEnable(false);
+
+          for(int i = 0; i < 7; i ++){
+              HtUICacheUtils.resetMakeUpValue(getContext(),i);
+          }
+          HtUICacheUtils.beautyMakeUpResetEnable(false);
+
           HtUICacheUtils.resetGreencreenValue(getContext());
           HtUICacheUtils.greenscreenResetEnable(false);
 
           HTEffect.shareInstance().setHairStyling(0, 0);
           HtUICacheUtils.beautyHairPosition(0);
+
+          HTEffect.shareInstance().setStyle(0);
+          HtUICacheUtils.beautyMakeUpStylePosition(0);
 
           HtSelectedPosition.POSITION_STICKER = -1;
           HTEffect.shareInstance().setARItem(HTItemEnum.HTItemSticker.getValue(), "");
@@ -93,7 +103,7 @@ public class HtResetAllDialog extends DialogFragment {
           RxBus.get().post(HTEventAction.ACTION_SYNC_PORTRAITAI_ITEM_CHANGED, "");
 
           HtSelectedPosition.POSITION_GREEN_SCREEN = -1;
-          HTEffect.shareInstance().setGsSegEffectScene("");
+          HTEffect.shareInstance().setChromaKeyingScene("");
           RxBus.get().post(HTEventAction.ACTION_SYNC_PORTRAITTGS_ITEM_CHANGED, "");
 
           HtSelectedPosition.POSITION_GESTURE = -1;
@@ -110,11 +120,6 @@ public class HtResetAllDialog extends DialogFragment {
           // HTEffectAR.shareInstance().setModelName("empty");
           HtSelectedPosition.POSITION_THREED = -1;
           RxBus.get().post(HTEventAction.ACTION_SYNC_THREED_ITEM_CHANGED, "");
-
-
-
-
-
 
 
           //通知刷新列表

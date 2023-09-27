@@ -1,124 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragment.HtGreenScreenEditFragment"
-    android:paddingTop="13dp">
+    android:paddingTop="13dp"
+    tools:context=".fragment.HtGreenScreenEditFragment">
 
     <LinearLayout
         android:id="@+id/ll_gs_restore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="16dp">
+        android:layout_marginEnd="16dp"
+        android:orientation="vertical">
+
         <ImageView
             android:id="@+id/iv_gs_restore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/selector_gs_return"
-            />
+            android:src="@drawable/selector_gs_return" />
 
         <TextView
             android:id="@+id/tv_gs_restore"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/restore"
-            android:textSize="12sp"
-            android:textColor="@drawable/color_reset_text_white"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/restore"
+            android:textColor="@drawable/color_reset_text_white"
+            android:textSize="12sp" />
     </LinearLayout>
 
     <View
         android:id="@+id/divide"
         android:layout_width="1dp"
-        android:background="@color/divide_line"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/ll_gs_restore"
         android:layout_alignTop="@+id/ll_gs_restore"
         android:layout_alignBottom="@+id/ll_gs_restore"
-        android:layout_marginBottom="35dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="16dp"/>
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="35dp"
+        android:layout_toRightOf="@+id/ll_gs_restore"
+        android:background="@color/divide_line" />
 
     <LinearLayout
         android:id="@+id/ll_gs_similarity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginEnd="20dp"
-        android:layout_toRightOf="@id/divide">
+        android:layout_toRightOf="@id/divide"
+        android:orientation="vertical">
+
         <ImageView
             android:id="@+id/iv_gs_similarity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/selector_gs_similarity"
-            />
+            android:src="@drawable/selector_gs_similarity" />
+
         <TextView
             android:id="@+id/tv_gs_similarity"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/similarity"
-            android:textSize="12sp"
-            android:textColor="@drawable/color_ht_selector"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/similarity"
+            android:textColor="@drawable/color_ht_selector"
+            android:textSize="12sp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/ll_gs_smoothness"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginEnd="20dp"
-        android:layout_toRightOf="@id/ll_gs_similarity">
+        android:layout_toRightOf="@id/ll_gs_similarity"
+        android:orientation="vertical">
+
         <ImageView
             android:id="@+id/iv_gs_smoothness"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/selector_gs_smoothness"
-            />
+            android:src="@drawable/selector_gs_smoothness" />
+
         <TextView
             android:id="@+id/tv_gs_smoothness"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/smoothness"
-            android:textSize="12sp"
-            android:textColor="@drawable/color_ht_selector"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/smoothness"
+            android:textColor="@drawable/color_ht_selector"
+            android:textSize="12sp" />
 
     </LinearLayout>
+
     <LinearLayout
+        android:id="@+id/ll_gs_decolor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginEnd="20dp"
-        android:layout_toRightOf="@id/ll_gs_smoothness">
+        android:layout_toRightOf="@id/ll_gs_smoothness"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/iv_gs_decolor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/selector_gs_decolor" />
+
+        <TextView
+            android:id="@+id/tv_gs_decolor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/decolor"
+            android:textColor="@drawable/color_ht_selector"
+            android:textSize="12sp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_gs_alpha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:layout_toRightOf="@id/ll_gs_decolor"
+        android:orientation="vertical">
+
         <ImageView
             android:id="@+id/iv_gs_alpha"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/selector_gs_alpha"
-            />
+            android:src="@drawable/selector_gs_alpha" />
+
         <TextView
             android:id="@+id/tv_gs_alpha"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/alpha"
-            android:textSize="12sp"
-            android:textColor="@drawable/color_ht_selector"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginTop="10dp"/>
+            android:text="@string/alpha"
+            android:textColor="@drawable/color_ht_selector"
+            android:textSize="12sp" />
 
 
     </LinearLayout>
-
-
-
-
 
 </RelativeLayout>

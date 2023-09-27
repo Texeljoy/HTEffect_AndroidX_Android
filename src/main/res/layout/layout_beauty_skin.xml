@@ -66,7 +66,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/btn_gs_blue"
-                android:layout_toLeftOf="@+id/iv_white"
+                android:layout_toLeftOf="@+id/iv_red"
                 android:layout_marginEnd="20dp"
                 android:layout_centerVertical="true"
                 android:visibility="gone"/>
@@ -75,15 +75,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/btn_gs_selected"
-                android:layout_toLeftOf="@+id/iv_white"
+                android:layout_toLeftOf="@+id/iv_red"
                 android:layout_marginEnd="16dp"
                 android:layout_centerVertical="true"
                 android:visibility="gone"/>
             <ImageView
-                android:id="@+id/iv_white"
+                android:id="@+id/iv_red"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/btn_gs_white"
+                android:src="@drawable/btn_gs_red"
                 android:layout_alignParentRight="true"
                 android:layout_marginEnd="20dp"
                 android:layout_centerVertical="true"

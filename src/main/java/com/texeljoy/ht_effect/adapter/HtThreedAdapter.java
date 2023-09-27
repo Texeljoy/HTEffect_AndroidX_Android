@@ -13,7 +13,6 @@ import com.texeljoy.ht_effect.model.HTDownloadState;
 import com.texeljoy.ht_effect.model.HtThreedConfig;
 import com.texeljoy.ht_effect.model.HtThreedConfig.HtThreed;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
-// import com.texeljoy.hteffectar.HTEffectAR;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

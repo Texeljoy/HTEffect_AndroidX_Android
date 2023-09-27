@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="45dp">
 
-            <com.shizhefei.view.indicator.FixedIndicatorView
+            <com.shizhefei.view.indicator.ScrollIndicatorView
                 android:id="@+id/top_indicator_view"
                 android:layout_width="match_parent"
                 android:gravity="center"

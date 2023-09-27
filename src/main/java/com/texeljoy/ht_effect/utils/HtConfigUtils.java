@@ -20,7 +20,7 @@ import java.io.InputStreamReader;
 @SuppressWarnings("unused")
 public class HtConfigUtils {
 
-  //轻彩妆
+  //妆容推荐
   private static String PATH_MAKE_UP;
 
   //滤镜
@@ -75,7 +75,7 @@ public class HtConfigUtils {
 
   /**
    * async
-   * 获取轻彩妆的配置
+   * 获取妆容推荐的配置
    */
   public void getMakeupConfig() {
 

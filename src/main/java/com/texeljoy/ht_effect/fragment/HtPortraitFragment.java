@@ -41,7 +41,7 @@ public class HtPortraitFragment extends HtBaseFragment {
   private ScrollIndicatorView indicatorView;
   private IndicatorViewPager indicatorViewPager;
   private IndicatorViewPager.IndicatorFragmentPagerAdapter fragmentPagerAdapter;
-  private ImageView ivGreen,ivBlue,ivWhite;
+  private ImageView ivGreen,ivBlue,ivRed;
   private ImageView ivSelected1,ivSelected2,ivSelected3;
   private ImageView ivClean;
   private View container;
@@ -65,7 +65,7 @@ public class HtPortraitFragment extends HtBaseFragment {
     htBar = view.findViewById(R.id.ht_bar);
     ivGreen = view.findViewById(R.id.iv_green);
     ivBlue = view.findViewById(R.id.iv_blue);
-    ivWhite = view.findViewById(R.id.iv_white);
+    ivRed = view.findViewById(R.id.iv_red);
     ivSelected1 = view.findViewById(R.id.iv_selected1);
     ivSelected2 = view.findViewById(R.id.iv_selected2);
     ivSelected3 = view.findViewById(R.id.iv_selected3);
@@ -94,7 +94,7 @@ public class HtPortraitFragment extends HtBaseFragment {
         if(position == 1){
           ivGreen.setVisibility(View.VISIBLE);
           ivBlue.setVisibility(View.VISIBLE);
-          ivWhite.setVisibility(View.VISIBLE);
+          ivRed.setVisibility(View.VISIBLE);
           int selectPosition = HtSelectedPosition.POSITION_GREEN_SCREEN_EDIT;
           if(selectPosition == 0){
             HtState.currentSecondViewState = HTViewState.GREENSCREEN_SIMILARITY;
@@ -109,13 +109,13 @@ public class HtPortraitFragment extends HtBaseFragment {
           int colorPoition = HtSelectedPosition.POSITION_GREEN_SCREEN_COLOR;
           if(colorPoition == 2){
             ivSelected3.setVisibility(View.VISIBLE);
-            HTEffect.shareInstance().setGsSegEffectCurtain("#ffffff");
+            HTEffect.shareInstance().setChromaKeyingCurtain("#ff0000");
           }else if(colorPoition == 1){
             ivSelected2.setVisibility(View.VISIBLE);
-            HTEffect.shareInstance().setGsSegEffectCurtain("#0000ff");
+            HTEffect.shareInstance().setChromaKeyingCurtain("#0000ff");
           }else{
             ivSelected1.setVisibility(View.VISIBLE);
-            HTEffect.shareInstance().setGsSegEffectCurtain("#00ff00");
+            HTEffect.shareInstance().setChromaKeyingCurtain("#00ff00");
           }
 
 
@@ -125,7 +125,7 @@ public class HtPortraitFragment extends HtBaseFragment {
         }else{
           ivGreen.setVisibility(View.GONE);
           ivBlue.setVisibility(View.GONE);
-          ivWhite.setVisibility(View.GONE);
+          ivRed.setVisibility(View.GONE);
           ivSelected1.setVisibility(View.GONE);
           ivSelected2.setVisibility(View.GONE);
           ivSelected3.setVisibility(View.GONE);
@@ -195,7 +195,7 @@ public class HtPortraitFragment extends HtBaseFragment {
         ivSelected2.setVisibility(View.GONE);
         ivSelected3.setVisibility(View.GONE);
         HtSelectedPosition.POSITION_GREEN_SCREEN_COLOR = 0;
-        HTEffect.shareInstance().setGsSegEffectCurtain("#00ff00");
+        HTEffect.shareInstance().setChromaKeyingCurtain("#00ff00");
       }
     });
     ivBlue.setOnClickListener(new OnClickListener() {
@@ -204,16 +204,16 @@ public class HtPortraitFragment extends HtBaseFragment {
         ivSelected2.setVisibility(View.VISIBLE);
         ivSelected3.setVisibility(View.GONE);
         HtSelectedPosition.POSITION_GREEN_SCREEN_COLOR = 1;
-        HTEffect.shareInstance().setGsSegEffectCurtain("#0000ff");
+        HTEffect.shareInstance().setChromaKeyingCurtain("#0000ff");
       }
     });
-    ivWhite.setOnClickListener(new OnClickListener() {
+    ivRed.setOnClickListener(new OnClickListener() {
       @Override public void onClick(View v) {
         ivSelected1.setVisibility(View.GONE);
         ivSelected2.setVisibility(View.GONE);
         ivSelected3.setVisibility(View.VISIBLE);
         HtSelectedPosition.POSITION_GREEN_SCREEN_COLOR = 2;
-        HTEffect.shareInstance().setGsSegEffectCurtain("#ffffff");
+        HTEffect.shareInstance().setChromaKeyingCurtain("#ff0000");
       }
     });
     indicatorViewPager.setAdapter(fragmentPagerAdapter);

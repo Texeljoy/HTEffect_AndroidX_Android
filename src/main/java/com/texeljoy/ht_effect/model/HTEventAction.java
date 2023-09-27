@@ -53,6 +53,12 @@ public class HTEventAction {
   //风格推荐被选中的提示
   public static final String ACTION_STYLE_SELECTED = "ACTION_STYLE_SELECTED";
 
+  //妆容推荐被选中的提示
+  public static final String ACTION_MAKEUP_STYLE_SELECTED = "ACTION_MAKEUP_STYLE_SELECTED";
+
+  //未识别到人体的提示
+  public static final String ACTION_NO_BODY = "ACTION_NO_BODY";
+
   //更新“美颜”功能中指示器的可选中状态
   public static final String ACTION_CHANGE_ENABLE = "ACTION_CHANGE_ENABLE";
 
@@ -70,6 +76,9 @@ public class HTEventAction {
 
   //清除贴纸的提示框
   public static final String ACTION_REMOVE_STICKER_RECT = "ACTION_REMOVE_STICKER_RECT";
+
+  //更换当前列表
+  public static final String ACTION_CHANGE_MAKEUP_list = "ACTION_CHANGE_MAKEUP_list";
 
 
 
