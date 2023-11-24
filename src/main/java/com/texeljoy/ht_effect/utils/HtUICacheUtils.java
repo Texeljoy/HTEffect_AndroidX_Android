@@ -555,19 +555,19 @@ public class HtUICacheUtils {
 
     switch (key) {
       case whiteness:
-        defaultValue = 50;
+        defaultValue = 80;
         break;
       // case vague_blurriness:
       //   defaultValue = 0;
       //   break;
       case blurriness:
-        defaultValue = 60;
+        defaultValue = 100;
         break;
       case rosiness:
         defaultValue = 10;
         break;
       case clearness:
-        defaultValue = 60;
+        defaultValue = 5;
         break;
       case brightness:
         defaultValue = 50;
@@ -623,7 +623,7 @@ public class HtUICacheUtils {
       case EYE_ROUNDING:
         break;
       case CHEEK_V_SHAPING:
-        defaultValue = 60;
+        defaultValue = 50;
         break;
       case CHIN_TRIMMING:
         defaultValue = 50;
