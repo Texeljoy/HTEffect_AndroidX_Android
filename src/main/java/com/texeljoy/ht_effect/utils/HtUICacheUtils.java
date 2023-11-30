@@ -555,13 +555,13 @@ public class HtUICacheUtils {
 
     switch (key) {
       case whiteness:
-        defaultValue = 80;
+        defaultValue = 70;
         break;
       // case vague_blurriness:
       //   defaultValue = 0;
       //   break;
       case blurriness:
-        defaultValue = 100;
+        defaultValue = 80;
         break;
       case rosiness:
         defaultValue = 10;

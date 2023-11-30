@@ -11,8 +11,8 @@ public enum HtUICacheKey {
   BEAUTY_MAKE_UP_STYLE_SELECT_POSITION(0,""), //选中了哪个妆容推荐
   BEAUTY_BODY_SELECT_POSITION(0,""), //选中了哪个美体
   BEAUTY_STYLE_SELECT_POSITION(0,""), //选中了哪个风格
-  FILTER_SELECT_POSITION,//选中了哪个滤镜
-  FILTER_SELECT_NAME,//选中了哪个滤镜
+  FILTER_SELECT_POSITION(3,""),//选中了哪个滤镜
+  FILTER_SELECT_NAME(0,"ziran3"),//选中了哪个滤镜
   EFFECT_FILTER_SELECT_POSITION,//选中了哪个趣味滤镜
   EFFECT_FILTER_SELECT_NAME,//选中了哪个趣味滤镜
   FUNNY_FILTER_SELECT_POSITION,//选中了哪个趣味滤镜
