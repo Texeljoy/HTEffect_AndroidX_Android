@@ -42,6 +42,11 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
   private HtSkinItem btnBrightness;
   private HtSkinItem btnUnderEyes;
   private HtSkinItem btnNasolabial;
+  private HtSkinItem btnEyesLight;
+  private HtSkinItem btnTeethWhite;
+  private HtSkinItem btnTracker1;
+  private HtSkinItem btnTracker2;
+  private HtSkinItem btnTracker3;
 
   private ArrayList<HtSkinItem> itemViews = new ArrayList<>();
 
@@ -73,9 +78,25 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
     btnBrightness.init(HtBeauty.brightness);
     btnUnderEyes = findViewById(R.id.btn_undereye_circles);
     btnUnderEyes.init(HtBeauty.undereye_circles);
-
     btnNasolabial = findViewById(R.id.btn_nasolabial);
     btnNasolabial.init(HtBeauty.nasolabial);
+
+    btnEyesLight = findViewById(R.id.btn_eyeslight);
+    btnEyesLight.init(HtBeauty.eyeslight);
+    btnTeethWhite = findViewById(R.id.btn_teethwhite);
+    btnTeethWhite.init(HtBeauty.teethwhite);
+    btnTracker1 = findViewById(R.id.btn_tracker1);
+    btnTracker1.init(HtBeauty.tracker1);
+    btnTracker2 = findViewById(R.id.btn_tracker2);
+    btnTracker2.init(HtBeauty.tracker2);
+    btnTracker3 = findViewById(R.id.btn_tracker3);
+    btnTracker3.init(HtBeauty.tracker3);
+
+    btnEyesLight.setVisibility(View.GONE);
+    btnTeethWhite.setVisibility(View.GONE);
+    btnTracker1.setVisibility(View.GONE);
+    btnTracker2.setVisibility(View.GONE);
+    btnTracker3.setVisibility(View.GONE);
 
     itemViews.add(btnWhite);
     itemViews.add(btnRosiness);
@@ -83,6 +104,11 @@ public class HtBeautySkinFragment extends HtBaseLazyFragment {
     itemViews.add(btnBrightness);
     itemViews.add(btnUnderEyes);
     itemViews.add(btnNasolabial);
+    // itemViews.add(btnTeethWhite);
+    // itemViews.add(btnEyesLight);
+    // itemViews.add(btnTracker1);
+    // itemViews.add(btnTracker2);
+    // itemViews.add(btnTracker3);
 
     btnReset.setOnClickListener(new View.OnClickListener() {
       @Override public void onClick(View view) {

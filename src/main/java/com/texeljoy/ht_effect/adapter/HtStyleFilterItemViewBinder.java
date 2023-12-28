@@ -23,6 +23,7 @@ import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.ht_effect.view.HtRoundImageView;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTFilterEnum;
+import java.util.Locale;
 import me.drakeet.multitype.ItemViewBinder;
 
 /**
@@ -43,7 +44,12 @@ public class HtStyleFilterItemViewBinder extends ItemViewBinder<HtStyleFilterCon
     holder.itemView.setSelected(getPosition(holder) ==
         HtUICacheUtils.beautyFilterPosition());
 
-    holder.name.setText(item.getTitle());
+    String currentLanguage = Locale.getDefault().getLanguage();
+    if("en".equals(currentLanguage)){
+      holder.name.setText(item.getTitleEn());
+    }else{
+      holder.name.setText(item.getTitle());
+    }
 
     holder.name.setBackgroundColor(Color.TRANSPARENT);
 

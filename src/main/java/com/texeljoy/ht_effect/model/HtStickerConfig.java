@@ -48,7 +48,7 @@ public class HtStickerConfig {
       this.name = name;
       this.category = category;
       this.icon = icon;
-      this.downloaded = downloaded;
+      this.download = downloaded;
     }
 
     @Override public String toString() {
@@ -56,7 +56,7 @@ public class HtStickerConfig {
           "name='" + name + '\'' +
           ", category='" + category + '\'' +
           ", icon='" + icon + '\'' +
-          ", downloaded=" + downloaded +
+          ", downloaded=" + download +
           '}';
     }
 
@@ -71,7 +71,7 @@ public class HtStickerConfig {
     /**
      * downloaded
      */
-    private int downloaded;
+    private int download;
 
     public String getUrl() {
 
@@ -95,10 +95,10 @@ public class HtStickerConfig {
 
     public void setThumb(String icon) { this.icon = icon;}
 
-    public int isDownloaded() { return downloaded;}
+    public int isDownloaded() { return download;}
 
     public void setDownloaded(int downloaded) {
-      this.downloaded = downloaded;
+      this.download = downloaded;
     }
 
     /**

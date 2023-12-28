@@ -33,10 +33,11 @@ public class HtHairConfig {
 
   public static class HtHair {
 
-    public static final HtHair NO_HAIR = new HtHair("","", 0,"", "", 2);
+    public static final HtHair NO_HAIR = new HtHair("","","", 0,"", "", 2);
 
-    public HtHair(String title, String name, int id, String category, String icon, int download) {
+    public HtHair(String title,String titleEn, String name, int id, String category, String icon, int download) {
       this.title = title;
+      this.title_en = titleEn;
       this.name = name;
       this.id = id;
       this.category = category;
@@ -57,6 +58,7 @@ public class HtHairConfig {
      * title
      */
     private String title;
+    private String title_en;
     /**
      * id
      */
@@ -117,6 +119,14 @@ public class HtHairConfig {
 
     public void setTitle(String title) {
       this.title = title;
+    }
+
+    public String getTitleEn() {
+      return title_en;
+    }
+
+    public void setTitleEn(String titleEn) {
+      this.title_en = titleEn;
     }
 
 

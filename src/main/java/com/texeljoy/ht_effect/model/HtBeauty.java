@@ -16,7 +16,12 @@ public enum HtBeauty {
   clearness(R.string.clearness, R.drawable.ic_clearness_black, R.drawable.ic_clearness_white, HtBeautyKey.clearness),
   brightness(R.string.brightness, R.drawable.ic_brightness_black, R.drawable.ic_brightness_white, HtBeautyKey.brightness),
   undereye_circles(R.string.undereye_circles, R.drawable.ic_dark_circle_black, R.drawable.ic_dark_circle_white, HtBeautyKey.undereye_circles),
-  nasolabial(R.string.nasolabial_fold, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.nasolabial);
+  nasolabial(R.string.nasolabial_fold, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.nasolabial),
+  eyeslight(R.string.eyes_light, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.eyeslight),
+  teethwhite(R.string.teeth_white, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.teethwhite),
+  tracker1(R.string.tracker1, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.tracker1),
+  tracker2(R.string.tracker2, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.tracker2),
+  tracker3(R.string.tracker3, R.drawable.ic_nasolabial_black, R.drawable.ic_nasolabial_white, HtBeautyKey.tracker3);
 
   //名称
   private final int name;

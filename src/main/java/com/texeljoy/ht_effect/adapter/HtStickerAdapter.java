@@ -111,7 +111,6 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
             }
         }
 
-
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -224,8 +223,6 @@ public class HtStickerAdapter extends RecyclerView.Adapter<HtStickerViewHolder> 
                         notifyItemChanged(selectedPosition);
                         notifyItemChanged(lastPosition);
                     }
-
-
 
                 }
 

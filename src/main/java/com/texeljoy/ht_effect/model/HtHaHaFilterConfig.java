@@ -33,10 +33,11 @@ public class HtHaHaFilterConfig {
 
   public static class HtHaHaFilter {
 
-    public static final HtHaHaFilter NO_FILTER = new HtHaHaFilter("","", "", "", 2);
+    public static final HtHaHaFilter NO_FILTER = new HtHaHaFilter("","","", "", "", 2);
 
-    public HtHaHaFilter(String title, String name, String category, String icon, int download) {
+    public HtHaHaFilter(String title, String titleEn, String name, String category, String icon, int download) {
       this.title = title;
+      this.title_en = titleEn;
       this.name = name;
       this.category = category;
       this.icon = icon;
@@ -55,6 +56,7 @@ public class HtHaHaFilterConfig {
      * title
      */
     private String title;
+    private String title_en;
     /**
      * name
      */
@@ -104,6 +106,14 @@ public class HtHaHaFilterConfig {
 
     public void setTitle(String title) {
       this.title = title;
+    }
+
+    public String getTitleEn() {
+      return title_en;
+    }
+
+    public void setTitleEn(String titleEn) {
+      this.title_en = titleEn;
     }
 
 

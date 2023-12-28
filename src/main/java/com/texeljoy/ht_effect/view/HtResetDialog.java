@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.WindowManager.LayoutParams;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -40,8 +41,8 @@ public class HtResetDialog extends DialogFragment {
     Window window = dialog.getWindow();
     if (window != null) {
       WindowManager.LayoutParams params = window.getAttributes();
-      params.width = WindowManager.LayoutParams.MATCH_PARENT;
-      params.height = WindowManager.LayoutParams.WRAP_CONTENT;
+      params.width = LayoutParams.MATCH_PARENT;
+      params.height = LayoutParams.WRAP_CONTENT;
       params.gravity = Gravity.CENTER;
       window.setAttributes(params);
     }

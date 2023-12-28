@@ -14,5 +14,10 @@ public enum HtBeautyKey {
 
   undereye_circles,//黑眼圈
   nasolabial,//法令纹
+  eyeslight,//亮眼
+  teethwhite,//美牙
+  tracker1,
+  tracker2,
+  tracker3,
   NONE;
 }

@@ -15,7 +15,6 @@ import androidx.appcompat.widget.AppCompatImageView;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
-import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.RxBus;
 import com.liulishuo.okdownload.DownloadTask;
 import com.liulishuo.okdownload.core.cause.EndCause;
@@ -24,11 +23,13 @@ import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTDownloadState;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtMakeup;
+import com.texeljoy.ht_effect.model.HtMakeupResEnum;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.ht_effect.utils.HtUnZip;
 import com.texeljoy.hteffect.HTEffect;
 import java.io.File;
+import java.util.Locale;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import me.drakeet.multitype.ItemViewBinder;
@@ -60,8 +61,12 @@ public class HtLipstickItemViewBinder extends ItemViewBinder<HtMakeup,
 
 
     // selectedPosition = HtSelectedPosition.POSITION_STICKER;
-
-    holder.name.setText(item.getTitle());
+    String currentLanguage = Locale.getDefault().getLanguage();
+    if("en".equals(currentLanguage)){
+      holder.name.setText(item.getTitleEn());
+    }else{
+      holder.name.setText(item.getTitle());
+    }
 
     holder.name.setBackgroundColor(Color.TRANSPARENT);
 
@@ -71,10 +76,11 @@ public class HtLipstickItemViewBinder extends ItemViewBinder<HtMakeup,
     if(getPosition(holder) == 0){
       holder.thumbIV.setImageResource(R.drawable.icon_makeup_none);
     }else{
-      Glide.with(holder.itemView.getContext())
-          .load(item.getIcon())
-          .placeholder(R.drawable.icon_placeholder)
-          .into(holder.thumbIV);
+      // Glide.with(holder.itemView.getContext())
+      //     .load()
+      //     .placeholder(R.drawable.icon_placeholder)
+      //     .into(holder.thumbIV);
+      holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 6 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
 
     }
 

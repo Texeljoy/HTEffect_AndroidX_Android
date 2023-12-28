@@ -20,6 +20,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:includeFontPadding="false"
+            android:layout_gravity="center"
+            android:paddingLeft="10dp"
             android:text="@string/is_reset_to_default"
             android:textColor="@color/dark_black"
             android:textSize="15sp" />

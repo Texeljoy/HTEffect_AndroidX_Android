@@ -28,7 +28,7 @@ public class HtAISegmentationConfig {
       this.name = name;
       this.category = category;
       this.icon = icon;
-      this.downloaded = downloaded;
+      this.download = downloaded;
     }
 
     /**
@@ -46,7 +46,7 @@ public class HtAISegmentationConfig {
     /**
      * downloaded
      */
-    private int downloaded;
+    private int download;
 
     public String getName() { return name;}
 
@@ -62,7 +62,7 @@ public class HtAISegmentationConfig {
 
     public void setIcon(String icon) { this.icon = icon;}
 
-    public int isDownloaded() { return downloaded;}
+    public int isDownloaded() { return download;}
 
     public String getUrl() {
       return HTEffect.shareInstance().getAISegEffectUrl() + this.name + ".zip";
@@ -83,7 +83,7 @@ public class HtAISegmentationConfig {
     }
 
     public void setDownloaded(int downloaded) {
-      this.downloaded = downloaded;
+      this.download = downloaded;
     }
   }
 }

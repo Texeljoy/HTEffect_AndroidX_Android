@@ -33,10 +33,11 @@ public class HtStyleFilterConfig {
 
   public static class HtStyleFilter {
 
-    public static final HtStyleFilter NO_FILTER = new HtStyleFilter("","", "", "", 2);
+    public static final HtStyleFilter NO_FILTER = new HtStyleFilter("","","", "", "", 2);
 
-    public HtStyleFilter(String title, String name, String category, String icon, int download) {
+    public HtStyleFilter(String title,String titleEn, String name, String category, String icon, int download) {
       this.title = title;
+      this.title_en = titleEn;
       this.name = name;
       this.category = category;
       this.icon = icon;
@@ -55,6 +56,7 @@ public class HtStyleFilterConfig {
      * title
      */
     private String title;
+    private String title_en;
     /**
      * name
      */
@@ -104,6 +106,14 @@ public class HtStyleFilterConfig {
 
     public void setTitle(String title) {
       this.title = title;
+    }
+
+    public String getTitleEn() {
+      return title_en;
+    }
+
+    public void setTitleEn(String titleEn) {
+      this.title_en = titleEn;
     }
 
 

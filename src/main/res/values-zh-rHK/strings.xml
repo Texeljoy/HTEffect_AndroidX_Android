@@ -45,6 +45,8 @@
     <string name="mouth_smiling">微笑嘴唇</string>
     <string name="undereye_circles">去黑眼圈</string>
     <string name="nasolabial_fold">去法令紋</string>
+    <string name="eyes_light">亮眼</string>
+    <string name="teeth_white">美牙</string>
     <string name="short_face">短臉</string>
 
 
@@ -140,7 +142,7 @@
     <string name="gift">禮物</string>
     <string name="watermark">水印</string>
     <string name="portrait">人像摳圖</string>
-    <string name="portrait_ai">AI摳圖</string>
+    <string name="portrait_ai">摳圖</string>
     <string name="portrait_green">綠幕摳圖</string>
     <string name="makeup_yuanqi">元氣</string>
 

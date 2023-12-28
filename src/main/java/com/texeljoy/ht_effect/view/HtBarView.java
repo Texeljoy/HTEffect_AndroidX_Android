@@ -30,6 +30,7 @@ import com.texeljoy.ht_effect.utils.DpUtils;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTBeautyEnum;
 import com.texeljoy.hteffect.model.HTBodyBeautyEnum;
 import com.texeljoy.hteffect.model.HTMakeupEnum;
 
@@ -155,6 +156,11 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
         case clearness:
         case undereye_circles:
         case nasolabial:
+        case eyeslight:
+        case teethwhite:
+        case tracker1:
+        case tracker2:
+        case tracker3:
           styleNormal(progress);
           htSeekBar.setProgress(progress);
           break;
@@ -452,7 +458,6 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
         && HtState.currentSecondViewState == HTViewState.AR_WATERMARK) {
 
       // //水印效果未选中，隐藏滑动条
-      // Log.d("lu123456", "syncProgress: "+HtSelectedPosition.POSITION_WATERMARK);
       // if (HtSelectedPosition.POSITION_WATERMARK < 1) {
       //   setVisibility(INVISIBLE);
       //   return;
@@ -634,31 +639,51 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
         //   break;
         case blurriness:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyClearSmoothing.getValue(), progress);
           break;
         case whiteness:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinWhitening,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautySkinWhitening.getValue(),progress);
           break;
         case rosiness:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautySkinRosiness,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautySkinRosiness.getValue(),progress);
           break;
         case clearness:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyImageSharpness,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyImageSharpness.getValue(),progress);
           break;
         case brightness:
           styleTransform(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyImageBrightness,progress - 50);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyImageBrightness.getValue(),progress - 50);
           break;
         case undereye_circles:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyDarkCircleLessening,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyDarkCircleLessening.getValue(),progress);
           break;
         case nasolabial:
           styleNormal(progress);
-          HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyNasolabialLessening,progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyNasolabialLessening.getValue(),progress);
+          break;
+        case teethwhite:
+          styleNormal(progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyToothWhitening.getValue(),progress);
+          break;
+        case eyeslight:
+          styleNormal(progress);
+          HTEffect.shareInstance().setBeauty(HTBeautyEnum.HTBeautyEyeBrightening.getValue(),progress);
+          break;
+        case tracker1:
+          styleNormal(progress);
+          //todo
+          break;
+        case tracker2:
+          styleNormal(progress);
+          //todo
+          break;
+        case tracker3:
+          styleNormal(progress);
+          //todo
           break;
         case NONE:
           break;
@@ -811,6 +836,7 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
         HtUICacheUtils.beautyMakeUpResetEnable(true);
         RxBus.get().post(HTEventAction.ACTION_SYNC_RESET, "");
       }
+
 
       styleNormal(progress);
       Log.e("美妆——口红" + HtState.currentLipstick.getName(), progress + "%");

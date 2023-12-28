@@ -88,6 +88,32 @@
                android:layout_width="wrap_content"
                android:layout_height="wrap_content" />
 
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_teethwhite"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_eyeslight"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_tracker1"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_tracker2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
+           <com.texeljoy.ht_effect.view.HtSkinItem
+               android:id="@+id/btn_tracker3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content" />
+
        </LinearLayout>
 
     </HorizontalScrollView>

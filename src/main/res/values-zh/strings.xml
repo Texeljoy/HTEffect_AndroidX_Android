@@ -8,7 +8,7 @@
     <string name="gesture">手势特效</string>
     <string name="take_photo">拍照</string>
 
-    <string name="beauty_skin">美颜</string>
+    <string name="beauty_skin">美肤</string>
     <string name="beauty_shape">美型</string>
     <string name="beauty_hair">美发</string>
     <string name="beauty_makeup">美妆</string>
@@ -54,6 +54,11 @@
     <string name="mouth_smiling">微笑嘴唇</string>
     <string name="undereye_circles">去黑眼圈</string>
     <string name="nasolabial_fold">去法令纹</string>
+    <string name="eyes_light">亮眼</string>
+    <string name="teeth_white">美牙</string>
+    <string name="tracker1">Tracker1</string>
+    <string name="tracker2">Tracker2</string>
+    <string name="tracker3">Tracker3</string>
     <string name="short_face">短脸</string>
 
     <string name="lipstick">口红</string>
@@ -69,23 +74,6 @@
 
     <string name="filter">滤镜</string>
     <string name="beauty_filter">美颜滤镜</string>
-    <string name="chunzhen">纯真</string>
-    <string name="white">美白</string>
-    <string name="qingxin">清新</string>
-    <string name="romantic">浪漫</string>
-    <string name="rixi">日系</string>
-    <string name="qingliang">清凉</string>
-    <string name="bailan">白兰</string>
-    <string name="landiao">蓝调</string>
-    <string name="chaotuo">超脱</string>
-    <string name="fennen">粉嫩</string>
-    <string name="standard_filter">标准</string>
-    <string name="huaijiu">怀旧</string>
-    <string name="weimei">唯美</string>
-    <string name="xiangfen">香氛</string>
-    <string name="yinghong">樱红</string>
-    <string name="yuanqi">元气</string>
-    <string name="yunshang">云裳</string>
 
     <string name="arprops">AR道具</string>
     <string name="sticker">贴纸</string>
@@ -94,7 +82,7 @@
     <string name="mask">面具</string>
     <string name="watermark">水印</string>
     <string name="portrait">人像抠图</string>
-    <string name="portrait_ai">AI抠图</string>
+    <string name="portrait_ai">抠图</string>
     <string name="portrait_green">绿幕抠图</string>
     <string name="portrait_people">人像分割</string>
 
@@ -151,82 +139,7 @@
     <string name="makeup_nt">女团</string>
     <string name="makeup_cyz">纯欲妆</string>
 
-    <string name="beauty_filter_ziran1">自然1</string>
-    <string name="beauty_filter_ziran2">自然2</string>
-    <string name="beauty_filter_ziran3">自然3</string>
-    <string name="beauty_filter_ziran4">自然4</string>
-    <string name="beauty_filter_ziran5">自然5</string>
-    <string name="beauty_filter_ziran6">自然6</string>
-    <string name="beauty_filter_yuese">月色</string>
-    <string name="beauty_filter_yuehui">月辉</string>
-    <string name="beauty_filter_riguang">日光</string>
-    <string name="beauty_filter_luoxia">落霞</string>
-    <string name="beauty_filter_zhigan1">质感1</string>
-    <string name="beauty_filter_zhigan2">质感2</string>
-    <string name="beauty_filter_zhigan3">质感3</string>
-    <string name="beauty_filter_zhigan4">质感4</string>
-    <string name="beauty_filter_zhigan5">质感5</string>
-    <string name="beauty_filter_shadow1">shadow1</string>
-    <string name="beauty_filter_shadow2">shadow2</string>
-    <string name="beauty_filter_shadow3">shadow3</string>
-    <string name="beauty_filter_shadow4">shadow4</string>
-    <string name="beauty_filter_yueye">月夜</string>
-    <string name="beauty_filter_micha">米茶</string>
-    <string name="beauty_filter_jingmi">静谧</string>
-    <string name="beauty_filter_rouguang">柔光</string>
-    <string name="beauty_filter_naixing">奶杏</string>
-    <string name="beauty_filter_yanse">烟色</string>
-    <string name="beauty_filter_qingwu">青雾</string>
-    <string name="beauty_filter_qingbao">青曝</string>
-    <string name="beauty_filter_huanzi">幻紫</string>
-    <string name="beauty_filter_huanse">幻色</string>
-    <string name="beauty_filter_jiuzhao">旧照</string>
-    <string name="beauty_filter_mihuan">迷幻</string>
-    <string name="beauty_filter_yicai">异彩</string>
-    <string name="beauty_filter_guangyun">光晕</string>
-    <string name="beauty_filter_rouwu">柔雾</string>
-    <string name="beauty_filter_zhishedeng">直射灯</string>
-    <string name="beauty_filter_chuchun">初春</string>
-    <string name="beauty_filter_chulian">初恋</string>
-    <string name="beauty_filter_chuxue">初雪</string>
-    <string name="beauty_filter_fenci">粉瓷</string>
-    <string name="beauty_filter_lengdong">冷冬</string>
-    <string name="beauty_filter_mengjing">梦境</string>
-    <string name="beauty_filter_qingtou">清透</string>
-    <string name="beauty_filter_xinye">新叶</string>
-    <string name="beauty_filter_bingcha">冰茶</string>
-    <string name="beauty_filter_langman">浪漫</string>
-    <string name="beauty_filter_miwu">迷雾</string>
-    <string name="beauty_filter_qingmu">青木</string>
-    <string name="beauty_filter_qingsha">轻沙</string>
-    <string name="beauty_filter_qingxu">情绪</string>
-    <string name="beauty_filter_senwu">森雾</string>
-    <string name="beauty_filter_shaman">沙漫</string>
-    <string name="beauty_filter_wenrou">温柔</string>
-    <string name="beauty_filter_miaohui">庙会</string>
-    <string name="beauty_filter_qingkong">晴空</string>
-    <string name="beauty_filter_shanjian">山间</string>
-    <string name="beauty_filter_xiangsong">香松</string>
-    <string name="beauty_filter_biaozhun">标准</string>
-    <string name="beauty_filter_shuiguang">水光</string>
-    <string name="beauty_filter_shuiwu">水雾</string>
-    <string name="beauty_filter_lengdan">冷淡</string>
-    <string name="beauty_filter_bailan">白兰</string>
-    <string name="beauty_filter_chunzhen">纯真</string>
-    <string name="beauty_filter_chaotuo">超脱</string>
-    <string name="beauty_filter_senxi">森系</string>
-    <string name="beauty_filter_nuanyang">暖阳</string>
-    <string name="beauty_filter_xiari">夏日</string>
-    <string name="beauty_filter_mitaowulong">蜜桃乌龙</string>
-    <string name="beauty_filter_shaonv">少女</string>
-    <string name="beauty_filter_yuanqi">元气</string>
-    <string name="beauty_filter_feiying">绯樱</string>
-    <string name="beauty_filter_qingxin">清新</string>
-    <string name="beauty_filter_rixi">日系</string>
-    <string name="beauty_filter_fanchase">反差色</string>
-    <string name="beauty_filter_fugu">复古</string>
-    <string name="beauty_filter_huiyi">回忆</string>
-    <string name="beauty_filter_huaijiu">怀旧</string>
+
 
     <string name="filter_none">原图</string>
 
@@ -234,24 +147,7 @@
 
     <string name="filter_special">特效滤镜</string>
     <string name="effect_none">原图</string>
-    <string name="effect_lhcq">灵魂出窍</string>
-    <string name="effect_hbdy">黑白电影</string>
-    <string name="effect_mfjm">魔法镜面</string>
-    <string name="effect_xcdd">炫彩抖动</string>
-    <string name="effect_tymx">头晕目眩</string>
-    <string name="effect_dgfp">动感分屏</string>
-    <string name="effect_sfp">四分屏</string>
-    <string name="effect_spjx">四屏镜像</string>
-    <string name="effect_mbl">毛玻璃</string>
-    <string name="effect_bjmh">边界模糊</string>
-    <string name="effect_mhfp">模糊分屏</string>
-    <string name="effect_sjsh">瞬间石化</string>
-    <string name="effect_qcdd">轻彩抖动</string>
-    <string name="effect_nhd">霓虹灯</string>
-    <string name="effect_jgg">九宫格</string>
-    <string name="effect_fgj">反光镜</string>
-    <string name="effect_xnjx">虚拟镜像</string>
-    <string name="effect_hjcy">幻觉残影</string>
+
 
     <string name="filter_haha">哈哈镜</string>
     <string name="haha_et">外星人</string>
@@ -272,6 +168,8 @@
     <string name="smoothness">平滑度</string>
     <string name="alpha">透明度</string>
     <string name="decolor">祛色度</string>
+
+    <string name="only_png_images">暂时只兼容png格式的背景图</string>
 
 
 

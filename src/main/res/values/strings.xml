@@ -55,6 +55,11 @@
     <string name="undereye_circles">Black eye</string>
     <string name="short_face">Short face</string>
     <string name="nasolabial_fold">Wrinkles</string>
+    <string name="eyes_light">Light eye</string>
+    <string name="teeth_white">White teeth</string>
+    <string name="tracker1">Tracker1</string>
+    <string name="tracker2">Tracker2</string>
+    <string name="tracker3">Tracker3</string>
 
     <string name="lipstick">Lipstick</string>
     <string name="eyebrow">Eye Brow</string>
@@ -62,7 +67,7 @@
     <string name="eyeshadow">Eye Shadow</string>
     <string name="eyeline">Eye Line</string>
     <string name="eyelash">Eye Lash</string>
-    <string name="beautypupils">Beauty Pupils</string>
+    <string name="beautypupils">Pupils</string>
 
     <string name="longleg">Long Leg</string>
     <string name="thin">Thin</string>
@@ -151,83 +156,7 @@
     <string name="makeup_nt">CM07</string>
     <string name="makeup_cyz">CM08</string>
 
-    <string name="beauty_filter_ziran1">ziran1</string>
-    <string name="beauty_filter_ziran2">ziran2</string>
-    <string name="beauty_filter_ziran3">ziran3</string>
-    <string name="beauty_filter_ziran4">ziran4</string>
-    <string name="beauty_filter_ziran5">ziran5</string>
-    <string name="beauty_filter_ziran6">ziran6</string>
-    <string name="beauty_filter_yuese">yuese</string>
-    <string name="beauty_filter_yuehui">yuehui</string>
-    <string name="beauty_filter_riguang">riguang</string>
-    <string name="beauty_filter_luoxia">luoxia</string>
-    <string name="beauty_filter_zhigan1">质感1</string>
-    <string name="beauty_filter_zhigan2">质感2</string>
-    <string name="beauty_filter_zhigan3">质感3</string>
-    <string name="beauty_filter_zhigan4">质感4</string>
-    <string name="beauty_filter_zhigan5">质感5</string>
-    <string name="beauty_filter_shadow1">shadow1</string>
-    <string name="beauty_filter_shadow2">shadow2</string>
-    <string name="beauty_filter_shadow3">shadow3</string>
-    <string name="beauty_filter_shadow4">shadow4</string>
-    <string name="beauty_filter_yueye">yueye</string>
-    <string name="beauty_filter_micha">micha</string>
-    <string name="beauty_filter_jingmi">jingmi</string>
-    <string name="beauty_filter_rouguang">rouguang</string>
-    <string name="beauty_filter_naixing">naixing</string>
-    <string name="beauty_filter_yanse">yanse</string>
-    <string name="beauty_filter_qingwu">qingwu</string>
-    <string name="beauty_filter_qingbao">qingbao</string>
-    <string name="beauty_filter_huanzi">huanzi</string>
-    <string name="beauty_filter_huanse">huanse</string>
-    <string name="beauty_filter_jiuzhao">jiuzhao</string>
-    <string name="beauty_filter_mihuan">mihuan</string>
-    <string name="beauty_filter_yicai">yicai</string>
-    <string name="beauty_filter_chunhui">chunhui</string>
-    <string name="beauty_filter_guangyun">guangyun</string>
-    <string name="beauty_filter_rouwu">rouwu</string>
-    <string name="beauty_filter_zhishedeng">zhishedeng</string>
-    <string name="beauty_filter_chuchun">chuchun</string>
-    <string name="beauty_filter_chulian">chulian</string>
-    <string name="beauty_filter_chuxue">chuxue</string>
-    <string name="beauty_filter_fenci">fenci</string>
-    <string name="beauty_filter_lengdong">lengdong</string>
-    <string name="beauty_filter_mengjing">mengjing</string>
-    <string name="beauty_filter_qingtou">qingtou</string>
-    <string name="beauty_filter_xinye">xinye</string>
-    <string name="beauty_filter_bingcha">bingcha</string>
-    <string name="beauty_filter_langman">langman</string>
-    <string name="beauty_filter_miwu">miwu</string>
-    <string name="beauty_filter_qingmu">qingmu</string>
-    <string name="beauty_filter_qingsha">qingsha</string>
-    <string name="beauty_filter_qingxu">qingxu</string>
-    <string name="beauty_filter_senwu">senwu</string>
-    <string name="beauty_filter_shaman">shaman</string>
-    <string name="beauty_filter_wenrou">wenrou</string>
-    <string name="beauty_filter_miaohui">miaohui</string>
-    <string name="beauty_filter_qingkong">qingkong</string>
-    <string name="beauty_filter_shanjian">shanjian</string>
-    <string name="beauty_filter_xiangsong">xiangsong</string>
-    <string name="beauty_filter_biaozhun">biaozhun</string>
-    <string name="beauty_filter_shuiguang">shuiguang</string>
-    <string name="beauty_filter_shuiwu">shuiwu</string>
-    <string name="beauty_filter_lengdan">lengdan</string>
-    <string name="beauty_filter_bailan">bailan</string>
-    <string name="beauty_filter_chunzhen">chunzhen</string>
-    <string name="beauty_filter_chaotuo">chaotuo</string>
-    <string name="beauty_filter_senxi">senxi</string>
-    <string name="beauty_filter_nuanyang">nuanyang</string>
-    <string name="beauty_filter_xiari">xiari</string>
-    <string name="beauty_filter_mitaowulong">mitaowulong</string>
-    <string name="beauty_filter_shaonv">shaonv</string>
-    <string name="beauty_filter_yuanqi">yuanqi</string>
-    <string name="beauty_filter_feiying">feiying</string>
-    <string name="beauty_filter_qingxin">qingxin</string>
-    <string name="beauty_filter_rixi">rixi</string>
-    <string name="beauty_filter_fanchase">fanchase</string>
-    <string name="beauty_filter_fugu">fugu</string>
-    <string name="beauty_filter_huiyi">huiyi</string>
-    <string name="beauty_filter_huaijiu">huaijiu</string>
+
 
     <string name="filter_style">StyleFilter</string>
 
@@ -236,24 +165,6 @@
 
     <string name="makeup_none">Original</string>
     <string name="filter_none">Orignal</string>
-    <string name="effect_lhcq">lhcq</string>
-    <string name="effect_hbdy">hbdy</string>
-    <string name="effect_mfjm">mfjm</string>
-    <string name="effect_xcdd">xcdd</string>
-    <string name="effect_tymx">tymx</string>
-    <string name="effect_dgfp">dgfp</string>
-    <string name="effect_sfp">sfp</string>
-    <string name="effect_spjx">spjx</string>
-    <string name="effect_mbl">mbl</string>
-    <string name="effect_bjmh">bjmh</string>
-    <string name="effect_mhfp">mhfp</string>
-    <string name="effect_sjsh">sjsh</string>
-    <string name="effect_qcdd">qcdd</string>
-    <string name="effect_nhd">nhd</string>
-    <string name="effect_jgg">jgg</string>
-    <string name="effect_fgj">fgj</string>
-    <string name="effect_xnjx">xnjx</string>
-    <string name="effect_hjcy">hjcy</string>
 
     <string name="filter_haha">HahaFilter</string>
     <string name="haha_et">ET</string>
@@ -272,7 +183,6 @@
     <string name="smoothness">Smoothness</string>
     <string name="alpha">Alpha</string>
     <string name="decolor">Decolor</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="only_png_images">Only compatible with png format background images</string>
 </resources>

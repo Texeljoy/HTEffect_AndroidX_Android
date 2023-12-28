@@ -48,11 +48,13 @@ public class HtFilterFragment extends HtBaseFragment {
   private View line;
   private View divide;
   private RelativeLayout bottomLayout;
+  private AppCompatImageView returnIv;
   private ImageView cleanIv;
   private String which;
   private HtBarView barView;
 
   private final List<String> htTabs = new ArrayList<>();
+  private HTPanelLayout HTPanelLayout;
 
 
   @Override
@@ -71,7 +73,9 @@ public class HtFilterFragment extends HtBaseFragment {
     divide = view.findViewById(R.id.divide);
     barView = view.findViewById(R.id.ht_bar);
     bottomLayout = view.findViewById(R.id.rl_bottom);
+    returnIv = view.findViewById(R.id.return_iv);
     cleanIv = view.findViewById(R.id.iv_clean);
+    HTPanelLayout = new HTPanelLayout(getContext());
 
     Bundle bundle = this.getArguments();//得到从Activity传来的数据
     if (bundle != null) {
