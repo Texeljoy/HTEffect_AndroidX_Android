@@ -36,7 +36,6 @@ import com.texeljoy.ht_effect.model.HtWatermarkConfig.HtWatermark;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTItemEnum;
 import com.texeljoy.hteffect.model.HTMakeupEnum;
-import com.texeljoy.hteffectar.HTEffectAR;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
