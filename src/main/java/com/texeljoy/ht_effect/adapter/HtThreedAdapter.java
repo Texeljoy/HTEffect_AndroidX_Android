@@ -13,6 +13,9 @@ import com.texeljoy.ht_effect.model.HTDownloadState;
 import com.texeljoy.ht_effect.model.HtThreedConfig;
 import com.texeljoy.ht_effect.model.HtThreedConfig.HtThreed;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
+import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTItemEnum;
+
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -186,15 +189,15 @@ public class HtThreedAdapter extends RecyclerView.Adapter<HtStickerViewHolder> {
                     }
                     if (holder.getAdapterPosition() == selectedPosition){
                         //如果点击已选中的效果，则取消效果
-                        // HTEffectAR.shareInstance().setModelName("empty");
+                        HTEffect.shareInstance().setARItem(HTItemEnum.HTItemAvatar.getValue(), "");
                         HtSelectedPosition.POSITION_THREED = 0;
                         notifyItemChanged(selectedPosition);
                         // notifyItemChanged(-1);
                     }else{
                         if(holder.getAdapterPosition() == 0){
-                            // HTEffectAR.shareInstance().setModelName("empty");
+                            HTEffect.shareInstance().setARItem(HTItemEnum.HTItemAvatar.getValue(), "");
                         }else{
-                            // HTEffectAR.shareInstance().setModelName(htThreed.getName());
+                            HTEffect.shareInstance().setARItem(HTItemEnum.HTItemAvatar.getValue(), htThreed.getName());
                         }
                         //如果已经下载了，则让其生效
 

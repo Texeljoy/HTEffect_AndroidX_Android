@@ -149,7 +149,7 @@ public class HtConfigTools {
     PATH_AISEGMENTATION = HTEffect.shareInstance().getAISegEffectPath() + File.separator + "ht_aiseg_effect_config.json";
     //3D配置文件
     //todo 等待接口
-    // PATH_THREED =  HTEffectAR.shareInstance().getResourcePath() + File.separator + "hteffect/3d_effect/ht_3d_config.json";
+    PATH_THREED =  HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemAvatar.getValue()) + File.separator + "ht_3d_config.json";
     //绿幕配置文件
     PATH_GREEN_SCREEN = HTEffect.shareInstance().getChromaKeyingPath() + File.separator + "ht_gsseg_effect_config.json";
     //水印配置文件

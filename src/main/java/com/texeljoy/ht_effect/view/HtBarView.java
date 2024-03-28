@@ -617,6 +617,8 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
       return;
     }
 
+    RxBus.get().post(HTEventAction.ACTION_RENDER_PHOTO, true);
+
     //美颜——美肤——美肤
     if (HtState.currentViewState == HTViewState.BEAUTY
         && HtState.currentSecondViewState == HTViewState.BEAUTY_SKIN) {
@@ -977,8 +979,32 @@ public class HtBarView extends LinearLayout implements SeekBar.OnSeekBarChangeLi
           HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyLegSlimming.getValue(),progress);
           styleNormal(progress);
           break;
-        case THIN:  //瘦身
+        case BODY_THIN:  //瘦身
           HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyBodyThinning.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case WAIST_SLIM:  //细腰
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyWaistSlimming.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case SHOULDER_SLIM:  //美肩
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyShoulderSlimming.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case HIP_TRIM:  //修胯
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyHipTrimming.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case THIGH_THIN:  //瘦大腿
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyThighThinning.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case NECK_SLIM:  //天鹅颈
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyNeckSlimming.getValue(),progress);
+          styleNormal(progress);
+          break;
+        case CHEST_ENLARGE:  //丰胸
+          HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyChestEnlarging.getValue(),progress);
           styleNormal(progress);
           break;
       }

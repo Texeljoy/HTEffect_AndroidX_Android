@@ -42,6 +42,8 @@ public class HtUICacheUtils {
 
     //设置滤镜
     HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), beautyFilterName());
+    HtUICacheUtils.beautyEffectFilterPosition(0);
+    HtUICacheUtils.beautyHairPosition(0);
 
     //美肤系
     HTEffect.shareInstance().setBeauty(HtBeautyParam.HTBeautyClearSmoothing,beautySkinValue(HtBeautyKey.blurriness));
@@ -86,7 +88,7 @@ public class HtUICacheUtils {
     HTEffect.shareInstance().setChromaKeyingParams(3, 0);
 
     HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyLegSlimming.getValue(), beautyBodyValue(HtBody.LONG_LEG));
-    HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyBodyThinning.getValue(), beautyBodyValue(HtBody.THIN));
+    HTEffect.shareInstance().setBodyBeauty(HTBodyBeautyEnum.HTBodyBeautyBodyThinning.getValue(), beautyBodyValue(HtBody.BODY_THIN));
   }
 
 

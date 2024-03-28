@@ -70,7 +70,13 @@
     <string name="beautypupils">美瞳</string>
 
     <string name="longleg">长腿</string>
-    <string name="thin">瘦身</string>
+    <string name="bodythin">瘦身</string>
+    <string name="waistslim">细腰</string>
+    <string name="shoulderslim">美肩</string>
+    <string name="hiptrim">修胯</string>
+    <string name="thighthin">瘦大腿</string>
+    <string name="neckslim">天鹅颈</string>
+    <string name="chestenlarge">丰胸</string>
 
     <string name="filter">滤镜</string>
     <string name="beauty_filter">美颜滤镜</string>

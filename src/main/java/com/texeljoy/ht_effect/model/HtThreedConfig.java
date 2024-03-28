@@ -2,6 +2,10 @@ package com.texeljoy.ht_effect.model;
 
 import com.google.gson.Gson;
 import com.texeljoy.ht_effect.utils.HtConfigTools;
+import com.texeljoy.hteffect.HTEffect;
+import com.texeljoy.hteffect.model.HTItemEnum;
+
+import java.io.File;
 import java.util.List;
 
 /**
@@ -56,8 +60,7 @@ public class HtThreedConfig {
     public void setCategory(String category) { this.category = category;}
 
     public String getIcon() {
-      // return HTEffectAR.shareInstance().getResourcePath()  + "/hteffect/3d_effect" + "/ht_3d_effect_icon/" + this.icon;
-      return "";
+      return  HTEffect.shareInstance().getARItemPathBy(HTItemEnum.HTItemAvatar.getValue()) + File.separator + "ht_3d_effect_icon/" + this.icon;
     }
 
     public void setIcon(String icon) { this.icon = icon;}

@@ -110,7 +110,7 @@ public class HtBeautyFragment extends HtBaseFragment {
 
       }
     });
-    alternateIndicatorView.setOnClickListener(new OnClickListener() {
+    alternateIndicatorView.setOnClickListener  (new OnClickListener() {
       @Override public void onClick(View v) {
         RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
       }

@@ -80,6 +80,8 @@ public class HTEventAction {
   //更换当前列表
   public static final String ACTION_CHANGE_MAKEUP_list = "ACTION_CHANGE_MAKEUP_list";
 
+  public static final String ACTION_RENDER_PHOTO = "ACTION_RENDER_PHOTO";
+
 
 
 

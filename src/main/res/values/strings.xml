@@ -70,7 +70,13 @@
     <string name="beautypupils">Pupils</string>
 
     <string name="longleg">Long Leg</string>
-    <string name="thin">Thin</string>
+    <string name="bodythin">Thin Body</string>
+    <string name="waistslim">Slim Waist</string>
+    <string name="shoulderslim">Slim Shoulder</string>
+    <string name="hiptrim">Trim Hip</string>
+    <string name="thighthin">Thin Thigh</string>
+    <string name="neckslim">Slim Neck</string>
+    <string name="chestenlarge">Enlarge Chest</string>
 
     <string name="filter">Filter</string>
     <string name="beauty_filter">BeautyFilter</string>

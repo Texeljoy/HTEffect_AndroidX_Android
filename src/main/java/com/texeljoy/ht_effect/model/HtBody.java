@@ -15,10 +15,33 @@ public enum HtBody {
       R.drawable.ic_long_leg_white,
       R.drawable.ic_long_leg_black),
   //瘦身
-  THIN(R.string.thin,
+  BODY_THIN(R.string.bodythin,
       R.drawable.ic_thin_white,
-      R.drawable.ic_thin_black)
-
+      R.drawable.ic_thin_black),
+  //细腰
+  WAIST_SLIM(R.string.waistslim,
+      R.drawable.ic_waistslim_white,
+      R.drawable.ic_waistslim_black),
+  //美肩
+  SHOULDER_SLIM(R.string.shoulderslim,
+      R.drawable.ic_shoulderslim_white,
+      R.drawable.ic_shoulderslim_black),
+  //修胯
+  HIP_TRIM(R.string.hiptrim,
+      R.drawable.ic_hiptrim_white,
+      R.drawable.ic_hiptrim_black),
+  //瘦大腿
+  THIGH_THIN(R.string.thighthin,
+      R.drawable.ic_thighthin_white,
+      R.drawable.ic_thighthin_black),
+  //天鹅颈
+  NECK_SLIM(R.string.neckslim,
+      R.drawable.ic_neckslim_white,
+      R.drawable.ic_neckslim_black),
+  //丰胸
+  CHEST_ENLARGE(R.string.chestenlarge,
+      R.drawable.ic_chestenlarge_white,
+      R.drawable.ic_chestenlarge_black),
   ;
 
   //名称
