@@ -342,8 +342,8 @@ HTEffect.shareInstance().releaseBitmapRenderer();
 ## **Recent updates**
 - **2024.04.23:** v3.3.0
     - New interface for switching face detection models
-    - New interface for actively reducing CPU usage
-    - Add an interface to set the farthest recognizable distance for facial detection
+    - Add an interface to improve performance by increasing the number of CPU processing cores
+    - Add an interface for setting facial detection distance levels
     - New Android preview class custom screen direction interface added
     - Solved some known issues
     
