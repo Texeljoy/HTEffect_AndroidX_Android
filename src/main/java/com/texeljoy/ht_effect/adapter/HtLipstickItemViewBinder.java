@@ -80,8 +80,30 @@ public class HtLipstickItemViewBinder extends ItemViewBinder<HtMakeup,
       //     .load()
       //     .placeholder(R.drawable.icon_placeholder)
       //     .into(holder.thumbIV);
-      holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 6 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
-
+      //holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 6 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+      switch (item.getType()){
+        case 0 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 1 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 18 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 2 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 12  + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 3 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 14 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 4 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 12 + 1 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 5 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 11 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+        case 6 :
+          holder.thumbIV.setImageDrawable(HtMakeupResEnum.values()[item.getType() * 10 + 1 + getPosition(holder) - 1].getIcon(holder.itemView.getContext()));
+          break;
+      }
     }
 
     // holder.thumbIV.setImageDrawable(HtHairEnum.values()[getPosition(holder)].getIcon(holder.itemView.getContext()));
