@@ -5,7 +5,7 @@ import android.content.res.AssetManager;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
-import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;

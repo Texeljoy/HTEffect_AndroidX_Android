@@ -3,15 +3,15 @@ package com.texeljoy.ht_effect.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.NonNull;;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.view.WindowManager.LayoutParams;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
@@ -110,7 +110,7 @@ public class HtResetDialog extends DialogFragment {
         }
 
         if (HtState.currentSecondViewState == HTViewState.BEAUTY_MAKE_UP) {
-          //当前是美体
+          //当前是美妆
           for(int i = 0; i < 7; i++){
             HtUICacheUtils.resetMakeUpValue(getContext(),i);
           }

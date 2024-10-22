@@ -2,10 +2,10 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
 import android.os.Looper;
-import android.view.View;
-import android.widget.Toast;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.Toast;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;

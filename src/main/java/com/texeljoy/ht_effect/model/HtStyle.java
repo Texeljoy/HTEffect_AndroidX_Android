@@ -1,3 +1,4 @@
+/*
 package com.texeljoy.ht_effect.model;
 
 import android.content.Context;
@@ -8,9 +9,11 @@ import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
 import com.texeljoy.ht_effect.R;
 
+*/
 /**
  * 风格推荐枚举
- */
+ *//*
+
 public enum HtStyle {
   //原图
   YUAN_TU(R.string.none,R.drawable.ic_style_none,0,"#666666"),
@@ -70,3 +73,4 @@ public enum HtStyle {
   }
 
 }
+*/

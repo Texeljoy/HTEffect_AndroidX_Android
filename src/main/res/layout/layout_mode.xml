@@ -5,18 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="170dp"
     android:background="#80000000"
-    android:paddingStart="10dp"
-    android:paddingEnd="10dp"
-    android:clickable="true"
+    android:paddingStart="25dp"
+    android:paddingEnd="25dp"
     android:paddingTop="30dp"
+    android:clickable="true"
     android:orientation="horizontal">
 
-<!--    <HorizontalScrollView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content">-->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true">
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -28,42 +29,8 @@
                 android:drawablePadding="16dp"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/icon_func_beauty" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btn_arprops"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/arprops"
-                android:drawablePadding="16dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/icon_func_arprops" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btn_portrait"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/portrait_ai"
-                android:drawablePadding="16dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/icon_func_aiportrait" />
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:id="@+id/btn_gesture"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/gesture"
-                android:drawablePadding="16dp"
-                android:textColor="#FFFFFF"
-                android:gravity="center"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/icon_func_gesture" />
-
+                android:drawableTop="@drawable/icon_func_beauty"
+                android:layout_marginEnd="25dp" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/btn_filter"
@@ -73,24 +40,77 @@
                 android:drawablePadding="16dp"
                 android:textColor="#FFFFFF"
                 android:gravity="center"
-                android:layout_weight="1"
-                android:drawableTop="@drawable/icon_func_filter" />
+                android:drawableTop="@drawable/icon_func_filter"
+                android:layout_marginEnd="25dp" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_arprops"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/arprops"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_arprops"
+                android:layout_marginEnd="25dp" />
 
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_portrait"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/portrait_ai"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_aiportrait"
+                android:layout_marginEnd="25dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_gesture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gesture"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_gesture"
+                android:layout_marginEnd="25dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_beautymakeup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/beauty_makeup"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_beautymakeup"
+                android:layout_marginEnd="25dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_hair"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/beauty_hair"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_hair"
+                android:layout_marginEnd="25dp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/btn_body"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/beauty_body"
+                android:drawablePadding="16dp"
+                android:textColor="#FFFFFF"
+                android:gravity="center"
+                android:drawableTop="@drawable/icon_func_body" />
 
 
         </LinearLayout>
 
-
-
-
-<!--    </HorizontalScrollView>-->
-
-
-
-
-
-
-
+    </HorizontalScrollView>
 
 </LinearLayout>

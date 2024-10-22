@@ -1,3 +1,4 @@
+/*
 package com.texeljoy.ht_effect.model;
 
 import android.content.Context;
@@ -77,6 +78,8 @@ public enum HtMakeupResEnum {
 
 
 
+
+
     HtMakeupResEnum(int iconRes) {this.iconRes = iconRes;}
 
     //图标地址
@@ -86,3 +89,4 @@ public enum HtMakeupResEnum {
         return ContextCompat.getDrawable(context, iconRes);
     }
 }
+*/

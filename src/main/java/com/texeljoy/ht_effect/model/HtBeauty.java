@@ -2,7 +2,7 @@ package com.texeljoy.ht_effect.model;
 
 import android.content.Context;
 import androidx.annotation.DrawableRes;
-import androidx.annotation.NonNull;
+import androidx.annotation.NonNull;;
 import androidx.annotation.StringRes;
 import com.texeljoy.ht_effect.R;
 

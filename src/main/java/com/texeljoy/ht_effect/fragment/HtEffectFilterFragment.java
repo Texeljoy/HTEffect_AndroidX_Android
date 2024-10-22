@@ -1,11 +1,11 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -80,7 +80,7 @@ public class HtEffectFilterFragment extends HtBaseLazyFragment {
     listAdapter.register(HtEffectFilter.class, new HtEffectFilterItemViewBinder());
     listAdapter.setItems(items);
     rvFilter.setAdapter(listAdapter);
-    rvFilter.smoothScrollToPosition(HtUICacheUtils.beautyEffectFilterPosition());
+    rvFilter.smoothScrollToPosition(HtUICacheUtils.getEffectFilterPosition());
     //sync progress
     RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
   }
@@ -105,6 +105,7 @@ public class HtEffectFilterFragment extends HtBaseLazyFragment {
     super.onFragmentStartLazy();
     //更新ui状态
     HtState.currentSecondViewState = HTViewState.FILTER;
+    HtState.currentSliderViewState = HTViewState.FILTER_EFFECT;
     //同步滑动条
     RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");
     listAdapter.notifyDataSetChanged();

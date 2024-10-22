@@ -2,11 +2,11 @@ package com.texeljoy.ht_effect.utils.decoration;
 
 import android.graphics.Canvas;
 import android.graphics.Rect;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 

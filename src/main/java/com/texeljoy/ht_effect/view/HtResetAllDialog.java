@@ -3,14 +3,14 @@ package com.texeljoy.ht_effect.view;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import androidx.annotation.NonNull;;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.DialogFragment;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.model.HTEventAction;
@@ -19,7 +19,6 @@ import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
 import com.texeljoy.hteffect.model.HTFilterEnum;
 import com.texeljoy.hteffect.model.HTItemEnum;
-import com.texeljoy.hteffect.HTEffect;
 import java.lang.ref.WeakReference;
 
 /**
@@ -80,8 +79,8 @@ public class HtResetAllDialog extends DialogFragment {
           HTEffect.shareInstance().setHairStyling(0, 0);
           HtUICacheUtils.beautyHairPosition(0);
 
-          HTEffect.shareInstance().setStyle(0);
-          HtUICacheUtils.beautyMakeUpStylePosition(0);
+          HTEffect.shareInstance().setStyle("",0);
+          HtUICacheUtils.setBeautyMakeUpStylePosition(0);
 
           HtSelectedPosition.POSITION_STICKER = -1;
           HTEffect.shareInstance().setARItem(HTItemEnum.HTItemSticker.getValue(), "");
@@ -112,11 +111,11 @@ public class HtResetAllDialog extends DialogFragment {
           RxBus.get().post(HTEventAction.ACTION_SYNC_GESTURE_ITEM_CHANGED, "");
 
           HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterBeauty.getValue(), "");
-          HtUICacheUtils.beautyFilterPosition(0);
+          HtUICacheUtils.setBeautyFilterPosition(0);
           HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterEffect.getValue(), "0");
-          HtUICacheUtils.beautyEffectFilterPosition(0);
+          HtUICacheUtils.setEffectFilterPosition(0);
           HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterFunny.getValue(), "0");
-          HtUICacheUtils.beautyFunnyFilterPosition(0);
+          HtUICacheUtils.setFunnyFilterPosition(0);
 
           HTEffect.shareInstance().setARItem(HTItemEnum.HTItemAvatar.getValue(),"");
           HtSelectedPosition.POSITION_THREED = -1;

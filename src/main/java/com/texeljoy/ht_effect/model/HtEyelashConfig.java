@@ -3,7 +3,7 @@ package com.texeljoy.ht_effect.model;
 import java.util.List;
 
 /**
- * 贴纸列表配置
+ * 美妆睫毛列表配置
  */
 
 public class HtEyelashConfig {
@@ -15,22 +15,22 @@ public class HtEyelashConfig {
 
   @Override public String toString() {
     return "HtMakeupConfig{" +
-        "htMakeups=" + ht_makeup_eyelash.size() +
+        "htEyelashes=" + ht_makeup_eyelash.size() +
         "个}";
 
   }
 
-  public List<HtMakeup> getMakeups() {
+  public List<HtMakeup> getEyelashes() {
     return ht_makeup_eyelash;
 
   }
 
-  public HtEyelashConfig(List<HtMakeup> makeups) {
-    this.ht_makeup_eyelash = makeups;
+  public HtEyelashConfig(List<HtMakeup> eyelashes) {
+    this.ht_makeup_eyelash = eyelashes;
   }
 
-  public void setMakeups(List<HtMakeup> htMakeups) {
-    this.ht_makeup_eyelash = htMakeups;
+  public void setEyelashs(List<HtMakeup> htEyelashes) {
+    this.ht_makeup_eyelash = htEyelashes;
   }
 
 }

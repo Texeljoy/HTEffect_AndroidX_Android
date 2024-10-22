@@ -30,4 +30,26 @@
     <color name="red_greenscreen">#FF0000</color>
     <color name="dialog_cancel">#E5E5E5</color>
     <color name="dialog_cancel_text">#666666</color>
+
+    <color name="lip_softpink">#e66565</color>
+    <color name="lip_cameobrown">#ce7777</color>
+    <color name="lip_yuanqiorange">#d84f30</color>
+    <color name="lip_red">#e62c2c</color>
+    <color name="lip_crimson">#8f1a1a</color>
+    <color name="lip_caramel">#8d2525</color>
+
+    <color name="eyebrow_softbrown">#6e5032</color>
+    <color name="eyebrow_darkbrown">#4c3319</color>
+    <color name="eyebrow_gentleblack">#4e494a</color>
+    <color name="eyebrow_softpinkbrown">#7c686b</color>
+
+    <color name="blush_richang">#fdbcb7</color>
+    <color name="blush_yuanqi">#ef97c7</color>
+    <color name="blush_jianling">#fb9663</color>
+    <color name="blush_fenwei">#e77a7a</color>
+    <color name="blush_rixi">#e79c97</color>
+    <color name="blush_mitao">#e35d5d</color>
+
+
+
 </resources>

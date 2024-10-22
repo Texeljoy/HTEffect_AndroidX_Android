@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.texeljoy.ht_effect.view.HtBarView
+        android:id="@+id/ht_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="270dp"
+        android:orientation="vertical"
+        android:clickable="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <com.shizhefei.view.indicator.ScrollIndicatorView
+                android:id="@+id/top_indicator_view"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:layout_height="45dp"
+                android:paddingHorizontal="15dp"
+                />
+            <View
+                android:id= "@+id/strut"
+                android:layout_width= "0dp"
+                android:layout_height= "0dp"
+                android:layout_centerHorizontal="true" />
+            <Button
+                android:id="@+id/alternate_indicator_view"
+                android:layout_width="match_parent"
+                android:gravity="center"
+                android:visibility="gone"
+                android:background="@android:color/transparent"
+                android:layout_height="match_parent"
+                android:paddingHorizontal="15dp"
+                android:layout_alignRight="@id/strut"
+                android:layout_alignParentLeft="true"
+                />
+            <!--            <Button-->
+            <!--                android:id="@+id/alternate_indicator_view1"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:gravity="center"-->
+            <!--                android:visibility="gone"-->
+            <!--                android:background="@android:color/transparent"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:paddingHorizontal="15dp"-->
+            <!--                android:layout_alignLeft="@id/strut"-->
+            <!--                android:layout_alignParentRight="true"-->
+            <!--                />-->
+
+        </RelativeLayout>
+
+
+        <View
+            android:id="@+id/line"
+            android:alpha="0.3"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+
+        <com.shizhefei.view.viewpager.SViewPager
+            android:id="@+id/ht_pager"
+            android:layout_width="match_parent"
+            android:layout_height="125dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="45dp"
+            android:paddingHorizontal="20dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/return_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="18dp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/shutter_iv"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:visibility="gone"
+                android:src="@drawable/icon_shutter_light"
+                android:layout_centerHorizontal="true" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

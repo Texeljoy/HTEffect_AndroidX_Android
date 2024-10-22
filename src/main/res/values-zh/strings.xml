@@ -149,21 +149,21 @@
 
     <string name="filter_none">原图</string>
 
-    <string name="filter_style">风格滤镜</string>
+    <string name="filter_beauty">风格滤镜</string>
 
-    <string name="filter_special">特效滤镜</string>
+    <string name="filter_effect">特效滤镜</string>
     <string name="effect_none">原图</string>
 
 
-    <string name="filter_haha">哈哈镜</string>
-    <string name="haha_et">外星人</string>
-    <string name="haha_big_nose">大鼻子</string>
-    <string name="haha_big_mouth">大嘴巴</string>
-    <string name="haha_fangxinglian">方形脸</string>
-    <string name="haha_big_head">大头</string>
-    <string name="haha_dudu">嘟嘟脸</string>
-    <string name="haha_doudou">豆豆眼</string>
-    <string name="haha_snake">蛇精脸</string>
+    <string name="filter_funny">哈哈镜</string>
+    <string name="funny_et">外星人</string>
+    <string name="funny_big_nose">大鼻子</string>
+    <string name="funny_big_mouth">大嘴巴</string>
+    <string name="funny_fangxinglian">方形脸</string>
+    <string name="funny_big_head">大头</string>
+    <string name="funny_dudu">嘟嘟脸</string>
+    <string name="funny_doudou">豆豆眼</string>
+    <string name="funny_snake">蛇精脸</string>
 
     <string name="threeD">3D</string>
     <string name="edit">编辑</string>
@@ -174,6 +174,26 @@
     <string name="smoothness">平滑度</string>
     <string name="alpha">透明度</string>
     <string name="decolor">祛色度</string>
+
+    <string name="lip_softpink">柔和粉</string>
+    <string name="lip_cameobrown">豆沙色</string>
+    <string name="lip_yuanqiorange">元气橘</string>
+    <string name="lip_red">正红色</string>
+    <string name="lip_crimson">复古红</string>
+    <string name="lip_caramel">焦糖色</string>
+
+    <string name="eyebrow_softpinkbrown">柔粉棕</string>
+    <string name="eyebrow_gentleblack">温柔黑</string>
+    <string name="eyebrow_softbrown">粉雾棕</string>
+    <string name="eyebrow_darkbrown">深棕色</string>
+
+    <string name="blush_richang">日常</string>
+    <string name="blush_yuanqi">元气</string>
+    <string name="blush_jianling">减龄</string>
+    <string name="blush_fenwei">氛围</string>
+    <string name="blush_rixi">日系</string>
+    <string name="blush_mitao">蜜桃</string>
+
 
     <string name="only_png_images">暂时只兼容png格式的背景图</string>
 

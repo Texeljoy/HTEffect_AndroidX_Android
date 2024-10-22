@@ -11,9 +11,9 @@ import com.texeljoy.hteffect.HTEffect;
  * @Date 2023/9/14 10:51
  */
 public class HtMakeup {
-    public static final HtMakeup NO_MAKEUP = new HtMakeup("", "无", "NONE", "", "", 2, 0);
+    public static final HtMakeup NO_MAKEUP = new HtMakeup("", "无", "NONE", "", "", 2, 0, -1);
 
-    public HtMakeup(String name, String title, String titleEn, String category, String icon, int download, int idCard) {
+    public HtMakeup(String name, String title, String titleEn, String category, String icon, int download, int idCard, int type) {
 
         this.name = name;
         this.title = title;
@@ -22,6 +22,7 @@ public class HtMakeup {
         this.icon = icon;
         this.download = download;
         this.idCard = idCard;
+        this.type = type;
 
     }
 
@@ -33,7 +34,8 @@ public class HtMakeup {
             ", category='" + category + '\'' +
             ", icon='" + icon + '\'' +
             ", download=" + download + '\'' +
-            ", type=" + idCard +
+            ", idCard=" + idCard + '\'' +
+            ", type=" + type + '\'' +
             '}';
     }
 
@@ -63,6 +65,7 @@ public class HtMakeup {
      */
     private int idCard;
 
+    private int type;
     public String getUrl() {
 
         return HTEffect.shareInstance().getMakeupUrl(idCard) + name + ".zip";
@@ -85,7 +88,8 @@ public class HtMakeup {
     public void setCategory(String category) {this.category = category;}
 
     public String getIcon() {
-        return HTEffect.shareInstance().getMakeupPath(idCard) + "/ICON/" + this.icon;
+        //return HTEffect.shareInstance().getMakeupPath(idCard) + "/ICON/" + this.icon;
+        return HTEffect.shareInstance().getMakeupUrl(idCard) + this.icon;
     }
 
     public void setThumb(String icon) {this.icon = icon;}
@@ -95,9 +99,18 @@ public class HtMakeup {
     public void setDownloaded(int download) {
         this.download = download;
     }
-    public int getType() {return idCard;}
 
-    public void setType(int type) {this.idCard = type;}
+    public int getIdCard(){return idCard;}
+
+    public void setIdCard(int idCard){this.idCard = idCard;}
+
+    public int getType() {return type;}
+
+    public void setType(int type) {this.type = type;}
+
+    /*public int getType() {return idCard;}
+
+    public void setType(int type) {this.idCard = type;}*/
     /**
      * 下载完成更新缓存数据
      */
@@ -106,7 +119,7 @@ public class HtMakeup {
             case 0:
                 HtLipstickConfig htLipstickConfig = HtConfigTools.getInstance().getLipstickList();
 
-                for (HtMakeup makeup : htLipstickConfig.getMakeups()) {
+                for (HtMakeup makeup : htLipstickConfig.getLipsticks()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -116,7 +129,7 @@ public class HtMakeup {
             case 1:
                 HtEyebrowConfig htEyebrowConfig = HtConfigTools.getInstance().getEyebrowList();
 
-                for (HtMakeup makeup : htEyebrowConfig.getMakeups()) {
+                for (HtMakeup makeup : htEyebrowConfig.getEyebrows()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -126,7 +139,7 @@ public class HtMakeup {
             case 2:
                 HtBlushConfig htBlushConfig = HtConfigTools.getInstance().getBlushList();
 
-                for (HtMakeup makeup : htBlushConfig.getMakeups()) {
+                for (HtMakeup makeup : htBlushConfig.getBlushes()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -136,7 +149,7 @@ public class HtMakeup {
             case 3:
                 HtEyeshadowConfig htEyeshadowConfig = HtConfigTools.getInstance().getEyeshadowList();
 
-                for (HtMakeup makeup : htEyeshadowConfig.getMakeups()) {
+                for (HtMakeup makeup : htEyeshadowConfig.getEyeshadows()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -146,7 +159,7 @@ public class HtMakeup {
             case 4:
                 HtEyelineConfig htEyelineConfig = HtConfigTools.getInstance().getEyelineList();
 
-                for (HtMakeup makeup : htEyelineConfig.getMakeups()) {
+                for (HtMakeup makeup : htEyelineConfig.getEyeliners()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -156,7 +169,7 @@ public class HtMakeup {
             case 5:
                 HtEyelashConfig htEyelashConfig = HtConfigTools.getInstance().getEyelashList();
 
-                for (HtMakeup makeup : htEyelashConfig.getMakeups()) {
+                for (HtMakeup makeup : htEyelashConfig.getEyelashes()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }
@@ -166,7 +179,7 @@ public class HtMakeup {
             case 6:
                     HtPupilsConfig htPupilsConfig = HtConfigTools.getInstance().getPupilsList();
 
-                for (HtMakeup makeup : htPupilsConfig.getMakeups()) {
+                for (HtMakeup makeup : htPupilsConfig.getPupils()) {
                     if (this.name.equals(makeup.name) && makeup.icon.equals(this.icon)) {
                         makeup.setDownloaded(2);
                     }

@@ -11,12 +11,12 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathEffect;
 import android.graphics.Rect;
-import android.view.View;
 import androidx.annotation.ColorInt;
 import androidx.annotation.DrawableRes;
 import androidx.collection.ArrayMap;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
 
 public class RecyclerViewLinearItemDecoration extends RecyclerView.ItemDecoration {
 

@@ -27,6 +27,10 @@ public class HtSelectedPosition {
     public static int POSITION_EYESHADOW = -1;
     public static int POSITION_EYELINE = -1;
     public static int POSITION_LIP_GLOSS = -1;
+    public static int POSITION_LIPSTICK_COLOR = 0;
+    public static int POSITION_EYEBROW_COLOR = 0;
+    public static int POSITION_BLUSH_COLOR = 0;
+
 
     public static int POSITION_HAIR = 0;
 
@@ -42,6 +46,8 @@ public class HtSelectedPosition {
     public static int POSITION_AR = 0;
     public static int POSITION_PORTRAIT = 0;
     public static int POSITION_FILTER = 0;
+    public static int POSITION_BEAUTYMAKEUP = 0;
+    public static int POSITION_BODY = 0;
     public static float[] WATERMARK_POINTS = new float[8];
 
 

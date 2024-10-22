@@ -13,7 +13,9 @@ public enum HTViewState {
   GESTURE,//手势识别
   PORTRAIT,//人像抠图
   FILTER,//滤镜
-
+  BEAUTYMAKEUP,//美妆
+  HAIR,//美发
+  BODY,//美体
 
   BEAUTY_SKIN,//美肤
   BEAUTY_FACE_TRIM,//美肤——美型
@@ -46,6 +48,10 @@ public enum HTViewState {
   AR_MASK,//面具
   AR_GIFT,//礼物
   AR_WATERMARK,//水印
+
+  FILTER_STYLE,
+  FILTER_EFFECT,
+  FILTER_HAHA,
 
 
 

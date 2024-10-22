@@ -3,22 +3,34 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-<!--动画开始前的布局状态-->
+    <!-- 动画开始前的布局状态 -->
     <ConstraintSet android:id="@+id/start">
         <Constraint
             android:id="@+id/widget"
-            android:layout_width="74dp" />
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
-    <!--动画END阶段的布局状态-->
+
+    <!-- 动画结束时的布局状态 -->
     <ConstraintSet android:id="@+id/end">
         <Constraint
-            android:id="@id/widget"
-            android:layout_width="233dp" />
+            android:id="@+id/widget"
+            android:layout_width="233dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </ConstraintSet>
-    <!--动画参数-->
+
+    <!-- 动画参数 -->
     <Transition
         app:constraintSetStart="@+id/start"
+        app:constraintSetEnd="@+id/end"
         app:duration="550"
-        app:motionInterpolator="easeInOut"
-        app:constraintSetEnd="@id/end" />
+        app:motionInterpolator="easeInOut" />
 </MotionScene>

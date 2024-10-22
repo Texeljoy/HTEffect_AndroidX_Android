@@ -1,10 +1,11 @@
 package com.texeljoy.ht_effect.model;
 
 import android.util.Log;
+import com.texeljoy.ht_effect.model.HtBeautyFilterConfig.HtBeautyFilter;
 import com.texeljoy.ht_effect.model.HtEffectFilterConfig.HtEffectFilter;
-import com.texeljoy.ht_effect.model.HtHaHaFilterConfig.HtHaHaFilter;
+import com.texeljoy.ht_effect.model.HtFunnyFilterConfig.HtFunnyFilter;
 import com.texeljoy.ht_effect.model.HtHairConfig.HtHair;
-import com.texeljoy.ht_effect.model.HtStyleFilterConfig.HtStyleFilter;
+import com.texeljoy.ht_effect.model.HtMakeupStyleConfig.HtMakeupStyle;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 
 /**
@@ -17,6 +18,8 @@ public class HtState {
 
   //二级面板是哪个
   public static HTViewState currentSecondViewState = HTViewState.BEAUTY_SKIN;
+
+  public static HTViewState currentSliderViewState = HTViewState.BEAUTY_SKIN;
 
   //是否处于第三面板
   public static HTViewState currentThirdViewState = HTViewState.MAKEUP_OUT;
@@ -41,21 +44,23 @@ public class HtState {
 
 
   // 当前选中了哪个妆容推荐参数
-  public static HtMakeupStyle currentMakeUpStyle = HtMakeupStyle.NONE;
+  public static HtMakeupStyle currentMakeUpStyle = HtMakeupStyle.NO_STYLE;
+  // public static HtMakeupStyleConfig currentMakeUpStyle = HtMakeupStyleConfig.NONE;
 
   // 当前选中了哪个美体参数
   public static HtBody currentBody = HtBody.LONG_LEG;
 
   // 当前选中了哪个滤镜
-  public static HtStyleFilter currentStyleFilter = HtStyleFilter.NO_FILTER;
+  public static HtBeautyFilter currentStyleFilter = HtBeautyFilter.NO_FILTER;
   public static HtEffectFilter currentEffectFilter = HtEffectFilter.NO_FILTER;
-  public static HtHaHaFilter currentHaHaFilter = HtHaHaFilter.NO_FILTER;
+  public static HtFunnyFilter currentFunnyFilter = HtFunnyFilter.NO_FILTER;
 
   // 当前选中了哪个美发
   public static HtHair currentHair = HtHair.NO_HAIR;
 
   // 选中哪个风格
-  public static HtStyle currentStyle = HtStyle.YUAN_TU;
+  // public static HtStyle currentStyle = HtStyle.YUAN_TU;
+  public static HtMakeupStyle currentStyle = HtMakeupStyle.NO_STYLE;
 
   // 当前选中哪个AR道具
   public static HTViewState currentAR = HTViewState.AR_PROP;
@@ -83,12 +88,13 @@ public class HtState {
     currentSecondViewState = HTViewState.BEAUTY_SKIN;
     currentBeautySkin = HtBeautyKey.NONE;
     currentFaceTrim = HtFaceTrim.EYE_ENLARGING;
-    currentStyle = HtStyle.YUAN_TU;
+    currentStyle = HtMakeupStyle.NO_STYLE;
+    // currentStyle = HtStyle.YUAN_TU;
 
     HtUICacheUtils.beautyFaceTrimPosition(-1);
     HtUICacheUtils.beautySkinPosition(-1);
     HtUICacheUtils.beautyStylePosition(0);
-    HtUICacheUtils.beautyMakeUpStylePosition(0);
+    HtUICacheUtils.setBeautyMakeUpStylePosition(0);
     HtUICacheUtils.beautyBodyPosition(0);
   }
 }

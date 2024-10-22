@@ -2,16 +2,16 @@ package com.texeljoy.ht_effect.fragment;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
 import com.texeljoy.ht_effect.R;
-import com.texeljoy.ht_effect.adapter.HtMakeUpItemViewBinder;
+import com.texeljoy.ht_effect.adapter.HtMakeUpViewBinder;
 import com.texeljoy.ht_effect.base.HtBaseLazyFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
@@ -48,6 +48,7 @@ public class HtMakeUpFragment extends HtBaseLazyFragment {
     {
         makeUpList = Arrays.asList(HtMakeUpEnum.values());
     }
+
     @Override protected int getLayoutId() {
         return R.layout.fragment_beauty_face_trim;
     }
@@ -63,7 +64,7 @@ public class HtMakeUpFragment extends HtBaseLazyFragment {
 
         adapter.setItems(makeUpList);
 
-        adapter.register(HtMakeUpEnum.class, new HtMakeUpItemViewBinder());
+        adapter.register(HtMakeUpEnum.class, new HtMakeUpViewBinder());
 
         rvMakeUp.addItemDecoration(new
             MyItemDecoration(5)
@@ -71,10 +72,9 @@ public class HtMakeUpFragment extends HtBaseLazyFragment {
 
         rvMakeUp.setAdapter(adapter);
 
-        if(HtUICacheUtils.beautyMakeUpPosition() >= 0){
-            rvMakeUp.smoothScrollToPosition(HtUICacheUtils.beautyMakeUpPosition());
+        if (HtUICacheUtils.getBeautyMakeUpPosition() >= 0) {
+            rvMakeUp.smoothScrollToPosition(HtUICacheUtils.getBeautyMakeUpPosition());
         }
-
 
         btnReset.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View view) {
@@ -85,9 +85,6 @@ public class HtMakeUpFragment extends HtBaseLazyFragment {
         changeTheme("");
 
     }
-
-
-
 
     @Subscribe(thread = EventThread.MAIN_THREAD,
                tags = { @Tag(HTEventAction.ACTION_SYNC_ITEM_CHANGED) })
@@ -112,8 +109,8 @@ public class HtMakeUpFragment extends HtBaseLazyFragment {
 
     /**
      * 同步重置按钮状态
-     * @param message
-     * support版本Rxbus
+     *
+     * @param message support版本Rxbus
      * 传入boolean类型会导致接收不到参数
      */
     @SuppressLint("NotifyDataSetChanged")

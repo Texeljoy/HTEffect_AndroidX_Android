@@ -1,17 +1,17 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import com.texeljoy.ht_effect.R;
-import com.texeljoy.ht_effect.model.HtHaHaFilterConfig;
-import com.texeljoy.ht_effect.model.HtHaHaFilterEnum;
+import com.texeljoy.ht_effect.model.HtFunnyFilterConfig;
+import com.texeljoy.ht_effect.model.HtFunnyFilterEnum;
 import com.texeljoy.ht_effect.model.HtState;
 import com.texeljoy.ht_effect.utils.HtUICacheUtils;
 import com.texeljoy.hteffect.HTEffect;
@@ -22,7 +22,7 @@ import me.drakeet.multitype.ItemViewBinder;
 /**
  * 滤镜Item的适配器
  */
-public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConfig.HtHaHaFilter,
+public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtFunnyFilterConfig.HtFunnyFilter,
     HtFunnyFilterItemViewBinder.ViewHolder> {
 
   @NonNull @Override protected HtFunnyFilterItemViewBinder.ViewHolder onCreateViewHolder(@NonNull LayoutInflater inflater, @NonNull ViewGroup parent) {
@@ -31,11 +31,11 @@ public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConf
   }
 
   @SuppressLint("SetTextI18n") @Override protected void
-  onBindViewHolder(@NonNull HtFunnyFilterItemViewBinder.ViewHolder holder, @NonNull HtHaHaFilterConfig.HtHaHaFilter item) {
+  onBindViewHolder(@NonNull HtFunnyFilterItemViewBinder.ViewHolder holder, @NonNull HtFunnyFilterConfig.HtFunnyFilter item) {
 
     //根据缓存中的选中的哪一个判断当前item是否被选中
     holder.itemView.setSelected(getPosition(holder) ==
-        HtUICacheUtils.beautyFunnyFilterPosition());
+        HtUICacheUtils.getFunnyFilterPosition());
 
     String currentLanguage = Locale.getDefault().getLanguage();
     if("en".equals(currentLanguage)){
@@ -50,12 +50,12 @@ public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConf
     //     .getColor(holder.itemView.getContext(),R.color.dark_black));
 
     if (HtState.isDark) {
-      holder.image.setImageDrawable(HtHaHaFilterEnum.values()[getPosition(holder)].getIconResBlack(holder.itemView.getContext()));
+      holder.image.setImageDrawable(HtFunnyFilterEnum.values()[getPosition(holder)].getIconResBlack(holder.itemView.getContext()));
       holder.text.setTextColor(
           ContextCompat.getColorStateList(holder.itemView.getContext(),
               R.color.color_selector_tab_dark));
     }else{
-      holder.image.setImageDrawable(HtHaHaFilterEnum.values()[getPosition(holder)].getIconResWhite(holder.itemView.getContext()));
+      holder.image.setImageDrawable(HtFunnyFilterEnum.values()[getPosition(holder)].getIconResWhite(holder.itemView.getContext()));
       holder.text.setTextColor(
           ContextCompat.getColorStateList(holder.itemView.getContext(),
               R.color.color_selector_tab_light));
@@ -86,12 +86,12 @@ public class HtFunnyFilterItemViewBinder extends ItemViewBinder<HtHaHaFilterConf
         HTEffect.shareInstance().setFilter(HTFilterEnum.HTFilterFunny.getValue(),item.getName());
         //HtUICacheUtils.beautyFilterValue(item, 100);
 
-        HtState.currentHaHaFilter = item;
+        HtState.currentFunnyFilter = item;
         holder.itemView.setSelected(true);
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyFunnyFilterPosition());
-        HtUICacheUtils.beautyFunnyFilterPosition(getPosition(holder));
-        HtUICacheUtils.beautyFunnyFilterName(item.getName());
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyFunnyFilterPosition());
+        getAdapter().notifyItemChanged(HtUICacheUtils.getFunnyFilterPosition());
+        HtUICacheUtils.setFunnyFilterPosition(getPosition(holder));
+        HtUICacheUtils.setFunnyFilterName(item.getName());
+        getAdapter().notifyItemChanged(HtUICacheUtils.getFunnyFilterPosition());
 
       }
     });

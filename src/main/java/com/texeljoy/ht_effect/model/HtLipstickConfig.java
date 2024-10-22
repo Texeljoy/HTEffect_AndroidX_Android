@@ -3,7 +3,7 @@ package com.texeljoy.ht_effect.model;
 import java.util.List;
 
 /**
- * 贴纸列表配置
+ * 美妆口红列表配置
  */
 
 public class HtLipstickConfig {
@@ -22,16 +22,16 @@ public class HtLipstickConfig {
 
   }
 
-  public List<HtMakeup> getMakeups() {
+  public List<HtMakeup> getLipsticks() {
     return ht_makeup_lipstick;
   }
 
-  public HtLipstickConfig(List<HtMakeup> makeups) {
-    this.ht_makeup_lipstick = makeups;
+  public HtLipstickConfig(List<HtMakeup> lipsticks) {
+    this.ht_makeup_lipstick = lipsticks;
   }
 
-  public void setMakeups(List<HtMakeup> htMakeups) {
-    this.ht_makeup_lipstick = htMakeups;
+  public void setLipsticks(List<HtMakeup> htLipsticks) {
+    this.ht_makeup_lipstick = htLipsticks;
   }
 
 

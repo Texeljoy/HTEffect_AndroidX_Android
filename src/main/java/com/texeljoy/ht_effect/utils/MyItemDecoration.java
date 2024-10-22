@@ -1,8 +1,8 @@
 package com.texeljoy.ht_effect.utils;
 
 import android.graphics.Rect;
-import android.view.View;
 import androidx.recyclerview.widget.RecyclerView;
+import android.view.View;
 
 public class MyItemDecoration extends RecyclerView.ItemDecoration {
 

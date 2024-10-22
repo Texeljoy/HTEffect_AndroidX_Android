@@ -1,11 +1,11 @@
 package com.texeljoy.ht_effect.adapter;
 
 import android.os.Handler;
+import androidx.annotation.NonNull;;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.liulishuo.okdownload.core.dispatcher.DownloadDispatcher;
 import com.texeljoy.ht_effect.R;

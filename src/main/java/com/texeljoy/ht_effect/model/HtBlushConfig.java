@@ -3,7 +3,7 @@ package com.texeljoy.ht_effect.model;
 import java.util.List;
 
 /**
- * 贴纸列表配置
+ * 美妆腮红列表配置
  */
 
 public class HtBlushConfig {
@@ -15,22 +15,22 @@ public class HtBlushConfig {
 
   @Override public String toString() {
     return "HtMakeupConfig{" +
-        "htMakeups=" + ht_makeup_blush.size() +
+        "htBlushes=" + ht_makeup_blush.size() +
         "个}";
 
   }
 
-  public List<HtMakeup> getMakeups() {
+  public List<HtMakeup> getBlushes() {
     return ht_makeup_blush;
 
   }
 
-  public HtBlushConfig(List<HtMakeup> makeups) {
-    this.ht_makeup_blush = makeups;
+  public HtBlushConfig(List<HtMakeup> blushes) {
+    this.ht_makeup_blush = blushes;
   }
 
-  public void setMakeups(List<HtMakeup> htMakeups) {
-    this.ht_makeup_blush = htMakeups;
+  public void setBlushes(List<HtMakeup> htBlushes) {
+    this.ht_makeup_blush = htBlushes;
   }
 
 }

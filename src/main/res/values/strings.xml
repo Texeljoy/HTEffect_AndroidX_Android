@@ -164,23 +164,23 @@
 
 
 
-    <string name="filter_style">StyleFilter</string>
+    <string name="filter_beauty">StyleFilter</string>
 
-    <string name="filter_special">SpecialFilter</string>
+    <string name="filter_effect">SpecialFilter</string>
     <string name="effect_none">Original</string>
 
     <string name="makeup_none">Original</string>
     <string name="filter_none">Orignal</string>
 
-    <string name="filter_haha">HahaFilter</string>
-    <string name="haha_et">ET</string>
-    <string name="haha_big_nose">BigNose</string>
-    <string name="haha_big_mouth">BigMouth</string>
-    <string name="haha_fangxinglian">SquareFace</string>
-    <string name="haha_big_head">BigHead</string>
-    <string name="haha_dudu">PearFace</string>
-    <string name="haha_doudou">SmallEye</string>
-    <string name="haha_snake">ThinFace</string>
+    <string name="filter_funny">funnyFilter</string>
+    <string name="funny_et">ET</string>
+    <string name="funny_big_nose">BigNose</string>
+    <string name="funny_big_mouth">BigMouth</string>
+    <string name="funny_fangxinglian">SquareFace</string>
+    <string name="funny_big_head">BigHead</string>
+    <string name="funny_dudu">PearFace</string>
+    <string name="funny_doudou">SmallEye</string>
+    <string name="funny_snake">ThinFace</string>
     <string name="threeD">threeD</string>
     <string name="edit">Edit</string>
     <string name="background">Background</string>
@@ -189,6 +189,26 @@
     <string name="smoothness">Smoothness</string>
     <string name="alpha">Alpha</string>
     <string name="decolor">Decolor</string>
+
+    <string name="lip_softpink">softpink</string>
+    <string name="lip_cameobrown">cameobrown</string>
+    <string name="lip_yuanqiorange">yuanqiorange</string>
+    <string name="lip_red">red</string>
+    <string name="lip_crimson">crimson</string>
+    <string name="lip_caramel">caramel</string>
+
+    <string name="eyebrow_softpinkbrown">softpinkbrown</string>
+    <string name="eyebrow_gentleblack">gentelblack</string>
+    <string name="eyebrow_softbrown">softbrown</string>
+    <string name="eyebrow_darkbrown">darkbrown</string>
+
+    <string name="blush_richang">blush1</string>
+    <string name="blush_yuanqi">blush1</string>
+    <string name="blush_jianling">blush1</string>
+    <string name="blush_fenwei">blush1</string>
+    <string name="blush_rixi">blush1</string>
+    <string name="blush_mitao">blush1</string>
+
 
     <string name="only_png_images">Only compatible with png format background images</string>
 </resources>

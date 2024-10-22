@@ -1,19 +1,20 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.viewpager.widget.ViewPager;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
 import com.hwangjr.rxbus.thread.EventThread;
@@ -27,7 +28,6 @@ import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HtState;
-import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.view.HtBarView;
 import java.util.ArrayList;
@@ -84,9 +84,9 @@ public class HtFilterFragment extends HtBaseFragment {
 
     //添加标题
     htTabs.clear();
-    htTabs.add(requireContext().getString(R.string.filter_style));
-    htTabs.add(requireContext().getString(R.string.filter_special));
-    htTabs.add(requireContext().getString(R.string.filter_haha));
+    htTabs.add(requireContext().getString(R.string.filter_beauty));
+    htTabs.add(requireContext().getString(R.string.filter_effect));
+    htTabs.add(requireContext().getString(R.string.filter_funny));
 
     cleanIv.setVisibility(View.GONE);
     // line.setVisibility(View.GONE);
@@ -101,12 +101,18 @@ public class HtFilterFragment extends HtBaseFragment {
     //
     //   }
     // });
+    //
+    barView.setOnClickListener(new OnClickListener() {
+      @Override public void onClick(View v) {
 
+      }
+    });
     // alternateIndicatorView.setOnClickListener(new OnClickListener() {
     //   @Override public void onClick(View v) {
     //     RxBus.get().post(HTEventAction.ACTION_STYLE_SELECTED,"");
     //   }
     // });
+
 
     htPager.setCanScroll(false);
     htPager.setOffscreenPageLimit(2);
@@ -115,6 +121,9 @@ public class HtFilterFragment extends HtBaseFragment {
       @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
         HtSelectedPosition.POSITION_FILTER = position;
+        //if (position == 0){
+        //HtState.currentSecondViewState = HTViewState.FILTER_STYLE;
+        //}
       }
 
       @Override public void onPageSelected(int position) {
@@ -158,9 +167,9 @@ public class HtFilterFragment extends HtBaseFragment {
             case 1:
               return new HtEffectFilterFragment();
             case 2:
-              return new HtHaHaFilterFragment();
+              return new HtFunnyFilterFragment();
             default:
-              return new HtStyleFilterFragment();
+              return new HtBeautyFilterFragment();
           }
       }
     };
@@ -183,7 +192,7 @@ public class HtFilterFragment extends HtBaseFragment {
   @Subscribe(thread = EventThread.MAIN_THREAD,
              tags = { @Tag(HTEventAction.ACTION_CHANGE_ENABLE) })
   public void changeIndicatorViewEnable(@Nullable Object o){
-    if(!HtState.currentStyle.equals(HtStyle.YUAN_TU)){
+    if(!HtState.currentStyle.getName().isEmpty()){
       //当选中风格推荐效果后，加一层透明遮罩，此时原先的指示器不再能获取焦点，透明遮罩被点击后弹出弹窗
       alternateIndicatorView.setVisibility(View.VISIBLE);
     }else{

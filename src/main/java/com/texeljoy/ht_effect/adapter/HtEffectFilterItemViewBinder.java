@@ -2,16 +2,16 @@ package com.texeljoy.ht_effect.adapter;
 
 import android.annotation.SuppressLint;
 import android.graphics.Color;
+import androidx.annotation.NonNull;;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
-import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.hwangjr.rxbus.RxBus;
 import com.texeljoy.ht_effect.R;
@@ -40,7 +40,7 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
 
     //根据缓存中的选中的哪一个判断当前item是否被选中
     holder.itemView.setSelected(getPosition(holder) ==
-        HtUICacheUtils.beautyEffectFilterPosition());
+        HtUICacheUtils.getEffectFilterPosition());
 
     String currentLanguage = Locale.getDefault().getLanguage();
     if("en".equals(currentLanguage)){
@@ -91,10 +91,10 @@ public class HtEffectFilterItemViewBinder extends ItemViewBinder<HtEffectFilterC
         HtState.currentEffectFilter = item;
 
         holder.itemView.setSelected(true);
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyEffectFilterPosition());
-        HtUICacheUtils.beautyEffectFilterPosition(getPosition(holder));
-        HtUICacheUtils.beautyEffectFilterName(item.getName());
-        getAdapter().notifyItemChanged(HtUICacheUtils.beautyEffectFilterPosition());
+        getAdapter().notifyItemChanged(HtUICacheUtils.getEffectFilterPosition());
+        HtUICacheUtils.setEffectFilterPosition(getPosition(holder));
+        HtUICacheUtils.setEffectFilterName(item.getName());
+        getAdapter().notifyItemChanged(HtUICacheUtils.getEffectFilterPosition());
 
 
         RxBus.get().post(HTEventAction.ACTION_SYNC_PROGRESS, "");

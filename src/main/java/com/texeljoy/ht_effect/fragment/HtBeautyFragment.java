@@ -1,6 +1,11 @@
 package com.texeljoy.ht_effect.fragment;
 
 import android.os.Bundle;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatTextView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,12 +13,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.AppCompatTextView;
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-import androidx.viewpager.widget.ViewPager;
 import com.hwangjr.rxbus.RxBus;
 import com.hwangjr.rxbus.annotation.Subscribe;
 import com.hwangjr.rxbus.annotation.Tag;
@@ -27,9 +26,7 @@ import com.texeljoy.ht_effect.R;
 import com.texeljoy.ht_effect.base.HtBaseFragment;
 import com.texeljoy.ht_effect.model.HTEventAction;
 import com.texeljoy.ht_effect.model.HTViewState;
-import com.texeljoy.ht_effect.model.HtMakeupStyle;
 import com.texeljoy.ht_effect.model.HtState;
-import com.texeljoy.ht_effect.model.HtStyle;
 import com.texeljoy.ht_effect.utils.HtSelectedPosition;
 import com.texeljoy.ht_effect.view.HtBarView;
 import java.util.ArrayList;
@@ -87,10 +84,10 @@ public class HtBeautyFragment extends HtBaseFragment {
     htTabs.clear();
     htTabs.add(requireContext().getString(R.string.beauty_skin));
     htTabs.add(requireContext().getString(R.string.beauty_shape));
-    htTabs.add(requireContext().getString(R.string.beauty_hair));
-    htTabs.add(requireContext().getString(R.string.beauty_makeup));
-    htTabs.add(requireContext().getString(R.string.beauty_makeup_style));
-    htTabs.add(requireContext().getString(R.string.beauty_body));
+    // htTabs.add(requireContext().getString(R.string.beauty_hair));
+    // htTabs.add(requireContext().getString(R.string.beauty_makeup));
+    // htTabs.add(requireContext().getString(R.string.beauty_makeup_style));
+    // htTabs.add(requireContext().getString(R.string.beauty_body));
     // htTabs.add(requireContext().getString(R.string.beauty_style));
     // htTabs.add("口红");
 
@@ -119,25 +116,25 @@ public class HtBeautyFragment extends HtBaseFragment {
     htPager.setCanScroll(false);
     htPager.setOffscreenPageLimit(2);
 
-    htPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-      @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-        HtSelectedPosition.POSITION_BEAUTY = position;
-        if((HtState.currentMakeUpStyle != HtMakeupStyle.NONE) && position == 3){
-          RxBus.get().post(HTEventAction.ACTION_MAKEUP_STYLE_SELECTED,"");
-        }
-
-      }
-
-      @Override public void onPageSelected(int position) {
-
-
-
-      }
-
-      @Override public void onPageScrollStateChanged(int state) {
-
-      }
-    });
+    // htPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+    //   @Override public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+    //     HtSelectedPosition.POSITION_BEAUTY = position;
+    //     // if(!HtState.currentMakeUpStyle.getName().isEmpty() ){
+    //     //   RxBus.get().post(HTEventAction.ACTION_MAKEUP_STYLE_SELECTED,"");
+    //     // }
+    //
+    //   }
+    //
+    //   @Override public void onPageSelected(int position) {
+    //
+    //
+    //
+    //   }
+    //
+    //   @Override public void onPageScrollStateChanged(int state) {
+    //
+    //   }
+    // });
 
     fragmentPagerAdapter = new IndicatorViewPager.IndicatorFragmentPagerAdapter(getChildFragmentManager()) {
       @Override public int getCount() {
@@ -169,33 +166,20 @@ public class HtBeautyFragment extends HtBaseFragment {
           switch (position) {
             case 1:
               return new HtFaceTrimFragment();
-            case 2:
-              return new HtHairFragment();
-            case 3:
-              return new HtMakeUpFragment();
-            case 4:
-              return new HtMakeUpStyleFragment();
-            case 5:
-              return new HtBodyFragment();
+            // case 2:
+            //   return new HtHairFragment();
+            // case 3:
+            //   return new HtMakeUpFragment();
+            // case 4:
+            //   return new HtMakeUpStyleFragment();
+            // case 5:
+            //   return new HtBodyFragment();
             default:
               return new HtBeautySkinFragment();
           }
       }
     };
     indicatorViewPager.setAdapter(fragmentPagerAdapter);
-    // if("filter".equals(which)){
-    //   htPager.setCurrentItem(2,false);
-    // }
-    if ("makeup".equals(which)) {
-      htPager.setCurrentItem(3,false);
-
-    }
-    if(HtState.currentStyle != HtStyle.YUAN_TU){
-      htPager.setCurrentItem(3,false);
-      alternateIndicatorView.setVisibility(View.VISIBLE);
-      //topIndicatorView.setItemClickable(false);
-    }
-
 
     htPager.setCurrentItem(HtSelectedPosition.POSITION_BEAUTY,false);
     changeTheme("");
@@ -206,7 +190,7 @@ public class HtBeautyFragment extends HtBaseFragment {
   @Subscribe(thread = EventThread.MAIN_THREAD,
              tags = { @Tag(HTEventAction.ACTION_CHANGE_ENABLE) })
   public void changeIndicatorViewEnable(@Nullable Object o){
-    if(!HtState.currentStyle.equals(HtStyle.YUAN_TU)){
+    if(!HtState.currentStyle.getName().isEmpty()){
       //当选中风格推荐效果后，加一层透明遮罩，此时原先的指示器不再能获取焦点，透明遮罩被点击后弹出弹窗
       alternateIndicatorView.setVisibility(View.VISIBLE);
     }else{

@@ -20,16 +20,15 @@ import com.texeljoy.ht_effect.model.HtGestureConfig;
 import com.texeljoy.ht_effect.model.HtGiftConfig;
 import com.texeljoy.ht_effect.model.HtGreenScreenConfig;
 import com.texeljoy.ht_effect.model.HtGreenScreenConfig.HtGreenScreen;
-import com.texeljoy.ht_effect.model.HtHaHaFilterConfig;
+import com.texeljoy.ht_effect.model.HtFunnyFilterConfig;
 import com.texeljoy.ht_effect.model.HtHairConfig;
 import com.texeljoy.ht_effect.model.HtLipstickConfig;
 import com.texeljoy.ht_effect.model.HtMakeup;
-import com.texeljoy.ht_effect.model.HtMakeupConfig;
 import com.texeljoy.ht_effect.model.HtMakeupStyleConfig;
 import com.texeljoy.ht_effect.model.HtMaskConfig;
 import com.texeljoy.ht_effect.model.HtPupilsConfig;
 import com.texeljoy.ht_effect.model.HtStickerConfig;
-import com.texeljoy.ht_effect.model.HtStyleFilterConfig;
+import com.texeljoy.ht_effect.model.HtBeautyFilterConfig;
 import com.texeljoy.ht_effect.model.HtThreedConfig;
 import com.texeljoy.ht_effect.model.HtWatermarkConfig;
 import com.texeljoy.ht_effect.model.HtWatermarkConfig.HtWatermark;
@@ -80,11 +79,11 @@ public class HtConfigTools {
   //妆容推荐配置文件
   private String PATH_MAKEUPSTYLE;
   //风格滤镜配置文件
-  private String PATH_STYLE_FILTER;
+  private String PATH_BEAUTY_FILTER;
   //特效滤镜配置文件
   private String PATH_EFFECT_FILTER;
   //哈哈镜配置文件
-  private String PATH_HAHA_FILTER;
+  private String PATH_FUNNY_FILTER;
   //美发配置文件
   private String PATH_HAIR;
   //美妆配置文件
@@ -114,10 +113,9 @@ public class HtConfigTools {
   private HtWatermarkConfig watermarkList;
   private HtGestureConfig gestureList;
   private HtMakeupStyleConfig makeupStyleList;
-  private HtStyleFilterConfig styleFilterList;
+  private HtBeautyFilterConfig beautyFilterList;
   private HtEffectFilterConfig effectFilterList;
-  private HtHaHaFilterConfig hahaFilterList;
-  private HtMakeupConfig makeupList;
+  private HtFunnyFilterConfig funnyFilterList;
   private HtLipstickConfig lipstickList;
   private HtEyebrowConfig eyebrowList;
   private HtBlushConfig blushList;
@@ -159,9 +157,9 @@ public class HtConfigTools {
     //美妆配置文件
     //PATH_MAKEUP = HTEffect.shareInstance().getMakeupPath() + File.separator + "ht_makeupconfig.json";
     //滤镜配置文件
-    PATH_STYLE_FILTER = HTEffect.shareInstance().getFilterPath() + File.separator + "ht_style_filter_config.json";
+    PATH_BEAUTY_FILTER = HTEffect.shareInstance().getFilterPath() + File.separator + "ht_style_filter_config.json";
     PATH_EFFECT_FILTER = HTEffect.shareInstance().getFilterPath() + File.separator + "ht_effect_filter_config.json";
-    PATH_HAHA_FILTER = HTEffect.shareInstance().getFilterPath() + File.separator + "ht_haha_filter_config.json";
+    PATH_FUNNY_FILTER = HTEffect.shareInstance().getFilterPath() + File.separator + "ht_haha_filter_config.json";
     //美发配置文件
     PATH_HAIR = context.getFilesDir().getAbsolutePath()+"/hteffect/hair/ht_hair_config.json";
 
@@ -175,6 +173,8 @@ public class HtConfigTools {
     PATH_EYELASH = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupEyelash.getValue()) + File.separator + "ht_makeup_eyelash_config.json";
     PATH_PUPILS = HTEffect.shareInstance().getMakeupPath(HTMakeupEnum.HTMakeupPupils.getValue()) + File.separator + "ht_makeup_pupils_config.json";
 
+  //  妆容推荐配置文件
+    PATH_MAKEUPSTYLE = HTEffect.shareInstance().getStylePath() + File.separator + "ht_makeup_style_config.json";
 
   }
 
@@ -184,6 +184,7 @@ public class HtConfigTools {
   }
 
   public HtMakeupStyleConfig getMakeupStyleList() {
+    if (makeupStyleList == null) return null;
     return makeupStyleList;
   }
 
@@ -228,27 +229,22 @@ public class HtConfigTools {
     return watermarkList;
   }
 
-  public HtStyleFilterConfig getStyleFilterConfig() {
-    if (styleFilterList == null) return null;
-    return styleFilterList;
+  public HtBeautyFilterConfig getBeautyFilterConfig() {
+    if (beautyFilterList == null) return null;
+    return beautyFilterList;
   }
   public HtEffectFilterConfig getEffectFilterConfig() {
     if (effectFilterList == null) return null;
     return effectFilterList;
   }
-  public HtHaHaFilterConfig getHaHaFilterConfig() {
-    if (hahaFilterList == null) return null;
-    return hahaFilterList;
+  public HtFunnyFilterConfig getFunnyFilterConfig() {
+    if (funnyFilterList == null) return null;
+    return funnyFilterList;
   }
 
   public HtHairConfig getHairConfig() {
     if (hairList == null) return null;
     return hairList;
-  }
-
-  public HtMakeupConfig getMakeupList() {
-    if (makeupList == null) return null;
-    return makeupList;
   }
 
   public HtLipstickConfig getLipstickList() {
@@ -428,11 +424,11 @@ public class HtConfigTools {
   /**
    * 获取缓存文件中风格滤镜配置
    */
-  public void getStyleFiltersConfig(HtConfigCallBack<List<HtStyleFilterConfig.HtStyleFilter>> callBack) {
+  public void getStyleFiltersConfig(HtConfigCallBack<List<HtBeautyFilterConfig.HtBeautyFilter>> callBack) {
     cachedThreadPool.execute(new Runnable() {
       @Override public void run() {
         try {
-          String res = getFileString(PATH_STYLE_FILTER);
+          String res = getFileString(PATH_BEAUTY_FILTER);
           if (TextUtils.isEmpty(res)) {
             uiHandler.post(new Runnable() {
               @Override public void run() {
@@ -440,10 +436,10 @@ public class HtConfigTools {
               }
             });
           } else {
-            styleFilterList = new Gson().fromJson(res, new TypeToken<HtStyleFilterConfig>() {}.getType());
+            beautyFilterList = new Gson().fromJson(res, new TypeToken<HtBeautyFilterConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(styleFilterList.getFilters());
+                callBack.success(beautyFilterList.getFilters());
               }
             });
           }
@@ -464,7 +460,7 @@ public class HtConfigTools {
   public void styleFilterDownload(String content) {
     cachedThreadPool.execute(new Runnable() {
       @Override public void run() {
-        modifyFile(content, PATH_STYLE_FILTER);
+        modifyFile(content, PATH_BEAUTY_FILTER);
       }
     });
   }
@@ -516,11 +512,11 @@ public class HtConfigTools {
   /**
    * 获取缓存文件中哈哈镜配置
    */
-  public void getHaHaFiltersConfig(HtConfigCallBack<List<HtHaHaFilterConfig.HtHaHaFilter>> callBack) {
+  public void getFunnyFiltersConfig(HtConfigCallBack<List<HtFunnyFilterConfig.HtFunnyFilter>> callBack) {
     cachedThreadPool.execute(new Runnable() {
       @Override public void run() {
         try {
-          String res = getFileString(PATH_HAHA_FILTER);
+          String res = getFileString(PATH_FUNNY_FILTER);
           if (TextUtils.isEmpty(res)) {
             uiHandler.post(new Runnable() {
               @Override public void run() {
@@ -528,10 +524,10 @@ public class HtConfigTools {
               }
             });
           } else {
-            hahaFilterList = new Gson().fromJson(res, new TypeToken<HtHaHaFilterConfig>() {}.getType());
+            funnyFilterList = new Gson().fromJson(res, new TypeToken<HtFunnyFilterConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(hahaFilterList.getFilters());
+                callBack.success(funnyFilterList.getFilters());
               }
             });
           }
@@ -552,7 +548,7 @@ public class HtConfigTools {
   public void hahaFilterDownload(String content) {
     cachedThreadPool.execute(new Runnable() {
       @Override public void run() {
-        modifyFile(content, PATH_HAHA_FILTER);
+        modifyFile(content, PATH_FUNNY_FILTER);
       }
     });
   }
@@ -879,7 +875,7 @@ public class HtConfigTools {
             lipstickList = new Gson().fromJson(res, new TypeToken<HtLipstickConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(lipstickList.getMakeups());
+                callBack.success(lipstickList.getLipsticks());
               }
             });
           }
@@ -916,7 +912,7 @@ public class HtConfigTools {
             eyebrowList = new Gson().fromJson(res, new TypeToken<HtEyebrowConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(eyebrowList.getMakeups());
+                callBack.success(eyebrowList.getEyebrows());
               }
             });
           }
@@ -952,7 +948,7 @@ public class HtConfigTools {
             blushList = new Gson().fromJson(res, new TypeToken<HtBlushConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(blushList.getMakeups());
+                callBack.success(blushList.getBlushes());
               }
             });
           }
@@ -988,7 +984,7 @@ public class HtConfigTools {
             eyeshadowList = new Gson().fromJson(res, new TypeToken<HtEyeshadowConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(eyeshadowList.getMakeups());
+                callBack.success(eyeshadowList.getEyeshadows());
               }
             });
           }
@@ -1024,7 +1020,7 @@ public class HtConfigTools {
             eyelineList = new Gson().fromJson(res, new TypeToken<HtEyelineConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(eyelineList.getMakeups());
+                callBack.success(eyelineList.getEyeliners());
               }
             });
           }
@@ -1060,7 +1056,7 @@ public class HtConfigTools {
             eyelashList = new Gson().fromJson(res, new TypeToken<HtEyelashConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(eyelashList.getMakeups());
+                callBack.success(eyelashList.getEyelashes());
               }
             });
           }
@@ -1096,7 +1092,7 @@ public class HtConfigTools {
             pupilsList = new Gson().fromJson(res, new TypeToken<HtPupilsConfig>() {}.getType());
             uiHandler.post(new Runnable() {
               @Override public void run() {
-                callBack.success(pupilsList.getMakeups());
+                callBack.success(pupilsList.getPupils());
               }
             });
           }
@@ -1117,23 +1113,37 @@ public class HtConfigTools {
   /**
    * 获取特定的Type的美妆配置文件
    */
-  public List<HtMakeupStyleConfig.HtMakeupStyle> getMakeupsWithType(String type) {
-    ArrayList<HtMakeupStyleConfig.HtMakeupStyle> items = new ArrayList<>();
-    if (makeupStyleList == null) {
-      try {
-        String res = getJsonString(context, "makeup/makeups.json");
-        makeupStyleList = new Gson().fromJson(res, new TypeToken<HtMakeupStyleConfig>() {}.getType());
-      } catch (IOException e) {
-        e.printStackTrace();
-        return null;
+  public void getMakeupStylesConfig(HtConfigCallBack<List<HtMakeupStyleConfig.HtMakeupStyle>> callBack) {
+    cachedThreadPool.execute(new Runnable() {
+      @Override public void run() {
+        try {
+          String res = getFileString(PATH_MAKEUPSTYLE);
+          Log.d("style debug0", res);
+          if (TextUtils.isEmpty(res)) {
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(new ArrayList<>());
+              }
+            });
+          } else {
+            makeupStyleList = new Gson().fromJson(res, new TypeToken<HtMakeupStyleConfig>() {}.getType());
+            Log.d("style debug-1", String.valueOf(makeupStyleList));
+            uiHandler.post(new Runnable() {
+              @Override public void run() {
+                callBack.success(makeupStyleList.getStyles());
+              }
+            });
+          }
+
+        } catch (Exception e) {
+          uiHandler.post(new Runnable() {
+            @Override public void run() {
+              callBack.fail(e);
+            }
+          });
+        }
       }
-    }
-    for (HtMakeupStyleConfig.HtMakeupStyle makeup : makeupStyleList.getMakeups()) {
-      if (makeup.getType().equals(type)) {
-        items.add(makeup);
-      }
-    }
-    return items;
+    });
   }
 
   /**
@@ -1293,14 +1303,6 @@ public class HtConfigTools {
         try {
           String newInteractions = getJsonString(context, "gesture/gestures.json");
           modifyFile(newInteractions, PATH_GESTURE);
-        } catch (IOException e) {
-          e.printStackTrace();
-        }
-
-        try {
-          String newMakeups = getJsonString(context, "makeup/makeups.json");
-          modifyFile(newMakeups, PATH_MAKEUP);
-          makeupList = new Gson().fromJson(newMakeups, new TypeToken<HtMakeupStyleConfig>() {}.getType());
         } catch (IOException e) {
           e.printStackTrace();
         }
